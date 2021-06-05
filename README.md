@@ -1,8 +1,11 @@
 # Bakeit
 
 <h2>Integrantes</h2>
+
 - Jesús Gutiérrez
+  
 - Marcela Barajas
+  
 - Tania Tovar: Soy pasante de la Licenciatura en Adimistración de TI, actualmente trabajo como Quality Assurance en una empresa Yucateca llamada Sunwise
 
 <h4>Tematica</h4>
