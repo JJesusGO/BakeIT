@@ -4,13 +4,13 @@
 
 - Jesús Gutiérrez
   
-- Marcela Barajas
+- Marcela Barajas: Soy estudiante de 6to semestre de la Ing. en Negocios y Tecnologías de Información. Ávida lectora, bailarina de salsa, escritora tentativa y dibujante con múltiples grados de éxito.
   
-- Tania Tovar: Soy pasante de la Licenciatura en Adimistración de TI, actualmente trabajo como Quality Assurance en una empresa Yucateca llamada Sunwise
+- Tania Tovar: Soy pasante de la Licenciatura en Adimistración de TI, actualmente trabajo como Quality Assurance en una empresa Yucateca llamada Sunwise.
 
 <h4>Tematica</h4>
 
-- Plataforma web enfocada en la venta de repostería DIY y kits de accesorios para complementar tus eventos especiales.
+- Plataforma web enfocada en la venta de repostería DIY y kits de accesorios para complementar eventos especiales.
 
 <h4>Publico objetivo</h4>
 
