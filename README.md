@@ -2,7 +2,7 @@
 
 <h4>Integrantes</h4>
 
-- Jesús Gutiérrez
+- Jesús Gutiérrez: Soy egresado de la Licenciatura en Ingeniería en Mecatrónica, especializado en el area de IA y Desarrollo web. Actualmente trabajo como desarrollador lider full-stack en tecnologia MERN para el GrupoFlogo.
   
 - Marcela Barajas: Soy estudiante de 6to semestre de la Ing. en Negocios y Tecnologías de Información. Ávida lectora, bailarina de salsa, escritora tentativa y dibujante con múltiples grados de éxito.
   
