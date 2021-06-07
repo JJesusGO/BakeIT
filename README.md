@@ -34,3 +34,10 @@ El sitio fue elegido debido a la forma en que se estructura el header en la pág
 1. [montserrat](https://fonts.google.com/specimen/Montserrat?query=Monts)
 2. [clicker](https://fonts.google.com/specimen/Clicker+Script?category=Handwriting,Monospace)
 
+<h2>Paleta de colores</h2>
+
+- ![#162D59](https://via.placeholder.com/15/162D59/000000?text=+) `#162D59`
+- ![#3868A6](https://via.placeholder.com/15/3868A6/000000?text=+) `#3868A6`
+- ![#F2B950](https://via.placeholder.com/15/F2B950/000000?text=+) `#F2B950`
+- ![#BF3E21](https://via.placeholder.com/15/BF3E21/000000?text=+) `#BF3E21`
+- ![#F2F2F2](https://via.placeholder.com/15/F2F2F2/000000?text=+) `#F2F2F2`
