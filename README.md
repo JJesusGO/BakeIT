@@ -28,3 +28,9 @@ El sitio fue elegido debido a su estructura clásica.
 El sitio fue elegido debido a la forma en que se estructura el header y footer en la página principal. 
 5. [portosbakery](https://www.portosbakery.com)
 El sitio fue elegido debido a la forma en que se estructura el header en la página principal, así como el carrito de compras y los formularios de registro y log in en la sección de Bake At Home.
+
+<h2>Fuentes</h2>
+
+1. [montserrat](https://fonts.google.com/specimen/Montserrat?query=Monts)
+2. [clicker](https://fonts.google.com/specimen/Clicker+Script?category=Handwriting,Monospace)
+
