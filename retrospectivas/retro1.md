@@ -3,11 +3,13 @@
 <h4>Comenzar a hacer</h4>
 
 - Sesiones para ver reglas de programación.
-- Agregar las tareas al tabledo de trello.
+- Agregar las tareas al tablero de Trello.
+- Crear recursos multimedia para la pagina web (Imagenes, Iconos, Videos, etc).
+- Maquetación basada en la paleta de colores.
 
 <h4>Hacer más</h4>
 
-- 
+- Repasos de las tecnologias que se requieren para desarrollar una pagina web.
 
 <h4>Continuar haciendo</h4>
 
