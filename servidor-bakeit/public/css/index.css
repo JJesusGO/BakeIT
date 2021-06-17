@@ -18,8 +18,28 @@ header {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
+footer {
+  background-color: #162D59;
+  padding: 0;
+  margin: 0;
+}
+footer .panel {
+  padding: 4rem 6rem;
+}
+footer .panel img.logo {
+  height: 8rem;
+  width: auto;
+}
+footer .panel-pie {
+  display: grid;
+  place-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #F2B950;
+}
+
 a.blanco {
   color: white;
+  text-decoration: none;
 }
 a.blanco:hover {
   color: white;
@@ -108,6 +128,34 @@ a.blanco:visited {
   width: 65%;
   height: auto;
 }
+.seccion-galeria {
+  height: 100vh;
+  background-color: #BF3E21;
+  padding: 4rem 0.25rem;
+}
+.seccion-galeria .panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.seccion-galeria .panel .titulo {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  width: 40%;
+  left: 30%;
+  top: 16vh;
+  color: white;
+  text-align: center;
+}
+.seccion-galeria .panel .contenido {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  bottom: 6vh;
+}
 
 .logo {
   height: 10vh;
@@ -162,6 +210,9 @@ a.blanco:visited {
 }
 .bkg5 {
   background-color: #F2F2F2;
+}
+.bkgblanco {
+  background-color: white;
 }
 
 .txt3 {
