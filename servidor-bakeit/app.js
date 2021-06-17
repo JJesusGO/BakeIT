@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
-
 const path = require('path');
-const publicPath = path.resolve(__dirname, './public');
+const { log } = require('./src/herramientas');
+
+const public = path.resolve(__dirname, './public');
 
 //CONFIGURACIÓN
 app.set("PUERTO",3000);
 
 //MIDDLEWARE
-app.use(express.static(publicPath));
+app.use(express.static(public));
 
 //RUTAS
 app.get('/', (req,res) => {
@@ -28,4 +29,4 @@ app.get('/product-detail', (req,res) => {
 });
 
 const puerto = app.get('PUERTO') || 3000;
-app.listen(puerto, () => console.log('Servidor inicializado en localhost:'+puerto)); 
+app.listen(puerto, () => log('Servidor inicializado en localhost:'+puerto)); 
