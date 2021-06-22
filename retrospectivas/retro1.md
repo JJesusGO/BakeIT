@@ -18,8 +18,8 @@
 
 <h4>Hacer menos</h4>
 
-- 
+- Alargar el tiempo de las reuniones con temas que no son no propios de la junta llevada a cabo.
 
 <h4>Dejar de hacer</h4>
 
-- 
+- Posponer reuniones de avances semanales.
