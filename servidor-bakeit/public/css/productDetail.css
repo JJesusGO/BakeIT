@@ -22,6 +22,53 @@ body, html {
 /* header */
 header {
     height: 10vh;
+    background-color: var(--amarillo);
+}
+
+nav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 0px 10px;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 10vh;
+    width: auto;
+    padding: 0px 15px;
+}
+
+.barra-navegacion-elementos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 80vw;
+    justify-content: center;
+}
+
+.barra-navegacion-elementos a {
+    text-decoration: none;
+    display: inline-block;
+    color: var(--blanco);
+}
+
+.menu {
+    display: flex;
+    width: 15vw;
+    justify-content: center;
+}
+
+.menu i {
+    padding: 0 5px;
+    color: var(--blanco);
+}
+
+.nav-elemento {
+    display: none;
+    padding: 15px;
 }
 
 /* main */
@@ -30,7 +77,7 @@ main {
     margin: 0 auto;
     padding: 20px;
     background-color: var(--blanco);
-    min-height: 80vh;
+    min-height: 78vh;
 }
 
 img {
@@ -201,6 +248,20 @@ footer {
     .kit-ocasion-especial {
         width: 48%;
         margin: 0;
+    }
+}
+
+@media (min-width: 530px) {
+    .nav-elemento {
+        display: inline-block;
+    }
+
+    .barra-navegacion-elementos {
+        width: 85vw;
+    }
+
+    .menu {
+        width: 10vw;
     }
 }
 
