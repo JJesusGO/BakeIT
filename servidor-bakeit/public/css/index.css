@@ -36,6 +36,16 @@ footer .panel-pie {
   padding: 0.5rem 2rem;
   background-color: #F2B950;
 }
+footer.basico {
+  background-color: #3868A6;
+  padding: 0px 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  height: 10vh;
+}
 
 a.blanco {
   color: white;
@@ -223,4 +233,18 @@ a.blanco:visited {
 }
 .txtblanco {
   color: white;
+}
+
+.terminos-de-uso {
+  width: 50%;
+}
+
+.redes-sociales {
+  width: 50%;
+  text-align: end;
+}
+.redes-sociales i {
+  color: white;
+  font-size: 25px;
+  padding: 0px 5px;
 }

@@ -203,32 +203,3 @@ span.pass_underline {
         width: 35vw;
     }
 }
-
-
-/* footer */
-
-footer {
-    background-color: var(--azul-claro);
-    padding: 0px 20px;
-    color: var(--blanco);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0;
-    height: 10vh;
-}
-
-.terminos-de-uso {
-    width: 50%;
-}
-
-.redes-sociales {
-    width: 50%;
-    text-align: end;
-}
-
-.redes-sociales i {
-    color: var(--blanco);
-    font-size: 25px;
-    padding: 0px 5px;
-}

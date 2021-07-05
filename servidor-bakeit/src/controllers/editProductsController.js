@@ -1,16 +1,16 @@
-const controller = {
+const { productos } = require("../db/productos");
 
-    getEditProducts: (req, res) => {
-        res.render('productDetail');
+const controller = {
+    edicion : -1,
+    getEditProducts: (req, res) => {        
+        res.render('productEdit',{productos,edicion:controller.edicion});
     },
     postProducts: (req, res) => {
-        res.json({});
+        res.render('productEdit',{productos,edicion:controller.edicion});
     },
     putProducts: (req, res) => {
-        res.json({});
+        res.render('productEdit',{productos,edicion:controller.edicion});
     }
-
 };
-
 
 module.exports = controller;
