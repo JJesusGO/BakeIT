@@ -83,6 +83,7 @@ main .centrar {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    padding-bottom: 10px;
 }
 
 h1 {

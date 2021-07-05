@@ -5,6 +5,13 @@ const { log } = require('./src/herramientas');
 
 const public = path.resolve(__dirname, './public');
 
+//ROUTES
+let routerMain = require('./routes/mainRoutes')
+let routerProducts = require('./routes/productRoutes')
+
+//TEMPLATE ENGINE
+app.set("view engine", "ejs");
+
 //CONFIGURACIÓN
 app.set("PUERTO", 3000);
 
@@ -12,21 +19,10 @@ app.set("PUERTO", 3000);
 app.use(express.static(public));
 
 //RUTAS
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
-});
-app.get('/register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/register.html'));
-});
-app.get('/login', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/login.html'));
-});
-app.get('/product-cart', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/productCart.html'));
-});
-app.get('/product-detail', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/productDetail.html'));
-});
+app.use('/', routerMain);
+
+app.use('/', routerProducts);
+
 
 const puerto = app.get('PUERTO') || 3000;
 app.listen(puerto, () => log('Servidor inicializado en localhost:' + puerto));
