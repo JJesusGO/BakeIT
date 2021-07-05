@@ -1,14 +1,14 @@
 const controlador = {
 
-    index: (req, res) => {
+    getIndex: (req, res) => {
         res.render('index');
     },
 
-    login: (req, res) => {
+    getLogin: (req, res) => {
         res.render('login');
     },
 
-    register: (req, res) => {
+    getRegister: (req, res) => {
         res.render('register');
     },
 };

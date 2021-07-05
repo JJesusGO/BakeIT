@@ -1,12 +1,10 @@
-const path = require('path');
-
 const controlador = {
 
-    detail: (req, res) => {
+    getDetail: (req, res) => {
         res.render('productDetail');
     },
 
-    cart: (req, res) => {
+    getCart: (req, res) => {
         res.render('productCart');
     }
 

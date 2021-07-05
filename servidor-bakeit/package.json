@@ -2,7 +2,7 @@
     "name": "servidor-bakeit",
     "version": "0.0.1",
     "description": "Plataforma web enfocada en la venta de repostería DIY y kits de accesorios para complementar eventos especiales.",
-    "main": "app.js",
+    "main": "src/app.js",
     "scripts": {
         "start": "node .",
         "dev": "nodemon ."
