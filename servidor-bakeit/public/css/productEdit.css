@@ -1,9 +1,74 @@
+body, html {
+  background-color: #F2F2F2;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.place-items-center {
+  place-items: center;
+}
+
 .seccion-items {
   background-color: #F2F2F2;
-  min-height: 100vh;
   height: auto;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+.seccion-items .panel {
+  background-color: #F2F2F2;
+  padding: 0;
+  overflow: none;
+}
+.seccion-items .panel .encabezado {
+  background-color: #F2B950;
+  color: white;
+  padding: 2rem;
+}
+.seccion-items .panel .contenido {
+  background-color: white;
+  min-height: 50vh;
+  padding: 2rem;
 }
 .seccion-control {
   background-color: #F2F2F2;
   height: auto;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+.seccion-control .panel {
+  background-color: #F2F2F2;
+  padding: 0;
+  overflow: none;
+}
+.seccion-control .panel .encabezado {
+  background-color: #F2B950;
+  color: white;
+  padding: 2rem;
+}
+.seccion-control .panel .contenido {
+  background-color: white;
+  min-height: 50vh;
+  padding: 2rem;
+}
+.seccion-control .panel .contenido form {
+  background-color: white;
+}
+
+.item {
+  border-bottom: 1px solid #162D59;
+}
+.item .precio {
+  background-color: #F2B950;
+  color: white;
+}
+
+.btn2 {
+  background-color: #3868A6;
+  color: white;
+  padding: 0.5rem 1.5rem;
+}
+.btn2:hover {
+  color: white;
 }

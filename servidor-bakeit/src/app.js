@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 const path = require('path');
 const { log } = require('./herramientas/herramientas');
@@ -9,7 +10,7 @@ const views  = path.join(__dirname, './views');
 //ROUTES
 const main     = require('./routes/mainRoutes');
 const products = require('./routes/productRoutes');
-const editProducts = require('./routes/editProductsRoutes');
+const productsEdit = require('./routes/productEditRoutes');
 
 //CONFIGURACIÓN
 app.set("PUERTO", 3000);
@@ -18,11 +19,14 @@ app.set("views",views);
 
 //MIDDLEWARE
 app.use(express.static(public));
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+app.use(methodOverride('_method'))
 
 //RUTAS
 app.use('/', main);
 app.use('/', products);
-app.use('/edit-products',editProducts);
+app.use('/products-edit',productsEdit);
 
 
 const puerto = app.get('PUERTO') || 3000;

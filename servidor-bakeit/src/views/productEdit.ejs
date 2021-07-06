@@ -1,3 +1,4 @@
+<%// productos, edicion%>
 <!DOCTYPE html>
 <html lang="es">
 <%- include("./partials/head",{titulo:"Bienvenidxs a BakeIt",css:"productEdit.css"}); -%> 
@@ -5,10 +6,92 @@
     <%- include("./partials/header"); -%> 
     <main>
         <section class="seccion-items">
-       
+            <div class="container-md panel shadow">
+                <div class="container-fluid encabezado">
+                    <h4>Productos</h4>
+                </div>                
+                <div class="container-fluid contenido">
+                    <% if(productos.length <= 0){ %>
+                        <div class="container-fluid d-grid place-items-center w-100 h-100">
+                            <h4 class="text-center mt-5">No se encuentran productos registrados</h4>
+                        </div>
+                    <% } else { %>
+                        <% for(let i=0;i<productos.length;i++){%>
+                            <form action="/products-edit" method="POST">
+                                <input class="d-none" type="text" value=<%=i%> name="edicion">                                
+                                <button type="submit" class="btn w-100">
+                                    <div class="container-fluid row item">
+                                        <div class="col-10">
+                                            <div class="descripcion d-flex a flex-column align-items-center justify-content-center">
+                                                <h5 class="my-2"><%= productos[i].nombre %></h5>
+                                                <p class="my-2"><%= productos[i].descripcion %></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="precio container-fluid d-grid place-items-center w-100 h-100">
+                                                <h5 class="my-2"> <%= "$ "+productos[i].precio %></h5>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                </button>                            
+                            </form>
+                        <% } %>
+                    <% } %>
+                </div>                
+            </div>
         </section>
-        <section class="seccion-control">
-            
+        <section id="control" class="seccion-control">
+            <div class="container-md panel shadow">
+                <div class="container-fluid encabezado">
+                    <h4><%= (edicion >= 0 && edicion<productos.length)?"Editar":"Agregar"%></h4>
+                </div>                
+                <div class="container-fluid contenido">
+                    <% if(edicion >= 0 && edicion<productos.length){ %>
+                        <form action=<%="/products-edit/"+edicion+"?_method=PUT"%> method="POST">
+                            <div class="form-group my-3">
+                              <label for="nombre" class="my-1">Nombre del producto</label>
+                              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa" value=<%= productos[edicion].nombre %>  required>
+                            </div>
+                            <div class="form-group my-3">
+                                <label for="descripcion" class="my-1">Descripción</label>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required><%= productos[edicion].descripcion %></textarea>
+                            </div>                                
+                            <div class="form-group my-3">
+                                <label for="precio" class="my-1">Precio</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" value=<%= ""+productos[edicion].precio %> pattern="^\d*(\.\d{0,2})?$"  required>
+                                </div>                                
+                            </div>
+                            <button type="submit" class="btn btn2 my-3">Editar</button>
+                            <a class="btn btn2 my-3" href="/products-edit"> Cancelar </a>  
+                          </form>
+                    <% } else { %>
+                        <form action="/products-edit" method="POST">
+                            <div class="form-group my-3">
+                              <label for="nombre" class="my-1">Nombre del producto</label>
+                              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa"  required>
+                            </div>
+                            <div class="form-group my-3">
+                                <label for="descripcion" class="my-1">Descripción</label>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required></textarea>
+                            </div>                                
+                            <div class="form-group my-3">
+                                <label for="precio" class="my-1">Precio</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$" required>
+                                </div>                                
+                            </div>
+                            <button type="submit" class="btn btn2 my-3">Agregar</button>                                                      
+                          </form>
+                    <% } %>
+                </div>                
+            </div>
         </section>        
     </main>
     <%- include("./partials/footer"); -%> 
