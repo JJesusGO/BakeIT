@@ -26,28 +26,6 @@ body {
     border: none;
 }
 
-
-/* header */
-
-header {
-    height: 10vh;
-    background-color: var(--amarillo);
-}
-
-nav {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    padding: 0px 10px;
-    justify-content: space-between;
-}
-
-.logo {
-    height: 10vh;
-    width: auto;
-    padding: 0px 15px;
-}
-
 .barra-navegacion-elementos {
     list-style: none;
     margin: 0;
@@ -204,33 +182,4 @@ span.pass_underline {
     .menu {
         width: 10vw;
     }
-}
-
-
-/* footer */
-
-footer {
-    background-color: var(--azul-claro);
-    padding: 0px 20px;
-    color: var(--blanco);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0;
-    height: 10vh;
-}
-
-.terminos-de-uso {
-    width: 50%;
-}
-
-.redes-sociales {
-    width: 50%;
-    text-align: end;
-}
-
-.redes-sociales i {
-    color: var(--blanco);
-    font-size: 25px;
-    padding: 0px 5px;
 }
