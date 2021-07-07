@@ -2,11 +2,11 @@ const { productos, agregarProducto, editarProducto} = require("../db/productos")
 
 const controller = {
     getProducts: (req, res) => {  
-        res.render('productEdit',{productos,edicion:-1});
+        res.render('product/edit',{productos,edicion:-1});
     },
     getProductsIndex: (req, res) => {
         const {index} = req.params;
-        res.render('productEdit',{productos,edicion:index});
+        res.render('product/edit',{productos,edicion:index});
     },
     postProducts: (req, res) => {        
         const {nombre,edicion}= req.body;

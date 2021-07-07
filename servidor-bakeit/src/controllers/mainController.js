@@ -5,11 +5,11 @@ const controlador = {
     },
 
     getLogin: (req, res) => {
-        res.render('login');
+        res.render('user/login');
     },
 
     getRegister: (req, res) => {
-        res.render('register');
+        res.render('user/register');
     },
 };
 

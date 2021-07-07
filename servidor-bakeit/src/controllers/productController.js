@@ -1,11 +1,11 @@
 const controlador = {
 
     getDetail: (req, res) => {
-        res.render('productDetail');
+        res.render('product/detail');
     },
 
     getCart: (req, res) => {
-        res.render('productCart');
+        res.render('product/cart');
     }
 
 };
