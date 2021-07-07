@@ -1,0 +1,27 @@
+:root {
+    --azul-oscuro: #162D59;
+    --azul-claro: #3868A6;
+    --amarillo: #F2B950;
+    --rojo: #BF3E21;
+    --blanco: #F2F2F2;
+    --negro: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+html {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    width: 100%;
+}
+
+body {
+    background-color: var(--blanco);
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
