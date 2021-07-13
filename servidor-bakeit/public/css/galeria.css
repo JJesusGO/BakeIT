@@ -25,3 +25,103 @@ body {
     padding: 0px;
     border: none;
 }
+
+main {
+    padding: 10px;
+}
+
+h1 {
+    font-family: 'Clicker Script', cursive;
+    text-align: center;
+    margin: 0px;
+    font-size: 40px;
+    padding-top: 20px;
+}
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.categoria {
+    padding: 20px 15px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.categoria-img {
+    width: 40px;
+}
+
+.categoria p {
+    margin: 0px;
+    padding: 5px 0px;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.producto {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.producto-img {
+    width: 45%;
+}
+
+.producto-info {
+    width: 50%;
+}
+
+.boton-ver {
+    background-color: var(--azul-claro);
+    color: var(--blanco);
+    display: inline-block;
+    height: 30px;
+    border-color: var(--azul-claro);
+    border-radius: 5px;
+    width: 100%;
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+@media (min-width: 361px) {
+    .producto {
+        padding: 10px 10px;
+        flex-wrap: wrap;
+        width: 48%;
+    }
+    
+    .producto-img {
+        width: 100%;
+    }
+    
+    .producto-info {
+        width: 100%;
+    }
+}
+
+@media (min-width: 530px) {
+    .producto {
+        padding: 20px 10px;
+        width: 24%;
+    }
+}

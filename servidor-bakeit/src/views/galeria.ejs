@@ -4,8 +4,34 @@
 <body>
     <%- include('./partials/header') %>
     <main class="vh-100">
-        
-
+        <div class="banner">
+            <h1>Menú</h1>
+        </div>
+        <div class="categorias">
+            <article class="categoria">
+                <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
+                <p>Todos</p>
+            </article>
+            <article class="categoria">
+                <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
+                <p>Categoría 1</p>
+            </article>
+            <article class="categoria">
+                <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
+                <p>Categoría 2</p>
+            </article>
+        </div>
+        <div class="productos">
+            <% for(let i = 0; i < 8; i++) { %>
+                <a class="producto" href="/product-detail">
+                    <img class="producto-img" src="/media/img/noDisponible.png" alt="Imagen del producto">
+                    <div class="producto-info">
+                        <p class="nombre">Nombre del postre</p>
+                        <p class="precio">$0.00</p>
+                    </div>
+                </a>
+            <% } %>
+        </div>
     </main>
     <%- include('./partials/footer') %>
 </body>
