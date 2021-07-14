@@ -28,6 +28,5 @@ app.use('/', main);
 app.use('/', products);
 app.use('/products-edit',productsEdit);
 
-
 const puerto = app.get('PUERTO') || 3000;
 app.listen(puerto, () => log('Servidor inicializado en localhost:' + puerto));
