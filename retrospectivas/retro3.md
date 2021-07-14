@@ -15,7 +15,7 @@
 - Discutir el progreso de las actividades que tenemos asignadas antes de realizar las entregas.
 - Apoyarnos mutuamente cuando tenemos dudas sobre nuestras asignaciones.
 - Asignar tareas en función de nuestras habilidades, preferencias y tiempo disponible durante el sprint.
-- Utilización de un framework de CSS.
+- Utilizar un framework de CSS.
 
 <h4>Hacer menos</h4>
 
