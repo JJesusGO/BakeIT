@@ -4,7 +4,6 @@
 
 - Sesiones para ver reglas de programación.
 - Agregar las tareas al tablero de Trello.
-- Crear recursos multimedia para la pagina web (Imagenes, Iconos, Videos, etc).
 - Maquetación basada en la paleta de colores.
 
 <h4>Hacer más</h4>
@@ -18,8 +17,8 @@
 
 <h4>Hacer menos</h4>
 
-- Alargar el tiempo de las reuniones con temas que no son no propios de la junta llevada a cabo.
+-
 
 <h4>Dejar de hacer</h4>
 
-- Posponer reuniones de avances semanales.
+- 
