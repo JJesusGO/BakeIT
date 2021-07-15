@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html>
-<%- include("../partials/head",{titulo:"Crea tu cuenta",css:"register.css"}); -%> 
-<body>
-    <%- include('../partials/header') %>
-    <main>
-        <div class="centrar">
-            <form method="" action="/" id="create_customer" accept-charset="UTF-8"><input type="hidden" name="form_type" value="create_customer"><input type="hidden" name="utf8" value="✓">
+<%- include("../partials/head",{titulo:"Crea tu cuenta",css:"register.css"}); -%>
 
-                <h1>Crea tu Cuenta</h1>
-                <div class="caja_de_registro">
-                    <p class="texto_generico">
-                        ¡Registrate y se parte de la comunidad Bakeit!
-                    </p>
-                    <div class="register_input">
-                        <label for="nombre">Nombre
-                        <input type="text" name="nombre" id="name" autofocus="" autocomplete="off" required>
-                    </label>
-                    </div>
-                    <div class="register_input">
-                        <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido" id="lastName" autocomplete="off" required>
-                    </div>
-                    <div class="register_input">
-                        <label for="Fecha_nacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="birthdate" id="birthdate" min="" max="2021-06-15">
-                    </div>
-                    <div class="register_input">
-                        <label for="correo">Correo</label>
-                        <input type="email" name="correo" id="email" class="" autocomplete="off" required>
-                    </div>
-                    <div class="register_input">
-                        <label for="Contrasena">Contraseña</label>
-                        <input type="password" name="customer[password]" id="CreatePassword" class="" required>
-                    </div>
-                    <label for="terminos">
-                    <input type="checkbox" id="checkbox_terminos" name="terminos" value="terminos" required> Acepto los Términos y Condiciones y Aviso de Privacidad
-                </label>
-                    <p>
-                        <button type="submit" value="Crear" class="boton">Crear</button>
-                    </p>
+    <body>
+        <%- include('../partials/header') %>
+            <main>
+                <div class="centrar">
+                    <form method="POST" enctype="multipart/form-data" action="/user/register" id="create_customer"
+                        accept-charset="UTF-8"><input type="hidden" name="form_type" value="create_customer"><input
+                            type="hidden" name="utf8" value="✓">
+
+                        <h1>Crea tu Cuenta</h1>
+                        <div class="caja_de_registro">
+                            <p class="texto_generico">
+                                ¡Registrate y se parte de la comunidad Bakeit!
+                            </p>
+                            <div class="register_input">
+                                <label for="nombre">Nombre
+                                    <input type="text" name="nombre" id="name" autofocus="" autocomplete="off" required>
+                                </label>
+                            </div>
+                            <div class="register_input">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" name="apellido" id="lastName" autocomplete="off" required>
+                            </div>
+                            <div class="register_input">
+                                <label for="Fecha_nacimiento">Fecha de nacimiento</label>
+                                <input type="date" name="birthdate" id="birthdate" min="" max="2021-06-15">
+                            </div>
+                            <div class="register_input">
+                                <label for="correo">Correo</label>
+                                <input type="email" name="correo" id="email" class="" autocomplete="off" required>
+                            </div>
+                            <div class="register_input">
+                                <label for="Contrasena">Contraseña</label>
+                                <input type="password" name="customer[password]" id="CreatePassword" class="" required>
+                            </div>
+                            <div class="register_input">
+                                <label for="Avatar">Avatar</label>
+                                <input type="file" name="Avatar" id="Avatar" class="" required>
+                            </div>
+                            <label for="terminos">
+                                <input type="checkbox" id="checkbox_terminos" name="terminos" value="terminos" required>
+                                Acepto los Términos y Condiciones y Aviso de Privacidad
+                            </label>
+                            <p>
+                                <button type="submit" value="Crear" class="boton">Crear</button>
+                            </p>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
 
-    </main>
-    <%- include('../partials/footer') %>
-</body>
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
 
 </html>
