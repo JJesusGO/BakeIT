@@ -9,7 +9,8 @@ router.route('/')
       .post(productController.postProduct);
 router.route('/:id')
       .get(productController.getProductID)
-      .put(productController.putProductID);
+      .put(productController.putProductID)
+      .delete(productController.deleteProductID);
 router.get('/detail/:id', productController.getDetail);      
 
 module.exports = router;
