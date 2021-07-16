@@ -10,7 +10,6 @@ const views = path.join(__dirname, './views');
 //ROUTES
 const main = require('./routes/mainRoutes');
 const products = require('./routes/productRoutes');
-const productsEdit = require('./routes/productEditRoutes');
 const user = require('./routes/userRoutes');
 
 //CONFIGURACIÓN
@@ -26,8 +25,7 @@ app.use(methodOverride('_method'))
 
 //RUTAS
 app.use('/', main);
-app.use('/', products);
-app.use('/products-edit', productsEdit);
+app.use('/products', products);
 app.use('/user', user);
 
 const puerto = app.get('PUERTO') || 3000;

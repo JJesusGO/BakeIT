@@ -1,11 +1,13 @@
-{
-    "id": 0,
-    "tipo": "",
-    "categoria": "",
-    "nombre": "",
-    "precio": 0,
-    "descripcion": "",
-    "elementos": [],
-    "porciones": 0,
-    "imagenes": []
-}
+[
+    {
+        "id": 0,
+        "tipo": "",
+        "categoria": "",
+        "nombre": "",
+        "precio": 0,
+        "descripcion": "",
+        "elementos": [],
+        "porciones": 0,
+        "imagenes": []
+    }
+]
