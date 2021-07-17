@@ -4,10 +4,10 @@ const multer = require('multer');
 const path = require('path')
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
         cb(null, './public/media/img');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
         cb(null, "img-" + Date.now() + path.extname(file.originalname));
     }
 })
@@ -19,6 +19,6 @@ const userController = require('../controllers/userController');
 router.get('/login', userController.getLogin);
 router.post('/login', userController.login)
 router.get('/register', userController.getRegister);
-router.post('/register', upload.single("Avatar"), userController.register)
+router.post('/register', upload.single("imagen"), userController.register)
 
 module.exports = router;

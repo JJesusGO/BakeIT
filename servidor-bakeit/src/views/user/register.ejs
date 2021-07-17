@@ -6,9 +6,7 @@
         <%- include('../partials/header') %>
             <main>
                 <div class="centrar">
-                    <form method="POST" enctype="multipart/form-data" action="/user/register" id="create_customer"
-                        accept-charset="UTF-8"><input type="hidden" name="form_type" value="create_customer"><input
-                            type="hidden" name="utf8" value="✓">
+                    <form method="POST" enctype="multipart/form-data" action="/user/register" id="create_customer" accept-charset="UTF-8"><input type="hidden" name="form_type" value="create_customer"><input type="hidden" name="utf8" value="✓">
 
                         <h1>Crea tu Cuenta</h1>
                         <div class="caja_de_registro">
@@ -26,7 +24,7 @@
                             </div>
                             <div class="register_input">
                                 <label for="Fecha_nacimiento">Fecha de nacimiento</label>
-                                <input type="date" name="birthdate" id="birthdate" min="" max="2021-06-15">
+                                <input type="date" name="fechaNacimiento" id="birthdate" min="" max="2021-06-15">
                             </div>
                             <div class="register_input">
                                 <label for="correo">Correo</label>
@@ -34,11 +32,11 @@
                             </div>
                             <div class="register_input">
                                 <label for="Contrasena">Contraseña</label>
-                                <input type="password" name="customer[password]" id="CreatePassword" class="" required>
+                                <input type="password" name="contrasena" id="CreatePassword" class="" required>
                             </div>
                             <div class="register_input">
                                 <label for="Avatar">Avatar</label>
-                                <input type="file" name="Avatar" id="Avatar" class="" required>
+                                <input type="file" name="imagen" id="Avatar" class="" required>
                             </div>
                             <label for="terminos">
                                 <input type="checkbox" id="checkbox_terminos" name="terminos" value="terminos" required>

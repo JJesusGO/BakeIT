@@ -1,9 +1,9 @@
 {
-    "id": 0,
-    "nombre": "",
-    "apellido": "",
-    "fechaNacimiento": "10/09/2014",
-    "correo": "",
-    "contrasena": "",
-    "imagen": ""
+    "id": "81z9od7dwkr7acrns",
+    "nombre": "Tania",
+    "apellido": "Tovar",
+    "fechaNacimiento": "2021-06-04",
+    "correo": "tania@a",
+    "contrasena": "pass",
+    "imagen": {}
 }
