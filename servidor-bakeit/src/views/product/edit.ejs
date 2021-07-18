@@ -5,94 +5,178 @@
 <body>
     <%- include("../partials/header"); -%> 
     <main>
-        <section class="seccion-items">
-            <div class="container-md panel shadow">
-                <div class="container-fluid encabezado">
-                    <h4>Productos</h4>
-                </div>                
-                <div class="container-fluid contenido">
-                    <% if(productos.length <= 0){ %>
-                        <div class="container-fluid d-grid place-items-center w-100 h-100">
-                            <h4 class="text-center mt-5">No se encuentran productos registrados</h4>
-                        </div>
-                    <% } else { %>
-                        <% for(let i=0;i<productos.length;i++){%>
-                            <form action="/products-edit" method="POST">
-                                <input class="d-none" type="text" value=<%=i%> name="edicion">                                
-                                <button type="submit" class="btn w-100">
-                                    <div class="container-fluid row item">
-                                        <div class="col-10">
-                                            <div class="descripcion d-flex a flex-column align-items-center justify-content-center">
-                                                <h5 class="my-2"><%= productos[i].nombre %></h5>
-                                                <p class="my-2"><%= productos[i].descripcion %></p>
+        <div class="row w-100 p-3">
+            <section id="productos" class="seccion-items col-sm-6">
+                <div class="container-md panel shadow">
+                    <div class="container-fluid encabezado">
+                        <h4>Productos</h4>
+                    </div>                
+                    <div class="container-fluid contenido">
+                        <% if(productos.length <= 0){ %>
+                            <div class="container-fluid d-grid place-items-center w-100 h-100">
+                                <h4 class="text-center mt-5">No se encuentran productos registrados</h4>
+                            </div>
+                        <% } else { %>
+                            <% for(let i=0;i<productos.length;i++){%>                                   
+                                <form action=<%="/products/"+productos[i].id+"?_method=DELETE"%> method="POST" class="container-fluid d-flex align-items-center justify-content-end w-100 pr-1">
+                                    <button class="btn btn-danger w-25" >  Eliminar (X) </button>
+                                </form>                                                                    
+                                <a class="btn w-100 p-0" href="/products/<%=productos[i].id%>">
+                                    <div class="container-fluid row item p-0">
+                                        <div class="col-4 p-0">
+                                            <div class="galeria">
+                                                <img src="<%=productos[i].imagenes[0]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                <img src="<%=productos[i].imagenes[1]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                <img src="<%=productos[i].imagenes[2]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                <img src="<%=productos[i].imagenes[3]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                             </div>
                                         </div>
-                                        <div class="col-2">
-                                            <div class="precio container-fluid d-grid place-items-center w-100 h-100">
-                                                <h5 class="my-2"> <%= "$ "+productos[i].precio %></h5>
-                                            </div>                                        
+                                        <div class="col-5 p-0">
+                                            <div class="descripcion d-flex a flex-column align-items-center justify-content-center">
+                                                <h5 class="my-2"><%= productos[i].nombre %></h5>
+                                                <p class="my-3"><%= productos[i].descripcion %></p>
+                                                <ul>
+                                                    <% for(let j=0;j<productos[i].elementos.length;j++){ %>
+                                                        <li><%= productos[i].elementos[j] %></li>
+                                                    <%  } %>
+                                                </ul>
+                                                <p class="my-3"><%= "Porciones: "+productos[i].porciones %></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </button>                            
-                            </form>
+                                        <div class="col-3 p-0">
+                                            <div class="precio container-fluid d-flex flex-column align-items-center justify-content-center w-100 h-100 p-0">                                                                                                
+                                                <h4> <%= "$"+productos[i].precio %></h4>                                                
+                                                <p class="mt-2 mb-0"> <%= productos[i].tipo %></p>                                                
+                                                <p class="my-0"> <%= productos[i].categoria %></p>                                                          
+                                            </div>                                        
+                                        </div>                                        
+                                    </div>                                    
+                                </a>                                                                                     
+                            <% } %>
                         <% } %>
-                    <% } %>
-                </div>                
-            </div>
-        </section>
-        <section id="control" class="seccion-control">
-            <div class="container-md panel shadow">
-                <div class="container-fluid encabezado">
-                    <h4><%= (edicion >= 0 && edicion<productos.length)?"Editar":"Agregar"%></h4>
-                </div>                
-                <div class="container-fluid contenido">
-                    <% if(edicion >= 0 && edicion<productos.length){ %>
-                        <form action=<%="/products-edit/"+edicion+"?_method=PUT"%> method="POST">
-                            <div class="form-group my-3">
-                              <label for="nombre" class="my-1">Nombre del producto</label>
-                              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa" value=<%= productos[edicion].nombre %>  required>
-                            </div>
-                            <div class="form-group my-3">
-                                <label for="descripcion" class="my-1">Descripción</label>
-                                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required><%= productos[edicion].descripcion %></textarea>
-                            </div>                                
-                            <div class="form-group my-3">
-                                <label for="precio" class="my-1">Precio</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" value=<%= ""+productos[edicion].precio %> pattern="^\d*(\.\d{0,2})?$"  required>
+                    </div>                
+                </div>
+            </section>
+            <section id="control" class="seccion-control col-sm-6">
+                <div class="container-md panel shadow">
+                    <div class="container-fluid encabezado">
+                        <h4><%= (edicion >= 0 && edicion<productos.length)?"Editar":"Agregar"%></h4>
+                    </div>                
+                    <div class="container-fluid contenido">
+                        <% if(edicion >= 0 && edicion<productos.length){ %>
+                            <form action=<%="/products/"+productos[edicion].id+"?_method=PUT"%> method="POST" enctype="multipart/form-data">
+                                <div class="form-group my-3">
+                                    <label for="nombre" class="my-1">Nombre del producto</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa" value=<%= productos[edicion].nombre %>  required>
+                                </div>        
+                                <div class="form-group my-3">
+                                    <label for="tipo" class="form-label">Tipo:</label>
+						            <select name="tipo" id="tipo" class="form-control" required>
+                                        <option value="" class="text-muted">Selecciona una opción</option>
+                                        <%- (productos[edicion].tipo=="producto")?'<option value="producto" selected>Producto</option>':'<option value="producto">Producto</option>'%>
+                                        <%- (productos[edicion].tipo=="kit")?'<option value="kit" selected>Kit</option>':'<option value="kit">Kit</option>'%>
+						            </select>
+                                </div>   
+                                <div class="form-group my-3">
+                                    <label for="categoria" class="form-label">Categoría:</label>
+						            <select name="categoria" id="categoria" class="form-control" required>
+                                        <option value="" class="text-muted">Selecciona una opción</option>
+                                        <%- (productos[edicion].categoria=="categoria1")?'<option value="categoria1" selected>Categoria1</option>':'<option value="categoria1">Categoria1</option>'%>
+                                        <%- (productos[edicion].categoria=="categoria2")?'<option value="categoria2" selected>Categoria2</option>':'<option value="categoria2">Categoria2</option>'%>
+                                        <%- (productos[edicion].categoria=="categoria3")?'<option value="categoria3" selected>Categoria3</option>':'<option value="categoria3">Categoria3</option>'%>
+                                        <%- (productos[edicion].categoria=="categoria4")?'<option value="categoria4" selected>Categoria4</option>':'<option value="categoria4">Categoria4</option>'%>
+						            </select>
+                                </div>                      
+                                <div class="form-group my-3">
+                                    <label for="descripcion" class="my-1">Descripción</label>
+                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required><%= productos[edicion].descripcion %></textarea>
+                                </div>   
+                                <div class="form-group my-3">
+                                    <label for="elementos" class="my-1">Elementos</label>
+                                    <textarea class="form-control" id="elementos" name="elementos" rows="3"  required><% for(let j=0;j<productos[edicion].elementos.length;j++){ %><%= productos[edicion].elementos[j]+"\r\n" %><% } %></textarea>
+                                </div>                              
+                                <div class="form-group my-3">
+                                    <label for="precio" class="my-1">Precio</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">$</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" value=<%= ""+productos[edicion].precio %> pattern="^\d*(\.\d{0,2})?$"  required>
+                                    </div>                                
+                                </div>
+                                <div class="form-group my-3">
+                                    <label for="porciones" class="my-1">Porciones</label>
+                                    <input type="number" class="form-control" id="porciones" name="porciones" placeholder="0"  value=<%= ""+productos[edicion].porciones %> required>
+                                </div>
+                                <div class="form-group my-3">
+                                    <label for="imagen1" class="form-label mb-2">Imagenes</label>
+                                    <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                </div>
+                                <button type="submit" class="btn btn2 my-3">Editar</button>
+                                <a class="btn btn2 my-3" href="/products"> Cancelar </a>  
+                                </form>
+                        <% } else { %>
+                            <form action="/products" method="POST" enctype="multipart/form-data">
+                                <div class="form-group my-3">
+                                    <label for="nombre" class="my-1">Nombre del producto</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa"  required>
+                                </div>
+                                <div class="form-group my-3">
+                                    <label for="tipo" class="form-label">Tipo:</label>
+						            <select name="tipo" id="tipo" class="form-control" required>
+                                        <option value="" class="text-muted">Selecciona una opción</option>
+                                        <option value="producto">Producto</option>
+                                        <option value="kit">Kit</option>                                        
+						            </select>
+                                </div>   
+                                <div class="form-group my-3">
+                                    <label for="categoria" class="form-label">Categoría:</label>
+						            <select name="categoria" id="categoria" class="form-control" required>
+                                        <option value="" class="text-muted">Selecciona una opción</option>
+                                        <option value="categoria1">Categoria1</option>
+                                        <option value="categoria2">Categoria2</option>
+                                        <option value="categoria3">Categoria3</option>
+                                        <option value="categoria4">Categoria4</option>
+						            </select>
+                                </div>                                                                                             
+                                <div class="form-group my-3">
+                                    <label for="descripcion" class="my-1">Descripción</label>
+                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required></textarea>
+                                </div>    
+                                <div class="form-group my-3">
+                                    <label for="elementos" class="my-1">Elementos</label>
+                                    <textarea class="form-control" id="elementos" name="elementos" rows="3"  required></textarea>
                                 </div>                                
-                            </div>
-                            <button type="submit" class="btn btn2 my-3">Editar</button>
-                            <a class="btn btn2 my-3" href="/products-edit"> Cancelar </a>  
-                          </form>
-                    <% } else { %>
-                        <form action="/products-edit" method="POST">
-                            <div class="form-group my-3">
-                              <label for="nombre" class="my-1">Nombre del producto</label>
-                              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa"  required>
-                            </div>
-                            <div class="form-group my-3">
-                                <label for="descripcion" class="my-1">Descripción</label>
-                                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required></textarea>
-                            </div>                                
-                            <div class="form-group my-3">
-                                <label for="precio" class="my-1">Precio</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$" required>
-                                </div>                                
-                            </div>
-                            <button type="submit" class="btn btn2 my-3">Agregar</button>                                                      
-                          </form>
-                    <% } %>
-                </div>                
-            </div>
-        </section>        
+                                <div class="form-group my-3">
+                                    <label for="precio" class="my-1">Precio</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">$</div>
+                                        </div>
+                                        <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$" required>
+                                    </div>                                
+                                </div>
+                                <div class="form-group my-3">
+                                    <label for="porciones" class="my-1">Porciones</label>
+                                    <input type="number" class="form-control" id="porciones" name="porciones" placeholder="0"  required>
+                                </div>
+                                <div class="form-group my-3">
+                                    <label for="imagen1" class="form-label mb-2">Imagenes</label>
+                                    <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                </div>
+                                <button type="submit" class="btn btn2 my-3">Agregar</button>                                                      
+                                </form>
+                        <% } %>
+                    </div>                
+                </div>
+            </section>            
+        </div>        
     </main>
     <%- include("../partials/footer"); -%> 
 </body>

@@ -18,8 +18,8 @@ const agregarProducto = (contenido)=>{
     });
     guardarProductos();
 }
-const editarProducto = (id,contenido)=>{
-    const index = productos.findIndex(p => p.id === id);
+const editarProducto = (contenido)=>{
+    const index = productos.findIndex(p => p.id === contenido.id);
     if(index >= 0){
         productos[index] = {
             ...productos[index], 

@@ -1,13 +1,1 @@
-[
-    {
-        "id": 0,
-        "tipo": "",
-        "categoria": "",
-        "nombre": "",
-        "precio": 0,
-        "descripcion": "",
-        "elementos": [],
-        "porciones": 0,
-        "imagenes": []
-    }
-]
+[{"nombre":"Nombre","tipo":"producto","categoria":"categoria4","descripcion":"Esto es una descripción de un producto","elementos":["Elemento1","Elemento2","Elemento3"],"precio":"1000","porciones":"5","imagenes":["/data/products/boq2s5aaskr9swk0p.png","/data/products/boq2s5aaskr9swk0r.png","/data/products/boq2s5aaskr9swk0s.png","/data/products/boq2s5aaskr9swk0t.png"],"id":"boq2s55cskr9j8u0k"}]
