@@ -57,7 +57,8 @@ body, html {
 }
 
 .item {
-  border-bottom: 1px solid #162D59;
+  border-bottom: 1px solid #F2B950;
+  border-top: 1px solid #F2B950;
 }
 .item .precio {
   background-color: #F2B950;
@@ -80,10 +81,15 @@ body, html {
   width: 100%;
   height: 100%;
 }
-.galeria img {
+.galeria .centrado {
+  display: grid;
+  place-items: center;
+  border: 1px solid #F2B950;
+  overflow: hidden;
+}
+.galeria .centrado img {
   width: 100%;
   height: auto;
-  border: 1px solid #F2B950;
 }
 
 .btn2 {
