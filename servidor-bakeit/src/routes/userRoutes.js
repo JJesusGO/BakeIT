@@ -20,5 +20,6 @@ router.get('/login', userController.getLogin);
 router.post('/login', userController.login)
 router.get('/register', userController.getRegister);
 router.post('/register', upload.single("imagen"), userController.register)
+router.get('/resetPassword', userController.resetPassword)
 
 module.exports = router;
