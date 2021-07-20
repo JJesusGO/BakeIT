@@ -55,7 +55,6 @@ const controlador = {
 
         if(req.body.elementos!=undefined) 
             elementos = req.body.elementos.split('\r\n');
-        console.log(req.body);
         for(let i=0;i<elementos.length;i++)
             if((elementos[i].trim()).length <= 0)
                 elementos.splice(i--,1);
