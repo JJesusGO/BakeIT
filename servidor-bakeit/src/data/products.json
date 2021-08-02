@@ -1,1 +1,178 @@
-[{"nombre":"Nombre","tipo":"producto","categoria":"categoria4","descripcion":"Esto es una descripción de un producto","elementos":["Elemento1","Elemento2","Elemento3"],"precio":"1000","porciones":"5","imagenes":["/data/products/boq2s5aaskr9swk0p.png","/data/products/boq2s5aaskr9swk0r.png","/data/products/boq2s5aaskr9swk0s.png","/data/products/boq2s5aaskr9swk0t.png"],"id":"boq2s55cskr9j8u0k"}]
+[
+    {
+        "nombre": "Pastel de chocolate tradicional",
+        "tipo": "Postre",
+        "categoria": "Pasteles",
+        "descripcion": "El pastel de chocolate tradicional no necesita presentación. Pero quizá un poco de historia esté en orden. El origen del pastel de chocolate se remonta a 1764, cuando el Dr. James Baker descubrió cómo hacer chocolate moliendo granos de cacao entre dos enormes piedras de molino circulares. Su descubrimiento permitió que 1948 Pillsbury introdujera el sabor de lo que se convertiría el pastel más popular de la historia. Esta decadente delicia está destinada a ser un éxito sin importar el evento, después de todo, ¿quién dice que no a un pastel de chocolate?",
+        "elementos": [
+            "Harina",
+            "Polvo de cacao",
+            "Levadura en polvo",
+            "Bicarbonato de sodio",
+            "Azúcar granulada",
+            "Aceite vegetal",
+            "Extracto de vainilla",
+            "Azúcar glass",
+            "Molde para hornear de 10 pulgadas",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "485",
+        "porciones": "12 rebanadas",
+        "imagenes": [
+            "/data/products/img-pastelChocolate-1.png",
+            "/data/products/img-pastelChocolate-2.png",
+            "/data/products/img-pastelChocolate-3.png",
+            "/data/products/img-pastelChocolate-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0k"
+    },
+    {
+        "nombre": "Éclair",
+        "tipo": "Postre",
+        "categoria": "Hojaldres y bollos",
+        "descripcion": "El éclair, creado por el famoso chef francés Antonin Carême en la década de 1860, es definido como un bollo alargado de pasta choux, relleno de crema pastelera y típicamente cubierto con glaseado de chocolate. En la actualidad, se puede encontrar relleno con ingredientes modernos como el té matcha o la crema moka o decorado con fruta fresca y glaseado de frutas. Sin embargo, independientemente de su relleno y decorado, la base característica del éclair no ha cambiado, por lo que esta receta es ideal para preparar un éclair francés que cumpla con las expectativas del mismísimo chef Carême.",
+        "elementos": [
+            "Harina",
+            "Maicena",
+            "Azúcar granulada",
+            "Chips de chocolate semidulce",
+            "Vaina de vainilla",
+            "2 mangas pasteleras reutilizables con una punta circular de 1/2 pulgadas y una punta de estrella abierta de 16mm",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "395",
+        "porciones": "18 éclairs",
+        "imagenes": [
+            "/data/products/img-eclair-1.png",
+            "/data/products/img-eclair-2.png",
+            "/data/products/img-eclair-3.png",
+            "/data/products/img-eclair-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0a"
+    },
+    {
+        "nombre": "Macarons",
+        "tipo": "Postre",
+        "categoria": "Galletas",
+        "descripcion": "Los macarons son una delicia francesa presentada en forma de dos tapas hechas de harina de almendras cocidas al estilo merengue y entre las cuales se encuentra un relleno de crema o ganache. Las pequeñas galletas reconocidas por su delicioso sabor y variedad de colores cuya existencia data al siglo XVII no son sencillas de hacer, pero con un poco de ayuda y una receta bien escrita, hasta la tarea más complicada puede ser realizada a la perfección.",
+        "elementos": [
+            "Harina de almendra",
+            "Azúcar granulada",
+            "Azúcar glass",
+            "Extracto de vainilla",
+            "Cremor tártaro",
+            "Colorante alimenticio",
+            "Una bandeja para hornear rectangular de 22x33cm",
+            "Una manga pastelera reutilizable con punta circular de 1/2 pulgadas",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "455",
+        "porciones": "36 macarons",
+        "imagenes": [
+            "/data/products/img-macarons-1.png",
+            "/data/products/img-macarons-2.png",
+            "/data/products/img-macarons-3.png",
+            "/data/products/img-macarons-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0b"
+    },
+    {
+        "nombre": "Profiterole",
+        "tipo": "Postre",
+        "categoria": "Hojaldres y bollos",
+        "descripcion": "El profiterole, una invención de un chef italiano llamado Panterelli, es un pastelillo relleno de crema cubierto de chocolate caliente. Recién salidos del horno, son una delicia en forma de conchas ligeras y aireadas, tan suaves por dentro que casi se derriten en la lengua y que una vez rellenas y servidas con salsa de chocolate se convierten en un delicioso regalo para el paladar. ¿Cómo podría alguien decirle que no a está receta?",
+        "elementos": [
+            "Harina",
+            "Azúcar glass",
+            "Harina de maíz",
+            "Extracto de vainilla",
+            "Chocolate negro",
+            "Una bandeja para hornear rectangular de 22x33cm",
+            "Una manga pastelera reutilizable con punta circular de 1/4 pulgadas",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "410",
+        "porciones": "48 profiterole",
+        "imagenes": [
+            "/data/products/img-profiterole-1.png",
+            "/data/products/img-profiterole-2.png",
+            "/data/products/img-profiterole-3.png",
+            "/data/products/img-profiterole-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0c"
+    },
+    {
+        "nombre": "Tiramisú",
+        "tipo": "Postre",
+        "categoria": "Postres fríos o helados",
+        "descripcion": "El tiramisu, postre de origen italiano creado en 1960, es una delicia preparada con láminas de masa de bizcocho empapadas en café, las cuales se alternan con una crema compuesta de claras a punto de nieve mezcladas con un queso suave, azúcar y crema de leche líquida. Este postre frío, espolvoreado con cacao en polvo, café molido y azúcar glass, es la selección ideal para saborear un bocado fresco y exquisito.",
+        "elementos": [
+            "Azúcar granulada",
+            "Harina",
+            "Maicena",
+            "Café",
+            "Ron dorado",
+            "Polvo de cacao",
+            "Una bandeja para hornear rectangular de 22x33cm",
+            "Una manga pastelera reutilizable con punta circular de 1/2 pulgadas",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "480",
+        "porciones": "12 porciones",
+        "imagenes": [
+            "/data/products/img-tiramisu-1.png",
+            "/data/products/img-tiramisu-2.png",
+            "/data/products/img-tiramisu-3.png",
+            "/data/products/img-tiramisu-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0g"
+    },
+    {
+        "nombre": "Flan",
+        "tipo": "Postre",
+        "categoria": "Natillas y pudines",
+        "descripcion": "El flan, un postre cuyo origen se remonta al Imperio Romano, es una delicia hecha de huevos, leche y azúcar con toques de vainilla, naranja, coco o café, que se hornea en un baño de agua en el horno debido a su delicada base. Este postre de textura cremosa y gelatinosa es fácilmente el postre latino más popular y  lo ha sido durante muchas generaciones. ¡Simplemente es una receta que no se puede ignorar!",
+        "elementos": [
+            "Leche condensada",
+            "Leche evaporada",
+            "Vainilla",
+            "Azúcar",
+            "Plato para pastel metálico de 9 pulgadas",
+            "Molde para hornear de 10 pulgadas",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "320",
+        "porciones": "12 porciones",
+        "imagenes": [
+            "/data/products/img-flan-1.png",
+            "/data/products/img-flan-2.png",
+            "/data/products/img-flan-3.png",
+            "/data/products/img-flan-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0w"
+    },
+    {
+        "nombre": "Pay de manzana",
+        "tipo": "Postre",
+        "categoria": "Pays",
+        "descripcion": "No hay regalo otoñal más icónico que el pay de manzana. Este reconocido pay es, como puede suponerse, una tarta en la que el ingrediente principal de relleno es la manzana. Originado en Inglaterra y adoptado por los estadounidenses, el pay de manzana es postre tradicional cuya mezcla de sabores lo definen como uno de los platillos más reconfortantes dentro del territorio americano. Manzana, azúcar, canela… ¿Cómo podríamos decir no?",
+        "elementos": [
+            "Harina",
+            "Azúcar blanca",
+            "Azúcar morena",
+            "Canela, jengibre y nuez moscada",
+            "Molde para hornear de 9 pulgadas",
+            "Rodillo de cocina",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "485",
+        "porciones": "12 porciones",
+        "imagenes": [
+            "/data/products/img-payManzana-1.png",
+            "/data/products/img-payManzana-2.png",
+            "/data/products/img-payManzana-3.png",
+            "/data/products/img-payManzana-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0y"
+    }
+]
