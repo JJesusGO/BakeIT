@@ -64,8 +64,8 @@ h1 {
 .productos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 95%;
+    justify-content: center;
+    width: 90%;
     margin: 0 auto;
 }
 

@@ -78,10 +78,6 @@ img {
     font-weight: bold;
 }
 
-.porciones i {
-    display: none;
-}
-
 .boton-principal {
     background-color: var(--azul-claro);
     color: var(--blanco);
@@ -161,12 +157,6 @@ img {
         justify-content: space-between;
     }
 
-    .porciones i {
-        display: block;
-        font-size: 30px;
-        margin: 0 auto;
-    }
-
     .contenido-caja {
         display: flex;
         align-items: center;
@@ -177,13 +167,6 @@ img {
     .contenido-caja p {
         width: 100%;
         margin: 0;
-    }
-
-    .porciones {
-        padding: 0px 20px;
-        width: 35%;
-        text-align: center;
-        font-size: 14px;
     }
 
     .boton-principal {

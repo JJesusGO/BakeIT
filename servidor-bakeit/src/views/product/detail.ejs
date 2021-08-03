@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include("../partials/head",{titulo:"Detalle del producto",css:"productDetail.css"}); -%> 
-<body>
-    <%- include('../partials/header') %>
-    <main>
-        <section class="producto">
-            <div class="producto-imagenes">
-                <img src="/media/img/noDisponible.png" alt="Imagen del producto" id="producto-imagen1">
-                <img src="/media/img/noDisponible.png" alt="Imagen del producto" id="producto-imagen2">
-                <img src="/media/img/noDisponible.png" alt="Imagen del producto" id="producto-imagen3">
-                <img src="/media/img/noDisponible.png" alt="Imagen del producto" id="producto-imagen4">
-            </div>
-            <div class="producto-detalles">
-                <h1 class="nombre">Nombre del postre</h1>
-                <p class="precio">$0.00</p>
-                <p class="descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur minus odio quod cumque quibusdam saepe repellendus, doloremque reiciendis aspernatur, laborum itaque rerum recusandae earum perferendis laboriosam.</p>
+<%- include("../partials/head",{titulo:"Detalle del producto",css:"productDetail.css"}); -%>
 
-                <div class="contenido-caja">
-                    <p>La caja incluye:</p>
-                    <ul>
-                        <li>Elemento 1</li>
-                        <li>Elemento 2</li>
-                        <li>Elemento 3</li>
-                        <li>Elemento 4</li>
-                        <li>Elemento 5</li>
-                    </ul>
-                    <div class="porciones">
-                        <i class="fab fa-dropbox"></i>
-                        <p>Porciones: #</p>
+    <body>
+        <%- include('../partials/header') %>
+            <main>
+                <section class="producto">
+                    <div class="producto-imagenes">
+                        <img src="<%=producto.imagenes[0]%>" alt="Imagen del producto" id="producto-imagen1">
+                        <img src="<%=producto.imagenes[1]%>" alt="Imagen del producto" id="producto-imagen2">
+                        <img src="<%=producto.imagenes[2]%>" alt="Imagen del producto" id="producto-imagen3">
+                        <img src="<%=producto.imagenes[3]%>" alt="Imagen del producto" id="producto-imagen4">
                     </div>
-                </div>
-                <button type="button" class="boton-principal">Añadir</button>
-            </div>
-        </section>
-        <section class="ocasion-especial">
-            <h2>¿Acaso es una ocasión especial?</h2>
-            <p class="subtitulo">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div class="barra-separacion"></div>
-            <div class="kits">
-                <article class="kit-ocasion-especial">
-                    <img src="/media/img/noDisponible.png" alt="Imagen del producto">
-                    <p class="nombre">Kit</p>
-                    <p class="precio">$0.00</p>
-                    <button type="button" class="boton">Añadir</button>
-                </article>
-                <article class="kit-ocasion-especial">
-                    <img src="/media/img/noDisponible.png" alt="Imagen del producto">
-                    <p class="nombre">Kit</p>
-                    <p class="precio">$0.00</p>
-                    <button type="button" class="boton">Añadir</button>
-                </article>
-                <article class="kit-ocasion-especial">
-                    <img src="/media/img/noDisponible.png" alt="Imagen del producto">
-                    <p class="nombre">Kit</p>
-                    <p class="precio">$0.00</p>
-                    <button type="button" class="boton">Añadir</button>
-                </article>
-                <article class="kit-ocasion-especial">
-                    <img src="/media/img/noDisponible.png" alt="Imagen del producto">
-                    <p class="nombre">Kit</p>
-                    <p class="precio">$0.00</p>
-                    <button type="button" class="boton">Añadir</button>
-                </article>
-            </div>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
-</body>
+                    <div class="producto-detalles">
+                        <h1 class="nombre">
+                            <%=producto.nombre%>
+                        </h1>
+                        <p class="precio">$<%=producto.precio%>.00</p>
+                        <p class="descripcion">
+                            <%=producto.descripcion%>
+                        </p>
+                        <div class="contenido-caja">
+                            <div class="contenido">
+                                <p>La caja incluye:</p>
+                                <ul>
+                                    <% for(let elemento of producto.elementos) { %>
+                                        <li>
+                                            <%=elemento%>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                            </div>
+                            <div class="porciones">
+                                <p>Porciones: <%=producto.porciones%>
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="boton-principal">Añadir</button>
+                    </div>
+                </section>
+                <section class="ocasion-especial">
+                    <h2>¿Acaso es una ocasión especial?</h2>
+                    <p class="subtitulo">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <div class="barra-separacion"></div>
+                    <div class="kits">
+                        <article class="kit-ocasion-especial">
+                            <img src="/media/img/noDisponible.png" alt="Imagen del producto">
+                            <p class="nombre">Kit</p>
+                            <p class="precio">$0.00</p>
+                            <button type="button" class="boton">Añadir</button>
+                        </article>
+                        <article class="kit-ocasion-especial">
+                            <img src="/media/img/noDisponible.png" alt="Imagen del producto">
+                            <p class="nombre">Kit</p>
+                            <p class="precio">$0.00</p>
+                            <button type="button" class="boton">Añadir</button>
+                        </article>
+                        <article class="kit-ocasion-especial">
+                            <img src="/media/img/noDisponible.png" alt="Imagen del producto">
+                            <p class="nombre">Kit</p>
+                            <p class="precio">$0.00</p>
+                            <button type="button" class="boton">Añadir</button>
+                        </article>
+                        <article class="kit-ocasion-especial">
+                            <img src="/media/img/noDisponible.png" alt="Imagen del producto">
+                            <p class="nombre">Kit</p>
+                            <p class="precio">$0.00</p>
+                            <button type="button" class="boton">Añadir</button>
+                        </article>
+                    </div>
+                </section>
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
 
 </html>
