@@ -5,36 +5,34 @@
     <body>
         <%- include('./partials/header') %>
             <main>
-                <div class="banner">
-                    <h1>Menú</h1>
+                <div class="titulo">
+                    <h1>MENÚ</h1>
                 </div>
                 <div class="categorias">
-                    <article class="categoria">
-                        <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
-                        <p>Todos</p>
-                    </article>
-                    <article class="categoria">
-                        <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
-                        <p>Categoría 1</p>
-                    </article>
-                    <article class="categoria">
-                        <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
-                        <p>Categoría 2</p>
-                    </article>
+                    <% for(let categoria of categorias) { %>
+                        <article class="categoria">
+                            <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
+                            <p class="categoria-nombre">
+                                <%=categoria%>
+                            </p>
+                        </article>
+                        <% } %>
                 </div>
                 <div class="productos">
                     <% for(let producto of productos) { %>
-                        <a class="producto" href="/products/detail/<%=producto.id%>">
-                            <img class="producto-img" src="<%=producto.imagenes[0]%>" alt="Imagen del producto">
-                            <div class="producto-info">
-                                <p class="nombre">
-                                    <%=producto.nombre%>
-                                </p>
-                                <p class="precio">
-                                    $<%=producto.precio%>.00
-                                </p>
-                            </div>
-                        </a>
+                        <div class="producto">
+                            <a href="/products/detail/<%=producto.id%>">
+                                <img class="producto-img" src="<%=producto.imagenes[0]%>" alt="Imagen del producto">
+                                <div class="producto-info">
+                                    <p class="nombre">
+                                        <%=producto.nombre%>
+                                    </p>
+                                    <p class="precio">
+                                        $<%=producto.precio%>.00
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
                         <% } %>
                 </div>
             </main>

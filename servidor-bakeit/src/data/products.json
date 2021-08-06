@@ -1,6 +1,6 @@
 [
     {
-        "nombre": "Pastel de chocolate tradicional",
+        "nombre": "Pastel de chocolate",
         "tipo": "Postre",
         "categoria": "Pasteles",
         "descripcion": "El pastel de chocolate tradicional no necesita presentación. Pero quizá un poco de historia esté en orden. El origen del pastel de chocolate se remonta a 1764, cuando el Dr. James Baker descubrió cómo hacer chocolate moliendo granos de cacao entre dos enormes piedras de molino circulares. Su descubrimiento permitió que 1948 Pillsbury introdujera el sabor de lo que se convertiría el pastel más popular de la historia. Esta decadente delicia está destinada a ser un éxito sin importar el evento, después de todo, ¿quién dice que no a un pastel de chocolate?",
@@ -128,30 +128,6 @@
         "id": "boq2s55cskr9j8u0g"
     },
     {
-        "nombre": "Flan",
-        "tipo": "Postre",
-        "categoria": "Natillas y pudines",
-        "descripcion": "El flan, un postre cuyo origen se remonta al Imperio Romano, es una delicia hecha de huevos, leche y azúcar con toques de vainilla, naranja, coco o café, que se hornea en un baño de agua en el horno debido a su delicada base. Este postre de textura cremosa y gelatinosa es fácilmente el postre latino más popular y  lo ha sido durante muchas generaciones. ¡Simplemente es una receta que no se puede ignorar!",
-        "elementos": [
-            "Leche condensada",
-            "Leche evaporada",
-            "Vainilla",
-            "Azúcar",
-            "Plato para pastel metálico de 9 pulgadas",
-            "Molde para hornear de 10 pulgadas",
-            "Receta con instrucciones y consejos paso a paso"
-        ],
-        "precio": "320",
-        "porciones": "12 porciones",
-        "imagenes": [
-            "/data/products/img-flan-1.png",
-            "/data/products/img-flan-2.png",
-            "/data/products/img-flan-3.png",
-            "/data/products/img-flan-4.png"
-        ],
-        "id": "boq2s55cskr9j8u0w"
-    },
-    {
         "nombre": "Pay de manzana",
         "tipo": "Postre",
         "categoria": "Pays",
@@ -174,5 +150,29 @@
             "/data/products/img-payManzana-4.png"
         ],
         "id": "boq2s55cskr9j8u0y"
+    },
+    {
+        "nombre": "Flan",
+        "tipo": "Postre",
+        "categoria": "Natillas y pudines",
+        "descripcion": "El flan, un postre cuyo origen se remonta al Imperio Romano, es una delicia hecha de huevos, leche y azúcar con toques de vainilla, naranja, coco o café, que se hornea en un baño de agua en el horno debido a su delicada base. Este postre de textura cremosa y gelatinosa es fácilmente el postre latino más popular y  lo ha sido durante muchas generaciones. ¡Simplemente es una receta que no se puede ignorar!",
+        "elementos": [
+            "Leche condensada",
+            "Leche evaporada",
+            "Vainilla",
+            "Azúcar",
+            "Plato para pastel metálico de 9 pulgadas",
+            "Molde para hornear de 10 pulgadas",
+            "Receta con instrucciones y consejos paso a paso"
+        ],
+        "precio": "320",
+        "porciones": "12 porciones",
+        "imagenes": [
+            "/data/products/img-flan-1.png",
+            "/data/products/img-flan-2.png",
+            "/data/products/img-flan-3.png",
+            "/data/products/img-flan-4.png"
+        ],
+        "id": "boq2s55cskr9j8u0w"
     }
 ]
