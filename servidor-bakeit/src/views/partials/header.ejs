@@ -1,28 +1,36 @@
 <header>
-    <nav>
-        <div class="nav-header">
-            <ul class="nav justify-content-center align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link blanco" href="#">Opción</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link blanco" href="#">Opción</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link blanco" href="/"><img class="logo" src="/media/img/logo.svg"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link blanco" href="#">Opción</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link blanco" href="#">Opción</a>
-                </li>
-            </ul>
-            <div class="nav-menu">
-                <a class="blanco" href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
-                <a class="blanco" href="/user/login"><i class="far fa-user"></i></a>
-                <a class="blanco" href="/products/edit"><i class="far fa-edit"></i></a>
-            </div>
+    <nav class="nav-grid">        
+        <div class="navbar navbar-expand-lg navbar-dark nav-app">             
+            <div class="navbar-brand d-block d-lg-none">
+                <a class="nav-link text-white" href="#"><img class="logo" src="/media/img/logo.svg"></a>
+            </div>         
+            <button class="navbar-toggler mx-4" type="button" data-bs-toggle="collapse" data-bs-target="#menu" >
+                <span class="navbar-toggler-icon"></span>
+            </button>  
+            <div id="menu" class="collapse navbar-collapse justify-content-center align-items-center">
+                <ul class="navbar-nav nav-opciones">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="#">Opcion</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="#">Opcion</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link text-white" href="#"><img class="logo" src="/media/img/logo.svg"></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="#">Opcion</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="#">Opcion</a>
+                    </li>                                        
+                </ul>
+            </div>                                  
+        </div>
+        <div class="nav-menu">
+            <a class="blanco mx-2" href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
+            <a class="blanco mx-2" href="/user/login"><i class="far fa-user"></i></a>
+            <a class="blanco mx-2" href="/products/edit"><i class="far fa-edit"></i></a>
         </div>
     </nav>
 </header>
