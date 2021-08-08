@@ -160,6 +160,7 @@ p {
 
     .productos {
         width: 85%;
+        justify-content: center;
     }
 
     .producto {
@@ -171,10 +172,6 @@ p {
 @media (min-width: 750px) {
     .categorias {
         padding: 15px 0px;
-    }
-
-    .productos {
-        justify-content: center;
     }
 
     .producto {

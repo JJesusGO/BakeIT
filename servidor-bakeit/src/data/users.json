@@ -1,9 +1,20 @@
-{
-    "id": "ng7v1t9ykrbakkxr",
-    "nombre": "Marcela",
-    "apellido": "Barajas",
-    "fechaNacimiento": "2021-06-01",
-    "correo": "marcela@gmail.com",
-    "contrasena": "marcela",
-    "imagen": "img-1626739289207.png"
-}
+[
+    {
+        "id": "ng7v39jks2o0xcu",
+        "nombre": "Marcela",
+        "apellido": "Barajas",
+        "fechaNacimiento": "2000-03-12",
+        "correo": "marcela@gmail.com",
+        "contrasena": "$2a$10$tauMby3wn0jJDCktJZ1dD.8yD00VPie4hssLIrahX6fbTafNh4iba",
+        "imagen": "img-1628394473612.jpg"
+    },
+    {
+        "id": "ng7v39jks2o2e9d",
+        "nombre": "Marce",
+        "apellido": "Gonzalez",
+        "fechaNacimiento": "2000-03-12",
+        "correo": "marce@gmail.com",
+        "contrasena": "$2a$10$6XrwN6JJXQigdGyV01RSnOo4y.GVzp2wrrrhhAgcn8.0hL8VbR8ai",
+        "imagen": "img-1628394542255.jpg"
+    }
+]
