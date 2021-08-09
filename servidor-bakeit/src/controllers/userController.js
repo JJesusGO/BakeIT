@@ -1,11 +1,5 @@
 const fs = require('fs');
-const path = require('path');
-const uniqid = require('uniqid');
-const router = require('../routes/userRoutes');
-const bcrypt = require('bcryptjs');
-
-const usuariosFilePath = path.join(__dirname, '../data/users.json');
-const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
+const user = require('../models/User');
 
 const controller = {
     getLogin: (req, res) => {
@@ -21,17 +15,7 @@ const controller = {
     },
 
     register: (req, res) => {
-        let usuario = {
-            "id": uniqid(),
-            "nombre": req.body.nombre,
-            "apellido": req.body.apellido,
-            "fechaNacimiento": req.body.fechaNacimiento,
-            "correo": req.body.correo,
-            "contrasena": bcrypt.hashSync(req.body.contrasena, 10),
-            "imagen": req.file.filename
-        };
-        usuarios.push(usuario);
-        fs.writeFileSync(usuariosFilePath, JSON.stringify(usuarios));
+        user.User.createUser(req.body, req.file);
         res.redirect('/user/login');
     },
 
