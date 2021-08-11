@@ -12,7 +12,7 @@ const controller = {
 
     login: (req, res) => {
         const resultValidation = validationResult(req);
-        //res.send(resultValidation.mapped());
+
         if (resultValidation.errors.length > 0) {
             return res.render('user/login', {
                 errors: resultValidation.mapped(),
@@ -32,7 +32,20 @@ const controller = {
             });
         }
 
-        user.User.createUser(req.body, req.file);
+        let emailRegistered = user.User.findByEmail(req.body.correo);
+
+        if (emailRegistered) {
+            return res.render('user/register', {
+                errors: {
+                    correo: {
+                        msg: 'Este correo ya se encuentra registrado'
+                    }
+                },
+                oldData: req.body
+            });
+        }
+
+        let newUser = user.User.createUser(req.body, req.file);
         res.redirect('/user/login');
     },
 
