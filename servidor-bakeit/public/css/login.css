@@ -103,7 +103,7 @@ span.pass_underline {
     margin: 20px 0px;
 }
 
-#checkbox_terminos {
+#checkbox_recordar {
     width: min-content;
 }
 
@@ -149,6 +149,10 @@ span.pass_underline {
     cursor: pointer;
     font-size: 10px;
     text-decoration: underline;
+    padding: 0px 10px;
+}
+
+.recordar {
     padding: 0px 10px;
 }
 

@@ -1,4 +1,5 @@
 const { validationResult } = require('express-validator');
+const bcryptjs = require('bcryptjs');
 const user = require('../models/User');
 
 const controller = {
@@ -19,6 +20,35 @@ const controller = {
                 oldData: req.body
             });
         }
+
+        let userLogin = user.User.findByEmail(req.body.correo);
+
+        if (userLogin) {
+            let passCompare = bcryptjs.compareSync(req.body.contrasena, userLogin.contrasena);
+            if (passCompare) {
+                delete userLogin.contrasena;
+                req.session.usuarioLoggeado = userLogin;
+                return res.send(req.session)
+            }
+            return res.render('user/login', {
+                errors: {
+                    contrasena: {
+                        msg: 'Contraseña incorrecta'
+                    }
+                },
+                oldData: req.body
+            });
+        }
+        return res.render('user/login', {
+            errors: {
+                correo: {
+                    msg: 'El correo ingresado no se encuentra registrado'
+                }
+            },
+            oldData: req.body
+        });
+
+
         res.redirect('/')
     },
 

@@ -40,8 +40,13 @@ const validations = [
     body('terminos').notEmpty().withMessage('Para poder registrarte se deben aceptar los términos')
 ]
 
+const logValidations = [
+    body('correo').notEmpty().withMessage('Este campo es requerido').bail().isEmail().withMessage('El formato de correo es invalido'),
+    body('contrasena').notEmpty().withMessage('Este campo es requerido')
+]
+
 router.get('/login', userController.getLogin);
-router.post('/login', validations, userController.login)
+router.post('/login', logValidations, userController.login)
 router.get('/register', userController.getRegister);
 router.post('/register', upload.single("imagen"), validations, userController.register)
 router.get('/resetPassword', userController.resetPassword)
