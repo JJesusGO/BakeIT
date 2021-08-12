@@ -1,6 +1,5 @@
 //
 const fs = require('fs');
-const path = require('path');
 const uniqid = require('uniqid');
 const bcrypt = require('bcryptjs');
 

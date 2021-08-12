@@ -3,10 +3,11 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path')
 const { body } = require('express-validator');
+const userController = require('../controllers/userController');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, './public/media/img');
+        cb(null, './public/media/avatars');
     },
     filename: function(req, file, cb) {
         cb(null, "img-" + Date.now() + path.extname(file.originalname));
@@ -14,8 +15,6 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage })
-
-const userController = require('../controllers/userController');
 
 const validations = [
     body('nombre').notEmpty().withMessage('Este campo es requerido'),
@@ -45,10 +44,13 @@ const logValidations = [
     body('contrasena').notEmpty().withMessage('Este campo es requerido')
 ]
 
-router.get('/login', userController.getLogin);
-router.post('/login', logValidations, userController.login)
-router.get('/register', userController.getRegister);
-router.post('/register', upload.single("imagen"), validations, userController.register)
+router.route('/login')
+      .get(userController.getLogin)
+      .post(logValidations, userController.login)
+router.get('/logout', userController.logout);
+router.route('/register')
+      .get(userController.getRegister)
+      .post(upload.single("imagen"), validations, userController.register)
 router.get('/resetPassword', userController.resetPassword)
 
 module.exports = router;

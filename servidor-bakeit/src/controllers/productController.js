@@ -2,7 +2,7 @@ const uniqid = require('uniqid');
 const fs = require('fs');
 const path = require('path');
 
-const { productos, agregarProducto, editarProducto, eliminarProducto } = require("../data/products");
+const { productos, agregarProducto, editarProducto, eliminarProducto } = require("../models/Product");
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -18,15 +18,22 @@ const controlador = {
         res.render('product/detail', { producto: productoSeleccionado });
     },
     getCart: (req, res) => {
-        res.render('product/cart');
+        if(req.session.usuarioLoggeado)        
+            return res.render('product/cart');
+        return res.redirect("/");
     },
-    getProducts: (req, res) => {
-        res.render('product/edit', { productos, edicion: -1 });
+    getProducts: (req, res) => {        
+        if(req.session.usuarioLoggeado)        
+            return res.render('product/edit', { productos, edicion: -1 });        
+        return res.redirect("/");
     },
     getProductID: (req, res) => {
-        const { id } = req.params;
-        const index = productos.findIndex(producto => producto.id === id);
-        res.render('product/edit', { productos, edicion: index });
+        if(req.session.usuarioLoggeado){
+            const { id } = req.params;
+            const index = productos.findIndex(producto => producto.id === id);
+            return res.render('product/edit', { productos, edicion: index });
+        }        
+        return res.redirect("/");
     },
     postProduct: (req, res) => {
         const files = req.files;
