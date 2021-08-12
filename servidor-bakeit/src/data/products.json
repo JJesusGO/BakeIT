@@ -174,5 +174,92 @@
             "/data/products/img-flan-4.png"
         ],
         "id": "boq2s55cskr9j8u0w"
+    },
+    {
+        "nombre": "Kit: ¡Feliz cumpleaños!",
+        "tipo": "Kit",
+        "categoria": "Grupal",
+        "descripcion": "¿Acaso vas a celebrar un cumpleaños? El Kit ¡Feliz cumpleaños! te ofrece los complementos necesarios para hacer de tu celebración una ocasión aún más memorable. ¡Festeja a lo grande con tu familia y amigos!",
+        "elementos": [
+            "12 gorros de fiesta",
+            "12 platos desechables decorados",
+            "Paquete de 20 velas de cumpleaños",
+            "20 globos multicolor",
+            "Paquete de confeti",
+            "Paquete de serpentinas"
+        ],
+        "precio": "199",
+        "porciones": "",
+        "imagenes": [
+            "/data/products/img-birthday-1.png",
+            "/data/products/img-birthday-2.png",
+            "/data/products/img-birthday-3.png",
+            "/data/products/img-birthday-4.png"
+        ],
+        "id": "boq2s55cskr9j8a0w"
+    },
+    {
+        "nombre": "Kit: ¡Feliz aniversario!",
+        "tipo": "Kit",
+        "categoria": "Pareja",
+        "descripcion": "¿Acaso vas a celebrar un aniversario? El Kit ¡Feliz aniversario! te ofrece los complementos necesarios para hacer de tu celebración una ocasión aún más memorable. ¡Sorprende a esa persona especial no solo con tus habilidades culinarias, sino también con una presentación excepcional!",
+        "elementos": [
+            "2 copas de cristal",
+            "2 platos para postre decorados",
+            "Ramo de rosas artificiales",
+            "5 globos dorados",
+            "5 globos plateados"
+        ],
+        "precio": "319",
+        "porciones": "",
+        "imagenes": [
+            "/data/products/img-aniversario-1.png",
+            "/data/products/img-aniversario-2.png",
+            "/data/products/img-aniversario-3.png",
+            "/data/products/img-aniversario-4.png"
+        ],
+        "id": "boq2s55cskr9j8b0w"
+    },
+    {
+        "nombre": "Kit: ¡Feliz San Valentín!",
+        "tipo": "Kit",
+        "categoria": "Pareja",
+        "descripcion": "¡San Valentín está a la vuelta de la esquina! El Kit ¡Feliz San Valentín! te ofrece los complementos necesarios para hacer de tu celebración una ocasión aún más memorable. Kit + Postre = ¡Éxito!",
+        "elementos": [
+            "Caja en forma de corazón de 20 cm de largo",
+            "Ramo de rosas artificiales",
+            "Tarjeta de celebración",
+            "3 globos con forma de corazón"
+        ],
+        "precio": "189",
+        "porciones": "",
+        "imagenes": [
+            "/data/products/img-sanValentin-1.png",
+            "/data/products/img-sanValentin-2.png",
+            "/data/products/img-sanValentin-3.png",
+            "/data/products/img-sanValentin-4.png"
+        ],
+        "id": "boq2s55cskr9j8c0w"
+    },
+    {
+        "nombre": "Kit: ¡Feliz Navidad!",
+        "tipo": "Kit",
+        "categoria": "Grupal",
+        "descripcion": "¡La Navidad está por llegar! El Kit ¡Feliz Navidad! te ofrece los complementos necesarios para hacer de tu celebración una ocasión aún más memorable; este te provee con todos los materiales y artículos necesario para hacer de tu delicia culinaria el mejor regalo para tu familia y amigos.",
+        "elementos": [
+            "12 cajas de regalo cuadradas de 12cm",
+            "12 tarjetas temáticas con sobre",
+            "12 etiquetas temáticas",
+            "Listón decorado, cordón de yute y otras decoraciones"
+        ],
+        "precio": "269",
+        "porciones": "",
+        "imagenes": [
+            "/data/products/img-navidad-1.png",
+            "/data/products/img-navidad-2.png",
+            "/data/products/img-navidad-3.png",
+            "/data/products/img-navidad-4.png"
+        ],
+        "id": "boq2s55cskr9j8d0w"
     }
 ]
