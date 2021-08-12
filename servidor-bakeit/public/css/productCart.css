@@ -57,7 +57,9 @@ body {
     padding: 15px;
 }
 
+
 /* aside */
+
 aside {
     min-height: 80vh;
     max-width: 500px;
@@ -98,6 +100,10 @@ aside {
 
 img {
     width: 30%;
+}
+
+img.user-nav {
+    width: 35px;
 }
 
 .detalles {
@@ -146,11 +152,9 @@ img {
     .nav-elemento {
         display: inline-block;
     }
-
     .barra-navegacion-elementos {
         width: 85vw;
     }
-
     .menu {
         width: 10vw;
     }

@@ -29,7 +29,7 @@
         </div>
         <div class="nav-menu">
             <% if (locals.isLogged){%>
-                <img src="/media/img/<%= locals.usuarioLoggeado.imagen %>" width="35" style="border-radius: 100%;">
+                <img class="profile-image" src="/media/img/<%= locals.usuarioLoggeado.imagen %>" style="border-radius: 100%;">
                 <p class="user-nav mx-2 ">Hola
                     <%= locals.usuarioLoggeado.nombre %>
                 </p>

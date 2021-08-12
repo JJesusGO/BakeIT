@@ -28,6 +28,11 @@ const controller = {
             if (passCompare) {
                 delete userLogin.contrasena;
                 req.session.usuarioLoggeado = userLogin;
+
+                if (req.body.recordar) {
+                    res.cookie('userEmail'), req.body.correo, { maxAge: (1000 * 60) * 2 }
+                }
+
                 return res.redirect('/')
             }
             return res.render('user/login', {
@@ -76,6 +81,13 @@ const controller = {
 
         let newUser = user.User.createUser(req.body, req.file);
         res.redirect('/user/login');
+    },
+
+    //Pendiente de agregar
+    logout: (req, res) => {
+        res.clearÇookie('userEmail');
+        req.session.destroy();
+        return res.redirect('/');
     },
 
     resetPassword: (req, res) => {

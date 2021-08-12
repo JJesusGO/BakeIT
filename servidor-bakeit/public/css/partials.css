@@ -63,6 +63,10 @@ a.blanco:visited {
     padding: 0 1rem;
 }
 
+img.profile-image {
+    width: 35px;
+}
+
 .user-nav {
     color: white;
     margin-top: 1rem;
