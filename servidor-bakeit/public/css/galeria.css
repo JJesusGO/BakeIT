@@ -9,7 +9,6 @@
 
 * {
     box-sizing: border-box;
-    color: var(--negro);
     font-family: "Montserrat", sans-serif;
 }
 
@@ -23,6 +22,7 @@ html {
 body {
     background-color: #0b1826;
     border: none;
+    color: var(--negro);
     margin: 0px;
     padding: 0px;
 }
@@ -46,17 +46,27 @@ h1 {
     font-weight: bolder;
     letter-spacing: 5px;
     margin: 0px;
-    padding: 30px, 30px;
+    padding: 30px;
     text-align: center;
     -webkit-background-clip: text;
 }
 
 .titulo {
     text-align: center;
+    padding-top: 50px;
 }
 
 .categorias {
     display: none;
+}
+
+.categorias-drop-down {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.categorias-drop-down select {
+    width: 100%;
 }
 
 .productos {
@@ -108,6 +118,11 @@ p {
 }
 
 @media (min-width: 361px) {
+    .categorias-drop-down {
+        margin: 0 auto;
+        width: 85%;
+    }
+
     .productos {
         width: 90%;
         justify-content: space-between;
@@ -133,6 +148,10 @@ p {
 }
 
 @media (min-width: 530px) {
+    .categorias-drop-down {
+        display: none;
+    }
+
     .categorias {
         display: flex;
         width: 85%;
@@ -143,8 +162,8 @@ p {
 
     .categoria {
         text-align: center;
-        padding: 0px 8px;
-        max-width: 70px;
+        padding: 0px 4px;
+        max-width: 60px;
 
     }
 
@@ -154,7 +173,7 @@ p {
 
     .categoria-nombre {
         color: var(--blanco);
-        font-size: 12px;
+        font-size: 10px;
         padding-top: 3px;
     }
 
@@ -172,6 +191,16 @@ p {
 @media (min-width: 750px) {
     .categorias {
         padding: 15px 0px;
+    }
+
+    .categoria {
+        padding: 0px 8px;
+        max-width: 70px;
+
+    }
+
+    .categoria-nombre {
+        font-size: 12px;
     }
 
     .producto {

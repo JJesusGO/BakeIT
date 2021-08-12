@@ -17,8 +17,8 @@
 
 <h4>Hacer menos</h4>
 
-- 
+- No aplica.
 
 <h4>Dejar de hacer</h4>
 
--
+- No aplica.

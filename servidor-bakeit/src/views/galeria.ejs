@@ -8,7 +8,20 @@
                 <div class="titulo">
                     <h1>MENÚ</h1>
                 </div>
+                <div class="categorias-drop-down">
+                    <select>
+                        <option value="" selected>Todos</option>
+                        <option value="">Natillas y pudines</option>
+                        <option value="">Postres fríos</option>
+                        <option value="">Galletas</option>
+                        <option value="">Pasteles</option>
+                        <option value="">Pays</option>
+                        <option value="">Hojaldres y bollos</option>
+                        <option value="">Kits</option>
+                    </select>
+                </div>
                 <div class="categorias">
+                    <!-- ¿Qué elemento es el menú de categorías? -->
                     <% for(let categoria of categorias) { %>
                         <article class="categoria">
                             <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
