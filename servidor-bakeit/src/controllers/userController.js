@@ -28,7 +28,7 @@ const controller = {
             if (passCompare) {
                 delete userLogin.contrasena;
                 req.session.usuarioLoggeado = userLogin;
-                return res.send(req.session)
+                return res.redirect('/')
             }
             return res.render('user/login', {
                 errors: {
@@ -47,7 +47,6 @@ const controller = {
             },
             oldData: req.body
         });
-
 
         res.redirect('/')
     },

@@ -25,7 +25,7 @@ const validations = [
     body('contrasena').notEmpty().withMessage('Este campo es requerido'),
     body('imagen').custom((value, { req }) => {
         let file = req.file;
-        let accepted = ['.jpg', '.png', '.gif'];
+        let accepted = ['.jpg', '.png', '.gif', '.JPG', '.PNG', '.GIF'];
         if (!file) {
             throw new Error('Tienes que seleccionar una imagen');
         } else {

@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const cookies = require('cookie-parser');
 const methodOverride = require('method-override');
 const app = express();
 const path = require('path');
@@ -8,10 +9,13 @@ const { log } = require('./herramientas/herramientas');
 const public = path.join(__dirname, '../public');
 const views = path.join(__dirname, './views');
 
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
 //ROUTES
 const main = require('./routes/mainRoutes');
 const products = require('./routes/productRoutes');
 const user = require('./routes/userRoutes');
+const { cookie } = require('express-validator');
 
 //CONFIGURACIÓN
 app.set("PUERTO", 3000);
@@ -28,6 +32,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(cookies());
+app.use(userLoggedMiddleware);
 
 //RUTAS
 app.use('/', main);
