@@ -7,32 +7,32 @@ Usuarios{
     correo vchar(255) not null
     contrasena vchar(255) not null
     imagen int unsigned not null fk
-}
+} : Marce
 Carrito{
     id int unsigned not null pk
     usuario_id int unsigned fk
     status int unsigned not null
-}
+} : Marce
 Carrito_Producto{
     id int unsigned not null pk,
     carrito_id int unsigned fk,
     producto_id int unsigned fk,
     cantidad int unsigned not null
-}
+} : Marce
 Permisos {
     id int unsigned not null pk
     nombre vchar(255) not null,
     edicion bool unsigned not null
-}
+} : Marce
 Imagenes{
     id int unsigned not null pk,
     url varchar(500) not null
-} 
+} : Marce
 Award{
     id int unsigned not null pk,
     nombre vchar(255) not null,
     descripcion text not null
-}
+} : Jesus
 Productos{
     id int unsigned not null pk,
     tipo enum("postre","kit") not null,
@@ -42,31 +42,31 @@ Productos{
     precio float(24) not null,
     elementos text not null,  
     porciones varchar(255) not null
-}
+} : Jesus
 Productos_Award{
     id int unsigned not null pk,
     producto_id int unsigned not null fk,
     award_id int unsigned not null fk,
     raiting int unsigned
-}
+} : Jesus
 Productos_Imagenes{
     id int unsigned not null pk,
     producto_id int unsigned not null fk,
     imagen_id int unsigned not null
-}
+} : Jesus
 Ofertas{
     id int unsigned not null pk,
     producto_id int unsigned not null,
     descuento float(24) not null,
-}
+} : Marce
 Recomendaciones{
     id int unsigned not null pk,
     producto_id int unsigned not null fk,
     recomendado_id int unsigned not null fk,
-}
+} : Jesus
 Categorias{
     id int unsigned not null pk,
     nombre vchar(255) not null 
-}
+} : Marce
 
 
