@@ -12,16 +12,6 @@ const controlador = {
         res.render('index');
     },
     getGaleria: (req, res) => {
-        // Prueba de acceso a la base de datos.
-        db.Categoria.findAll()
-            .then(categoriasDB => {
-                console.log(categoriasDB);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        // Aquí termina la prueba.
-
         res.render('galeria', { productos: products, categorias: categorias });
     }
 };
