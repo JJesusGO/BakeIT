@@ -1,4 +1,4 @@
-module.exports = (sequalize,DataTypes) => {
+module.exports = (sequalize, DataTypes) => {
     const alias = 'Producto';
     const cols = {
         id: {
@@ -7,8 +7,8 @@ module.exports = (sequalize,DataTypes) => {
             autoIncrement: true,
             primaryKey: true
         },
-        tipo : {
-            type: DataTypes.ENUM("postre","kit"),
+        tipo: {
+            type: DataTypes.ENUM("postre", "kit"),
             allowNull: false
         },
         nombre: {
@@ -27,7 +27,7 @@ module.exports = (sequalize,DataTypes) => {
             type: DataTypes.DOUBLE,
             allowNull: false
         },
-        elementos:{
+        elementos: {
             type: DataTypes.TEXT,
             allowNull: false
         },
@@ -43,30 +43,33 @@ module.exports = (sequalize,DataTypes) => {
 
     const Producto = sequalize.define(alias, cols, config);
 
-    Producto.associate = function (models) {
+    Producto.associate = function(models) {
         Producto.belongsTo(models.Categoria, {
             as: 'categoria',
             foreignKey: 'categoria_id'
         });
-        Producto.belongsToMany(models.Producto,{
-            as : "awards",
-            through : "productos_awards",
+        /* 
+        Producto.belongsToMany(models.Producto, {
+            as: "awards",
+            through: "productos_awards",
             foreignKey: 'producto_id',
             otherKey: "award_id"
         });
-        Producto.belongsToMany(models.Imagen,{
+        */
+        Producto.belongsToMany(models.Imagen, {
             as: "imagenes",
             through: "productos_imagenes",
             foreignKey: 'producto_id',
             otherKey: "imagen_id"
         });
+        /*
         Producto.belongsToMany(models.Producto,{
             as: "recomendaciones",
             through: "recomendaciones",
             foreignKey: 'producto_id',
             otherKey: "recomendado_id"
-        });
-        Producto.belongsToMany(models.Producto,{
+        });*/
+        Producto.belongsToMany(models.Producto, {
             as: "recomendado",
             through: "recomendaciones",
             foreignKey: 'recomendado_id',

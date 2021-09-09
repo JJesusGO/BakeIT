@@ -20,80 +20,81 @@ const controller = {
     getRegister: (req, res) => {
         res.render('user/register');
     },
-    /*
-        login: (req, res) => {
-            const resultValidation = validationResult(req);
 
-            if (resultValidation.errors.length > 0) {
-                return res.render('user/login', {
-                    errors: resultValidation.mapped(),
-                    oldData: req.body
-                });
-            }
+    login: (req, res) => {
+        const resultValidation = validationResult(req);
 
-            let userLogin = user.User.findByEmail(req.body.correo);
+        if (resultValidation.errors.length > 0) {
+            return res.render('user/login', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
 
-            if (userLogin) {
-                let passCompare = bcryptjs.compareSync(req.body.contrasena, userLogin.contrasena);
-                if (passCompare) {
-                    delete userLogin.contrasena;
-                    req.session.usuarioLoggeado = userLogin;
-                    if (req.body.recordar)
-                        res.cookie('id', userLogin.id, { maxAge: (1000 * 60) * 2 });
+        let userLogin = user.User.findByEmail(req.body.correo);
 
-                    return res.redirect('/')
-                }
-                return res.render('user/login', {
-                    errors: {
-                        contrasena: {
-                            msg: 'Contraseña incorrecta'
-                        }
-                    },
-                    oldData: req.body
-                });
+        if (userLogin) {
+            let passCompare = bcrypt.compareSync(req.body.contrasena, userLogin.contrasena);
+            if (passCompare) {
+                delete userLogin.contrasena;
+                req.session.usuarioLoggeado = userLogin;
+                if (req.body.recordar)
+                    res.cookie('id', userLogin.id, { maxAge: (1000 * 60) * 2 });
+
+                return res.redirect('/')
             }
             return res.render('user/login', {
                 errors: {
-                    correo: {
-                        msg: 'El correo ingresado no se encuentra registrado'
+                    contrasena: {
+                        msg: 'Contraseña incorrecta'
                     }
                 },
                 oldData: req.body
             });
+        }
+        return res.render('user/login', {
+            errors: {
+                correo: {
+                    msg: 'El correo ingresado no se encuentra registrado'
+                }
+            },
+            oldData: req.body
+        });
 
-        },
-        logout: (req, res) => {
-            req.session.usuarioLoggeado = null;
-            res.clearCookie('id');
-            res.redirect('/');
-        },
-        register: (req, res) => {
-            const resultValidation = validationResult(req);
+    },
+    /*
+    logout: (req, res) => {
+        req.session.usuarioLoggeado = null;
+        res.clearCookie('id');
+        res.redirect('/');
+    },
+    register: (req, res) => {
+        const resultValidation = validationResult(req);
 
-            if (resultValidation.errors.length > 0) {
-                return res.render('user/register', {
-                    errors: resultValidation.mapped(),
-                    oldData: req.body
-                });
-            }
+        if (resultValidation.errors.length > 0) {
+            return res.render('user/register', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
 
-            let emailRegistered = user.User.findByEmail(req.body.correo);
+        let emailRegistered = user.User.findByEmail(req.body.correo);
 
-            if (emailRegistered) {
-                return res.render('user/register', {
-                    errors: {
-                        correo: {
-                            msg: 'Este correo ya se encuentra registrado'
-                        }
-                    },
-                    oldData: req.body
-                });
-            }
+        if (emailRegistered) {
+            return res.render('user/register', {
+                errors: {
+                    correo: {
+                        msg: 'Este correo ya se encuentra registrado'
+                    }
+                },
+                oldData: req.body
+            });
+        }
 
-            let newUser = user.User.createUser(req.body, req.file);
-            res.redirect('/user/login');
-        },
-        */
+        let newUser = user.User.createUser(req.body, req.file);
+        res.redirect('/user/login');
+    },
+    */
     resetPassword: (req, res) => {
         res.render('user/resetPassword');
     },
@@ -122,9 +123,8 @@ const controller = {
     },
     edit: function(req, res) {
         User.findByPk(req.params.id, {
-                include: [
-                    { association: "permiso" },
-                    { association: "imagen" }
+                include: ["permiso",
+                    "imagen"
                     //,{ model: "Carrito", as: "carritos" }
                 ]
             })
@@ -153,9 +153,8 @@ const controller = {
     },
     detail: function(req, res) {
         User.findByPk(req.params.id, {
-                include: [
-                    { association: "permiso" },
-                    { association: "imagen" }
+                include: ["permiso",
+                    "imagen"
                     //,{ model: "Carrito", as: "carritos" }
                 ]
             })

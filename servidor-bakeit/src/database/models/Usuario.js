@@ -11,6 +11,10 @@ module.exports = (sequalize, DataTypes) => {
             type: DataTypes.STRING(255),
             allowNull: false,
         },
+        permiso_id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+        },
         apellidos: {
             type: DataTypes.STRING(255),
             allowNull: false,
@@ -27,10 +31,7 @@ module.exports = (sequalize, DataTypes) => {
             type: DataTypes.STRING(225),
             allowNull: false,
         },
-        permiso_id: {
-            type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: false,
-        },
+
         imagen_id: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
@@ -44,7 +45,7 @@ module.exports = (sequalize, DataTypes) => {
     const Usuario = sequalize.define(alias, cols, config);
 
     // Relaciones
-    Usuario.associate = function (models) {
+    Usuario.associate = function(models) {
         Usuario.belongsTo(models.Permiso), {
             as: 'permiso',
             foreignKey: 'permiso_id'

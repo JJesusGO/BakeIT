@@ -1,4 +1,4 @@
-module.exports = (sequalize,DataTypes) => {
+module.exports = (sequalize, DataTypes) => {
     const alias = 'Producto_Award';
     const cols = {
         id: {
@@ -26,6 +26,8 @@ module.exports = (sequalize,DataTypes) => {
     };
 
     const Producto_Award = sequalize.define(alias, cols, config);
+    /*
+    No esta funcion
     Producto_Award.associate = function(models){
         Producto_Award.belongsTo(models.Producto,{
             as: "producto",
@@ -35,7 +37,8 @@ module.exports = (sequalize,DataTypes) => {
             as: "award",
             foreignKey: 'award_id'
         });
-    }
+        
+    }*/
 
     return Producto_Award;
 };
