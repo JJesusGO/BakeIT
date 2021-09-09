@@ -29,16 +29,19 @@
         </div>
         <div class="nav-menu">
             <% if (locals.isLogged){%>
+                <a href="/user/detail/<%= locals.usuarioLoggeado.id %>">
                 <img class="profile-image" src="/media/avatars/<%= locals.usuarioLoggeado.imagen %>" style="border-radius: 100%;">
-                <p class="user-nav mx-2 ">Hola
+            </a>
+                <p class="user-nav mx-2">Hola
                     <%= locals.usuarioLoggeado.nombre %>
                 </p>
+
                 <a class="blanco mx-2" href="/products/cart"><i class="fas fa-shopping-cart blanco"></i></a>
                 <a class="blanco mx-2" href="/products/edit"><i class="far fa-edit blanco"></i></a>
                 <a class="blanco mx-2" href="/user/logout"><i class="far fa-user blanco"></i></a>
-            <% } else { %>
-                <a class="blanco mx-2" href="/user/login"><i class="far fa-user blanco"></i></a>
-            <%}%>
+                <% } else { %>
+                    <a class="blanco mx-2" href="/user/login"><i class="far fa-user blanco"></i></a>
+                    <%}%>
         </div>
     </nav>
 </header>

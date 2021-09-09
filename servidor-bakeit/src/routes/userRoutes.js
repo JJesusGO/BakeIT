@@ -46,7 +46,7 @@ const logValidations = [
 
 router.route('/login')
     .get(userController.getLogin)
-    // .post(logValidations, userController.login)
+    .post(logValidations, userController.login)
     //router.get('/logout', userController.logout);
     //router.route('/register')
     //.get(userController.getRegister)
@@ -56,8 +56,7 @@ router.get('/resetPassword', userController.resetPassword)
 //CRUD
 router.get('/add', userController.add);
 router.post('/add', upload.single("imagen"), validations, userController.create);
-router.get('/edit/:id', userController.edit);
-router.get('/update/:id', userController.update);
+router.get('/update/:id', userController.edit);
 router.put('/update/:id', upload.single("imagen"), validations, userController.update);
 router.get('/detail/:id', userController.detail);
 

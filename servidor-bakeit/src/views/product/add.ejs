@@ -1,0 +1,83 @@
+<%// productos, edicion%>
+    <!DOCTYPE html>
+    <html lang="es">
+    <%- include("../partials/head",{titulo:"Bienvenidxs a BakeIt",css:"productEdit.css"}); -%>
+
+        <body>
+            <%- include("../partials/header"); -%>
+                <main>
+                    <div class="row w-100 p-3">
+
+                        <section id="control" class="seccion-control col-md-6">
+                            <div class="container-md panel shadow">
+                                <div class="container-fluid encabezado">
+                                    <h4>Agregar</h4>
+                                </div>
+                                <div class="container-fluid contenido">
+
+
+                                    <form action="/products/add" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group my-3">
+                                            <label for="nombre" class="my-1">Nombre del producto</label>
+                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa" required>
+                                        </div>
+                                        <div class="form-group my-3">
+                                            <label for="tipo" class="form-label">Tipo:</label>
+                                            <select name="tipo" id="tipo" class="form-control" required>
+                                        <option value="" class="text-muted">Selecciona una opción</option>
+                                        <option value="postre">Postre</option>
+                                        <option value="kit">Kit</option>                                        
+						            </select>
+                                        </div>
+                                        <div class="form-group my-3">
+                                            <label for="categoria" class="form-label">Categoría:</label>
+                                            <select name="categoria" id="categoria" class="form-control" required>
+                                        <option value="" class="text-muted">Selecciona una opción</option>
+                                        <option value="1">Categoria1</option>
+                                        <option value="2">Categoria2</option>
+                                        <option value="3">Categoria3</option>
+                                        <option value="4">Categoria4</option>
+						            </select>
+                                        </div>
+                                        <div class="form-group my-3">
+                                            <label for="descripcion" class="my-1">Descripción</label>
+                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                                        </div>
+                                        <div class="form-group my-3">
+                                            <label for="elementos" class="my-1">Elementos</label>
+                                            <textarea class="form-control" id="elementos" name="elementos" rows="3" required></textarea>
+                                        </div>
+                                        <div class="form-group my-3">
+                                            <label for="precio" class="my-1">Precio</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group my-3">
+                                            <label for="porciones" class="my-1">Porciones</label>
+                                            <input type="number" class="form-control" id="porciones" name="porciones" placeholder="0" required>
+                                        </div>
+                                        <div class="form-group my-3">
+                                            <label for="imagen1" class="form-label mb-2">Imagenes</label>
+                                            <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                            <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                            <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                            <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        </div>
+                                        <button type="submit" class="btn btn2 my-3">Agregar</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </section>
+
+
+                    </div>
+                </main>
+                <%- include("../partials/footer"); -%>
+        </body>
+
+    </html>
