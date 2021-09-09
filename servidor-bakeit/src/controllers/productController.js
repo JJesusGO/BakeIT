@@ -1,10 +1,13 @@
 const uniqid = require('uniqid');
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models');
 
 const { productos, agregarProducto, editarProducto, eliminarProducto } = require("../models/Product");
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+const Product = db.Producto;
 
 const controlador = {
 
@@ -18,21 +21,21 @@ const controlador = {
         res.render('product/detail', { producto: productoSeleccionado });
     },
     getCart: (req, res) => {
-        if(req.session.usuarioLoggeado)        
+        if (req.session.usuarioLoggeado)
             return res.render('product/cart');
         return res.redirect("/");
     },
-    getProducts: (req, res) => {        
-        if(req.session.usuarioLoggeado)        
-            return res.render('product/edit', { productos, edicion: -1 });        
+    getProducts: (req, res) => {
+        if (req.session.usuarioLoggeado)
+            return res.render('product/edit', { productos, edicion: -1 });
         return res.redirect("/");
     },
     getProductID: (req, res) => {
-        if(req.session.usuarioLoggeado){
+        if (req.session.usuarioLoggeado) {
             const { id } = req.params;
             const index = productos.findIndex(producto => producto.id === id);
             return res.render('product/edit', { productos, edicion: index });
-        }        
+        }
         return res.redirect("/");
     },
     postProduct: (req, res) => {
@@ -97,6 +100,114 @@ const controlador = {
         const { id } = req.params;
         eliminarProducto(id);
         res.redirect("/products/edit");
+    },
+
+    //CRUD con base de datos
+    list: (req, res) => {
+        product.findAll({
+                include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
+
+            })
+            .then(producto => {
+                res.render('galeria', { producto: producto })
+            })
+    },
+    detail: (req, res) => {
+        Product.findByPk(req.params.id, {
+                include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
+
+            })
+            .then(function(producto) {
+                return res.render('product/detail', { producto: producto });
+            })
+    },
+    add: (req, res) => {
+        return res.render('product/add');
+    },
+    create: (req, res) => {
+        Product.create({
+            tipo: req.body.tipo,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            categoria_id: req.body.categoria,
+            precio: req.body.precio,
+            elementos: req.body.elementos,
+            porciones: req.body.porciones
+        }).then((producto) => {
+            let productId = producto.id;
+            for (i = 0; i < req.files.length; i++) {
+                db.Imagen.create({
+                        url: req.files[i].filename,
+                    })
+                    .then((imagen) => {
+                        db.Producto_Imagen.create({
+                            producto_id: productId,
+                            imagen_id: imagen.id
+                        })
+                    })
+            }
+        }).catch(function(err) {
+            console.log(err);
+        });
+        res.redirect("/");
+    },
+    search: (req, res) => {
+        return res.render('products/find');
+    },
+    find: (req, res) => {
+        let nombre = req.body.nombre
+        Product.findOne({
+                include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado'],
+                where: {
+                    nombre: nombre
+                }
+            })
+            .then(producto => {
+                res.render('products/detail', { producto: producto });
+            });
+    },
+    edit: (req, res) => {
+        Product.findByPk(req.params.id, {
+                include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
+            })
+            .then(function(producto) {
+                return res.render('product/update', { productos: producto });
+            })
+    },
+    update: (req, res) => {
+        let productId = req.params.id;
+        Product.update({
+                tipo: req.body.tipo,
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                categoria_id: req.body.categoria,
+                precio: req.body.precio,
+                elementos: req.body.elementos,
+                porciones: req.body.porciones
+            }, {
+                where: { id: productId }
+            })
+            .then(() => {
+                return res.redirect('product/update')
+            })
+            .catch(error => res.send(error))
+    },
+    delete: (req, res) => {
+        Product.findByPk(req.params.id, {
+                include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
+            })
+            .then(function(producto) {
+                return res.render('product/delete/' + producto.id, { productos: producto });
+            })
+    },
+    destroy: function(req, res) {
+        let productId = req.params.id;
+        Product
+            .destroy({ where: { id: productId }, force: true })
+            .then(() => {
+                return res.redirect('/')
+            })
+            .catch(error => res.send(error))
     }
 
 };
