@@ -21,10 +21,16 @@ module.exports = (sequelize, DataTypes) => {
 
     // Relaciones
     Imagen.associate = function (models) {
-        Imagen.belongsTo(models.Usuario), {
-            as: 'imagen',
+        Imagen.hasOne(models.Usuario, {
+            as: 'usuario',
             foreignKey: 'imagen_id'
-        }
+        });
+        Imagen.belongsToMany(models.Producto,{
+            as: "productos",
+            through: "productos_imagenes",
+            foreignKey: 'imagen_id',
+            otherKey: "producto_id"
+        })
     }
 
     return Imagen

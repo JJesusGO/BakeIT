@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'Oferta';
-    let cols = {
+    const alias = 'Recomendacion';
+    const cols = {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
@@ -11,26 +11,28 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
-        descuento: {
+        producto_id: {
             type: DataTypes.FLOAT(24),
             allowNull: false
         }
     };
-    let config = {
+    const config = {
         timestamps: false,
-        tableName: 'ofertas'
+        tableName: 'recomendaciones'
     };
 
-    const Oferta = sequelize.define(alias, cols, config);
+    const Recomendacion = sequelize.define(alias, cols, config);
 
-    // Relaciones
-    // Una oferte pertenece a un producto. Oferta.belongsTo Producto.
-    Oferta.associate = function (models) {
-        Oferta.belongsTo(models.Producto,{
+    Recomendacion.associate = function (models) {
+        Recomendacion.belongsTo(models.Producto,{
             as: "producto",
             foreignKey : 'producto_id'
+        }),
+        Recomendacion.belongsTo(models.Producto,{
+            as: "recomendado",
+            foreignKey : 'recomendado_id'
         })
     }
 
-    return Oferta
+    return Recomendacion
 };
