@@ -36,6 +36,8 @@ router.get('/find', productController.search);
 router.post('/find', productController.find);
 router.get('/update/:id', productController.edit);
 router.put('/update/:id', productController.update);
+router.get('/delete/:id', productController.delete);
+router.delete('delete/:id', productController.destroy);
 
 
 module.exports = router;
