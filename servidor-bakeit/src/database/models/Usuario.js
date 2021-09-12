@@ -44,7 +44,8 @@ module.exports = (sequalize, DataTypes) => {
 
     const Usuario = sequalize.define(alias, cols, config);
 
-    // Relaciones
+    // Relaciones comentadas para que funcione el login
+    /*
     Usuario.associate = function(models) {
         Usuario.belongsTo(models.Permiso), {
             as: 'permiso',
@@ -60,7 +61,8 @@ module.exports = (sequalize, DataTypes) => {
             as: 'carritos',
             foreignKey: 'usuario_id'
         }
-    }
+        
+    }*/
 
     return Usuario
 };

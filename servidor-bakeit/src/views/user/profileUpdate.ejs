@@ -8,16 +8,14 @@
                 <div class="centrar">
                     <h2>Mi perfil</h2>
                 </div>
-                <p>
-                    <%= usuario.id %>
-                </p>
-                <form method="PUT" enctype="multipart/form-data" action="/user/update/<%= locals.usuarioLoggeado.id %>" id="create_customer" accept-charset="UTF-8">
+
+                <form action=<%="/user/update/" +usuario.id+ ""%> method="POST" enctype="multipart/form-data" id="create_customer" accept-charset="UTF-8">
 
                     <div class="profile-edit">
                         <label for="nombre">Nombre
                                 <input type="text" name="nombre" id="name" autocomplete="off" 
                                 class="form-control  <%= locals.errors && errors.nombre ? 'is-invalid' : null %> " 
-                                value="<%= locals.oldData ? oldData.nombre : null %>">
+                                value="<%= usuario.nombre%>">
                             </label>
                         <% if (locals.errors && errors.nombre) { %>
                             <div class="text-danger">
@@ -27,7 +25,7 @@
                     </div>
                     <div class="profile-edit">
                         <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido" id="lastName" autocomplete="off" class="form-control  <%= locals.errors && errors.apellido ? 'is-invalid' : null %> " value="<%= locals.oldData ? oldData.apellido : null %>">
+                        <input type="text" name="apellido" id="lastName" autocomplete="off" class="form-control  <%= locals.errors && errors.apellido ? 'is-invalid' : null %> " value="<%= usuario.apellidos%>">
                         <% if (locals.errors && errors.apellido) { %>
                             <div class="text-danger">
                                 <%= errors.apellido.msg %>
@@ -37,7 +35,7 @@
 
                     <div class="profile-edit">
                         <label for="Fecha_nacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="fechaNacimiento" id="birthdate" min="" max="2021-06-15" class="form-control  <%= locals.errors && errors.fechaNacimiento ? 'is-invalid' : null %> " value="<%= locals.oldData ? oldData.fechaNacimiento : null %>">
+                        <input type="date" name="fechaNacimiento" id="birthdate" min="" max="2021-06-15" class="form-control  <%= locals.errors && errors.fechaNacimiento ? 'is-invalid' : null %> " value="<%= usuario.fecha_nacimiento%>">
                         <% if (locals.errors && errors.fechaNacimiento) { %>
                             <div class="text-danger">
                                 <%= errors.fechaNacimiento.msg %>
@@ -47,34 +45,15 @@
 
                     <div class="profile-edit">
                         <label for="correo">Correo</label>
-                        <input type="text" name="correo" id="email" autocomplete="off" class="form-control  <%= locals.errors && errors.correo ? 'is-invalid' : null %> " value="<%= locals.oldData ? oldData.correo : null %>">
+                        <input type="text" name="correo" id="email" autocomplete="off" class="form-control  <%= locals.errors && errors.correo ? 'is-invalid' : null %> " value="<%= usuario.correo%>">
                         <% if (locals.errors && errors.correo) { %>
                             <div class="text-danger">
                                 <%= errors.correo.msg %>
                             </div>
                             <% } %>
                     </div>
-                    <div class="profile-edit">
-                        <label for="Contrasena">Contraseña</label>
-                        <input type="password" name="contrasena" id="password" class="form-control  <%= locals.errors && errors.contrasena ? 'is-invalid' : null %> ">
-                        <% if (locals.errors && errors.contrasena) { %>
-                            <div class="text-danger">
-                                <%= errors.contrasena.msg %>
-                            </div>
-                            <% } %>
-                    </div>
-                    <div class="profile-edit">
-                        <label for="Avatar">Avatar</label>
-                        <input type="file" name="imagen" id="Avatar" class="">
-                        <% if (locals.errors && errors.imagen) { %>
-                            <div class="text-danger">
-                                <%= errors.imagen.msg %>
-                            </div>
-                            <% } %>
-                    </div>
-                    <div>
-                        <a class="boton" href="/user/detail/<%= locals.usuarioLoggeado.id %>">Guardar cambios</a>
-                    </div>
+
+                    <button type="submit" class="boton">Guardar cambios</button>
 
                 </form>
 

@@ -31,36 +31,43 @@ const controller = {
             });
         }
 
-        let userLogin = user.User.findByEmail(req.body.correo);
+        // let userLogin = user.User.findByEmail(req.body.correo);
 
-        if (userLogin) {
-            let passCompare = bcrypt.compareSync(req.body.contrasena, userLogin.contrasena);
-            if (passCompare) {
-                delete userLogin.contrasena;
-                req.session.usuarioLoggeado = userLogin;
-                if (req.body.recordar)
-                    res.cookie('id', userLogin.id, { maxAge: (1000 * 60) * 2 });
-
-                return res.redirect('/')
-            }
-            return res.render('user/login', {
-                errors: {
-                    contrasena: {
-                        msg: 'Contraseña incorrecta'
-                    }
-                },
-                oldData: req.body
-            });
-        }
-        return res.render('user/login', {
-            errors: {
-                correo: {
-                    msg: 'El correo ingresado no se encuentra registrado'
+        User.findOne({
+                where: {
+                    correo: req.body.correo
                 }
-            },
-            oldData: req.body
-        });
+            })
+            .then((userLogin) => {
+                if (userLogin) {
+                    let passCompare = bcrypt.compareSync(req.body.contrasena, userLogin.contrasena);
+                    if (passCompare) {
+                        delete userLogin.contrasena;
+                        req.session.usuarioLoggeado = userLogin;
+                        if (req.body.recordar)
+                            res.cookie('id', userLogin.id, { maxAge: (1000 * 60) * 2 });
 
+                        return res.redirect('/')
+                    }
+                    return res.render('user/login', {
+                        errors: {
+                            contrasena: {
+                                msg: 'Contraseña incorrecta'
+                            }
+                        },
+                        oldData: req.body
+                    });
+                }
+                return res.render('user/login', {
+                    errors: {
+                        correo: {
+                            msg: 'El correo ingresado no se encuentra registrado'
+                        }
+                    },
+                    oldData: req.body
+                });
+            })
+            .catch(error => res.send(error))
     },
     /*
     logout: (req, res) => {
@@ -122,42 +129,33 @@ const controller = {
         })
     },
     edit: function(req, res) {
-        User.findByPk(req.params.id, {
-                include: ["permiso",
-                    "imagen"
-                    //,{ model: "Carrito", as: "carritos" }
-                ]
-            })
+        User.findByPk(req.params.id)
             .then((usuario) => {
                 return res.render('user/profileUpdate', { usuario: usuario });
             })
 
     },
+    //Trabajando en este metodo
     update: function(req, res) {
-        let userId = req.params.id;
         User.update({
                 nombre: req.body.nombre,
-                apellido: req.body.apellidos,
-                fechaNacimiento: req.body.fecha_nacimiento,
-                correo: req.body.correo,
-                imagen: req.file.filename
+                apellidos: req.body.apellido,
+                fecha_nacimiento: req.body.fechaNacimiento,
+                correo: req.body.correo
+                    // imagen: req.file.filename
             }, {
-                where: { id: userId }
+                where: { id: req.params.id }
             })
-            .then(() => {
-                return res.redirect('user/profileUpdate')
+            .then((updatedUser) => {
+                console.log(updatedUser);
+                return res.redirect('user/profile', { usuario: updatedUser });
             })
             .catch(error => res.send(error))
 
 
     },
     detail: function(req, res) {
-        User.findByPk(req.params.id, {
-                include: ["permiso",
-                    "imagen"
-                    //,{ model: "Carrito", as: "carritos" }
-                ]
-            })
+        User.findByPk(req.params.id)
             .then(function(usuario) {
                 return res.render('user/profile', { usuario: usuario });
             })

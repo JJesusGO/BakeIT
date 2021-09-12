@@ -57,7 +57,7 @@ router.get('/resetPassword', userController.resetPassword)
 router.get('/add', userController.add);
 router.post('/add', upload.single("imagen"), validations, userController.create);
 router.get('/update/:id', userController.edit);
-router.put('/update/:id', upload.single("imagen"), validations, userController.update);
+router.post('/update/:id', userController.update);
 router.get('/detail/:id', userController.detail);
 
 
