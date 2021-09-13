@@ -18,7 +18,7 @@ module.exports = (sequalize,DataTypes) => {
     };
     const config = {
         timestamps: false,
-        tablename: 'productos_imagenes'
+        tableName: 'productos_imagenes'
     };
 
     const Producto_Imagen = sequalize.define(alias, cols, config);

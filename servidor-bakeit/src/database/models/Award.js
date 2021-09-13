@@ -18,7 +18,7 @@ module.exports = (sequalize,DataTypes) => {
     };
     const config = {
         timestamps: false,
-        tablename: 'awards'
+        tableName: 'awards'
     };
 
     const Award = sequalize.define(alias, cols, config);

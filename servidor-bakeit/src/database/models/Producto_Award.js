@@ -22,7 +22,7 @@ module.exports = (sequalize, DataTypes) => {
     };
     const config = {
         timestamps: false,
-        tablename: 'productos_awards'
+        tableName: 'productos_awards'
     };
 
     const Producto_Award = sequalize.define(alias, cols, config);
