@@ -48,32 +48,40 @@ module.exports = (sequalize, DataTypes) => {
             as: 'categoria',
             foreignKey: 'categoria_id'
         });
-        /* 
         Producto.belongsToMany(models.Producto, {
             as: "awards",
             through: "productos_awards",
             foreignKey: 'producto_id',
-            otherKey: "award_id"
+            otherKey: "award_id",
+            timestamps: false
         });
-        */
         Producto.belongsToMany(models.Imagen, {
             as: "imagenes",
             through: "productos_imagenes",
             foreignKey: 'producto_id',
-            otherKey: "imagen_id"
+            otherKey: "imagen_id",
+            timestamps: false
         });
-        /*
         Producto.belongsToMany(models.Producto,{
-            as: "recomendaciones",
+            as: "recomendados",
             through: "recomendaciones",
             foreignKey: 'producto_id',
-            otherKey: "recomendado_id"
-        });*/
+            otherKey: "recomendado_id",
+            timestamps: false
+        });
         Producto.belongsToMany(models.Producto, {
             as: "recomendado",
             through: "recomendaciones",
             foreignKey: 'recomendado_id',
-            otherKey: "producto_id"
+            otherKey: "producto_id",
+            timestamps: false
+        });
+        Producto.belongsToMany(models.Carrito, {
+            as: 'carritos',
+            through: 'carrito_producto',
+            foreignKey: 'producto_id',
+            otherKey: 'carrito_id',
+            timestamps: false
         })
     }
 

@@ -3,6 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const methodOverride = require('method-override');
+const morgan = require('morgan');
+
 const app = express();
 const path = require('path');
 const { log } = require('./herramientas/herramientas');
@@ -35,6 +37,7 @@ app.use(session({
 }));
 app.use(cookies());
 app.use(userLoggedMiddleware);
+app.use(morgan('dev'));
 
 //RUTAS
 app.use('/', main);

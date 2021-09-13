@@ -7,7 +7,7 @@ const { productos, agregarProducto, editarProducto, eliminarProducto } = require
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const Product = db.Producto;
+const Producto = db.Producto;
 
 const controlador = {
 
@@ -104,28 +104,27 @@ const controlador = {
 
     //CRUD con base de datos
     list: (req, res) => {
-        product.findAll({
-                include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
-
+        Producto.findAll({
+                include: ['categoria', 'awards', 'imagenes', 'recomendados', 'recomendado']
             })
             .then(producto => {
-                res.render('galeria', { producto: producto })
+                res.json(producto);
             })
     },
     detail: (req, res) => {
-        Product.findByPk(req.params.id, {
-                include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
+        Producto.findByPk(req.params.id, {
+                include: ['categoria', 'awards', 'imagenes', 'recomendados', 'recomendado']
 
             })
             .then(function(producto) {
-                return res.render('product/detail', { producto: producto });
+                res.json(producto);
             })
     },
     add: (req, res) => {
         return res.render('product/add');
     },
     create: (req, res) => {
-        Product.create({
+        Producto.create({
             tipo: req.body.tipo,
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
@@ -156,7 +155,7 @@ const controlador = {
     },
     find: (req, res) => {
         let nombre = req.body.nombre
-        Product.findOne({
+        Producto.findOne({
                 include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado'],
                 where: {
                     nombre: nombre
@@ -167,7 +166,7 @@ const controlador = {
             });
     },
     edit: (req, res) => {
-        Product.findByPk(req.params.id, {
+        Producto.findByPk(req.params.id, {
                 include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
             })
             .then(function(producto) {
@@ -176,7 +175,7 @@ const controlador = {
     },
     update: (req, res) => {
         let productId = req.params.id;
-        Product.update({
+        Producto.update({
                 tipo: req.body.tipo,
                 nombre: req.body.nombre,
                 descripcion: req.body.descripcion,
@@ -193,7 +192,7 @@ const controlador = {
             .catch(error => res.send(error))
     },
     delete: (req, res) => {
-        Product.findByPk(req.params.id, {
+        Producto.findByPk(req.params.id, {
                 include: ['categoria', 'awards', 'imagenes', 'recomendaciones', 'recomendado']
             })
             .then(function(producto) {
@@ -202,7 +201,7 @@ const controlador = {
     },
     destroy: function(req, res) {
         let productId = req.params.id;
-        Product
+        Producto
             .destroy({ where: { id: productId }, force: true })
             .then(() => {
                 return res.redirect('/')

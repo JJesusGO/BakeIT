@@ -28,7 +28,7 @@ router.get('/cart', productController.getCart);
 
 //CRUD
 
-router.get('/listar', productController.list);
+router.get('/', productController.list);
 router.get('/detail/:id', productController.detail);
 router.get('/add', productController.add);
 router.post('/add', almacenamiento.array('image'), productController.create);

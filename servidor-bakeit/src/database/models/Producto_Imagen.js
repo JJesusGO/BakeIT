@@ -23,16 +23,5 @@ module.exports = (sequalize,DataTypes) => {
 
     const Producto_Imagen = sequalize.define(alias, cols, config);
 
-    Producto_Imagen.associate = function(models){
-        Producto_Imagen.belongsTo(models.Producto,{
-            as: "producto",
-            foreignKey: 'producto_id'
-        });
-        Producto_Imagen.belongsTo(models.Imagen,{
-            as: "imagen",
-            foreignKey: 'imagen_id'
-        });
-    }
-
     return Producto_Imagen;
 };

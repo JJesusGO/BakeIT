@@ -26,11 +26,13 @@ module.exports = (sequelize, DataTypes) => {
     Recomendacion.associate = function (models) {
         Recomendacion.belongsTo(models.Producto,{
             as: "producto",
-            foreignKey : 'producto_id'
+            foreignKey : 'producto_id',
+            timestamps: false
         }),
         Recomendacion.belongsTo(models.Producto,{
             as: "recomendado",
-            foreignKey : 'recomendado_id'
+            foreignKey : 'recomendado_id',
+            timestamps: false
         })
     }
 

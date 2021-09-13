@@ -28,7 +28,8 @@ module.exports = (sequalize,DataTypes) => {
             as : "productos",
             through : "productos_awards",
             foreignKey: 'award_id',
-            otherKey: "producto_id"
+            otherKey: "producto_id",
+            timestamps: false
         })
     }
 

@@ -23,13 +23,15 @@ module.exports = (sequelize, DataTypes) => {
     Imagen.associate = function (models) {
         Imagen.hasOne(models.Usuario, {
             as: 'usuario',
-            foreignKey: 'imagen_id'
+            foreignKey: 'imagen_id',
+            timestamps: false
         });
         Imagen.belongsToMany(models.Producto,{
             as: "productos",
             through: "productos_imagenes",
             foreignKey: 'imagen_id',
-            otherKey: "producto_id"
+            otherKey: "producto_id",
+            timestamps: false
         })
     }
 

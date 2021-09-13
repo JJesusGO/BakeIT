@@ -1,5 +1,3 @@
-console.log(process.env.DATABASEUSER);
-
 module.exports = {
   "development": {
     "username": process.env.DATABASEUSER,

@@ -6,8 +6,6 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require('moment');
 
-
-
 //Llamado a modelos
 const User = db.Usuario;
 

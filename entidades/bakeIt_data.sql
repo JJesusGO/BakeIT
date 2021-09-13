@@ -1,4 +1,4 @@
-USE rOux4pPtZh;
+#USE rOux4pPtZh;
 
 -- Imagenes - DONE
 INSERT INTO imagenes (url) VALUES ('img-1628394473612.jpg'); -- Avatar Marcela
