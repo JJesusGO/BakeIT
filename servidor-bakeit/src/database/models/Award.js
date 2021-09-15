@@ -1,5 +1,5 @@
-module.exports = (sequalize,DataTypes) => {
-    const alias = 'Usuario';
+module.exports = (sequalize, DataTypes) => {
+    const alias = 'Award';
     const cols = {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -23,10 +23,10 @@ module.exports = (sequalize,DataTypes) => {
 
     const Award = sequalize.define(alias, cols, config);
 
-    Award.associate = function (models) {
-        Award.belongsToMany(models.Producto,{
-            as : "productos",
-            through : "productos_awards",
+    Award.associate = function(models) {
+        Award.belongsToMany(models.Producto, {
+            as: "productos",
+            through: "productos_awards",
             foreignKey: 'award_id',
             otherKey: "producto_id",
             timestamps: false

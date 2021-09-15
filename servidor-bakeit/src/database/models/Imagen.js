@@ -20,13 +20,13 @@ module.exports = (sequelize, DataTypes) => {
     const Imagen = sequelize.define(alias, cols, config);
 
     // Relaciones
-    Imagen.associate = function (models) {
-        Imagen.hasOne(models.Usuario, {
+    Imagen.associate = function(models) {
+        Imagen.hasMany(models.Usuario, {
             as: 'usuario',
             foreignKey: 'imagen_id',
             timestamps: false
         });
-        Imagen.belongsToMany(models.Producto,{
+        Imagen.belongsToMany(models.Producto, {
             as: "productos",
             through: "productos_imagenes",
             foreignKey: 'imagen_id',

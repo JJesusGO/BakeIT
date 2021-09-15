@@ -31,12 +31,23 @@ const controller = {
 
         // let userLogin = user.User.findByEmail(req.body.correo);
 
-        User.findOne({
+        User.findAll({
                 where: {
                     correo: req.body.correo
-                }
+                },
+                // include: [
+                //     'permiso',
+                //     'imagen'
+                // ],
+
+                //include: [
+                //{ model: db.Permiso, as: 'permiso' },
+                //{ model: db.Imagen, as: 'imagen' }
+                //],
+
             })
             .then((userLogin) => {
+                console.log(userLogin);
                 if (userLogin) {
                     let passCompare = bcrypt.compareSync(req.body.contrasena, userLogin.contrasena);
                     if (passCompare) {
@@ -67,12 +78,13 @@ const controller = {
             })
             .catch(error => res.send(error))
     },
-    /*
+
     logout: (req, res) => {
         req.session.usuarioLoggeado = null;
         res.clearCookie('id');
         res.redirect('/');
     },
+    /*
     register: (req, res) => {
         const resultValidation = validationResult(req);
 
@@ -157,7 +169,8 @@ const controller = {
             .then(function(usuario) {
                 return res.render('user/profile', { usuario: usuario });
             })
-    }
+    },
+
 };
 
 module.exports = controller;

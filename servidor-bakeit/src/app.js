@@ -20,6 +20,7 @@ const products = require('./routes/productRoutes');
 const user = require('./routes/userRoutes');
 const { cookie } = require('express-validator');
 
+
 //CONFIGURACIÓN
 app.set("PUERTO", 3000);
 app.set("view engine", "ejs");
@@ -43,6 +44,7 @@ app.use(morgan('dev'));
 app.use('/', main);
 app.use('/products', products);
 app.use('/user', user);
+
 
 const puerto = app.get('PUERTO') || 3000;
 app.listen(puerto, () => log('Servidor inicializado en localhost:' + puerto));
