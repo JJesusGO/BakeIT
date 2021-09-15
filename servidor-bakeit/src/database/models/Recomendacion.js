@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
             as: "producto",
             foreignKey : 'producto_id',
             timestamps: false
-        }),
+        });
         Recomendacion.belongsTo(models.Producto,{
             as: "recomendado",
             foreignKey : 'recomendado_id',
