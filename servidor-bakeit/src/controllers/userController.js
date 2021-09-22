@@ -1,14 +1,9 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const user = require('../models/User');
 const db = require('../database/models');
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
-const moment = require('moment');
 
 //Llamado a modelos
-const User = db.Usuario;
-
+const Usuario = db.Usuario;
 
 const controller = {
     getLogin: (req, res) => {
@@ -28,26 +23,13 @@ const controller = {
                 oldData: req.body
             });
         }
-
-        // let userLogin = user.User.findByEmail(req.body.correo);
-
-        User.findAll({
+        Usuario.findOne({
                 where: {
                     correo: req.body.correo
                 },
-                // include: [
-                //     'permiso',
-                //     'imagen'
-                // ],
-
-                //include: [
-                //{ model: db.Permiso, as: 'permiso' },
-                //{ model: db.Imagen, as: 'imagen' }
-                //],
-
+                include: ['permiso', 'imagen','carritos'],
             })
-            .then((userLogin) => {
-                console.log(userLogin);
+            .then((userLogin) => {            
                 if (userLogin) {
                     let passCompare = bcrypt.compareSync(req.body.contrasena, userLogin.contrasena);
                     if (passCompare) {
@@ -55,7 +37,6 @@ const controller = {
                         req.session.usuarioLoggeado = userLogin;
                         if (req.body.recordar)
                             res.cookie('id', userLogin.id, { maxAge: (1000 * 60) * 2 });
-
                         return res.redirect('/')
                     }
                     return res.render('user/login', {
@@ -126,7 +107,7 @@ const controller = {
             url: req.file.filename,
         }).then((imagen) => {
             console.log(imagen.id);
-            User.create({
+            Usuario.create({
                 permiso_id: 1,
                 nombre: req.body.nombre,
                 apellidos: req.body.apellido,
@@ -139,7 +120,7 @@ const controller = {
         })
     },
     edit: function(req, res) {
-        User.findByPk(req.params.id)
+        Usuario.findByPk(req.params.id)
             .then((usuario) => {
                 return res.render('user/profileUpdate', { usuario: usuario });
             })
@@ -147,7 +128,7 @@ const controller = {
     },
     //Trabajando en este metodo
     update: function(req, res) {
-        User.update({
+        Usuario.update({
                 nombre: req.body.nombre,
                 apellidos: req.body.apellido,
                 fecha_nacimiento: req.body.fechaNacimiento,
@@ -157,18 +138,30 @@ const controller = {
                 where: { id: req.params.id }
             })
             .then((updatedUser) => {
-                console.log(updatedUser);
                 return res.redirect('user/profile', { usuario: updatedUser });
             })
             .catch(error => res.send(error))
 
-
     },
     detail: function(req, res) {
-        User.findByPk(req.params.id)
+        /*
+        Usuario.findByPk(req.params.id,{ 
+            include : ["permiso","imagen"]
+        })
+        .then(function(usuario) {
+            return res.json(usuario);
+        })
+        */
+        if (req.session.usuarioLoggeado)
+            Usuario.findByPk(req.params.id,{ 
+                include : ["permiso","imagen"]
+            })
             .then(function(usuario) {
                 return res.render('user/profile', { usuario: usuario });
             })
+        else 
+            return res.redirect('/');
+        
     },
 
 };

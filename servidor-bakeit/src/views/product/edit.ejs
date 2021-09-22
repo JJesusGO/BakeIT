@@ -23,16 +23,16 @@
                                         <div class="col-4 p-0">
                                             <div class="galeria">
                                                 <div class="centrado">
-                                                    <img src="<%=productos[i].imagenes[0]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                    <img src="/data/products/<%=productos[i].imagenes[0].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>   
                                                 <div class="centrado">
-                                                    <img src="<%=productos[i].imagenes[1]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                    <img src="/data/products/<%=productos[i].imagenes[1].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>
                                                 <div class="centrado">
-                                                    <img src="<%=productos[i].imagenes[2]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                    <img src="/data/products/<%=productos[i].imagenes[2].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>                                             
                                                 <div class="centrado">
-                                                    <img src="<%=productos[i].imagenes[3]%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                    <img src="/data/products/<%=productos[i].imagenes[3].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>                                                                                                                                                
                                             </div>
                                         </div>
@@ -50,9 +50,9 @@
                                         </div>
                                         <div class="col-3 p-0">
                                             <div class="precio container-fluid d-flex flex-column align-items-center justify-content-center w-100 h-100 p-0">                                                                                                
-                                                <h4> <%= "$"+productos[i].precio %></h4>                                                
+                                                <h4> <%= "$ "+productos[i].precio.toFixed(2) %></h4>                                                
                                                 <p class="mt-2 mb-0"> <%= productos[i].tipo %></p>                                                
-                                                <p class="my-0"> <%= productos[i].categoria %></p>                                                          
+                                                <p class="my-0"> <%= productos[i].categoria.nombre %></p>                                                          
                                             </div>                                        
                                         </div>                                        
                                     </div>                                    
@@ -81,7 +81,7 @@
                                     <label for="tipo" class="form-label">Tipo:</label>
 						            <select name="tipo" id="tipo" class="form-control" required>
                                         <option value="" class="text-muted">Selecciona una opción</option>
-                                        <%- (productos[edicion].tipo=="producto")?'<option value="producto" selected>Producto</option>':'<option value="producto">Producto</option>'%>
+                                        <%- (productos[edicion].tipo=="postre")?'<option value="postre" selected>Postre</option>':'<option value="postre">Postre</option>'%>
                                         <%- (productos[edicion].tipo=="kit")?'<option value="kit" selected>Kit</option>':'<option value="kit">Kit</option>'%>
 						            </select>
                                 </div>   
@@ -89,10 +89,9 @@
                                     <label for="categoria" class="form-label">Categoría:</label>
 						            <select name="categoria" id="categoria" class="form-control" required>
                                         <option value="" class="text-muted">Selecciona una opción</option>
-                                        <%- (productos[edicion].categoria=="categoria1")?'<option value="categoria1" selected>Categoria1</option>':'<option value="categoria1">Categoria1</option>'%>
-                                        <%- (productos[edicion].categoria=="categoria2")?'<option value="categoria2" selected>Categoria2</option>':'<option value="categoria2">Categoria2</option>'%>
-                                        <%- (productos[edicion].categoria=="categoria3")?'<option value="categoria3" selected>Categoria3</option>':'<option value="categoria3">Categoria3</option>'%>
-                                        <%- (productos[edicion].categoria=="categoria4")?'<option value="categoria4" selected>Categoria4</option>':'<option value="categoria4">Categoria4</option>'%>
+                                            <% for(let categoria of categorias) {%>
+                                                <%- (productos[edicion].categoria.nombre == categoria.nombre)?'<option value="'+categoria.nombre+'" selected>'+categoria.nombre+'</option>':'<option value="'+categoria.nombre+'">'+categoria.nombre+'</option>' %>                                        
+                                            <% } %>
 						            </select>
                                 </div>                      
                                 <div class="form-group my-3">
@@ -114,7 +113,7 @@
                                 </div>
                                 <div class="form-group my-3">
                                     <label for="porciones" class="my-1">Porciones</label>
-                                    <input type="number" class="form-control" id="porciones" name="porciones" placeholder="0"  value=<%= ""+productos[edicion].porciones %> required>
+                                    <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"  value="<%= productos[edicion].porciones %>" required>
                                 </div>
                                 <div class="form-group my-3">
                                     <label for="imagen1" class="form-label mb-2">Imagenes</label>
@@ -144,10 +143,9 @@
                                     <label for="categoria" class="form-label">Categoría:</label>
 						            <select name="categoria" id="categoria" class="form-control" required>
                                         <option value="" class="text-muted">Selecciona una opción</option>
-                                        <option value="categoria1">Categoria1</option>
-                                        <option value="categoria2">Categoria2</option>
-                                        <option value="categoria3">Categoria3</option>
-                                        <option value="categoria4">Categoria4</option>
+                                        <% for(let categoria of categorias) { %> 
+                                            <option value="<%= categoria.nombre %>"><%= categoria.nombre %></option>                                        
+                                        <% } %>
 						            </select>
                                 </div>                                                                                             
                                 <div class="form-group my-3">
@@ -169,7 +167,7 @@
                                 </div>
                                 <div class="form-group my-3">
                                     <label for="porciones" class="my-1">Porciones</label>
-                                    <input type="number" class="form-control" id="porciones" name="porciones" placeholder="0"  required>
+                                    <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"  required>
                                 </div>
                                 <div class="form-group my-3">
                                     <label for="imagen1" class="form-label mb-2">Imagenes</label>

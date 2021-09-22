@@ -17,27 +17,13 @@ const almacenamiento = multer({ storage: configuracion });
 const productController = require('../controllers/productController');
 
 router.get('/cart', productController.getCart);
-//router.route('/')
-//   .get(productController.getProducts)
-//  .post(almacenamiento.array('image'), productController.postProduct);
-//router.route('/:id')
-//  .get(productController.getProductID)
-//.put(almacenamiento.array('image'), productController.putProductID)
-//  .delete(productController.deleteProductID);
-//router.get('/detail/:id', productController.getDetail);
-
-//CRUD
-
-router.get('/', productController.list);
-router.get('/detail/:id', productController.detail);
-router.get('/add', productController.add);
-router.post('/add', almacenamiento.array('image'), productController.create);
-router.get('/find', productController.search);
-router.post('/find', productController.find);
-router.get('/update/:id', productController.edit);
-router.put('/update/:id', productController.update);
-router.get('/delete/:id', productController.delete);
-router.delete('delete/:id', productController.destroy);
-
+router.route('/')
+    .get(productController.getProducts)
+    .post(almacenamiento.array('image'), productController.postProduct);
+router.route('/:id')
+    .get(productController.getProductID)
+    .put(almacenamiento.array('image'), productController.putProductID)
+    .delete(productController.deleteProductID);
+router.get('/detail/:id', productController.getDetail);
 
 module.exports = router;

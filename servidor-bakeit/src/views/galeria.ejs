@@ -26,7 +26,7 @@
                         <article class="categoria">
                             <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
                             <p class="categoria-nombre">
-                                <%=categoria%>
+                                <%=categoria.nombre%>
                             </p>
                         </article>
                         <% } %>
@@ -35,13 +35,13 @@
                     <% for(let producto of productos) { %>
                         <div class="producto">
                             <a href="/products/detail/<%=producto.id%>">
-                                <img class="producto-img" src="<%=producto.imagenes[0]%>" alt="Imagen del producto">
+                                <img class="producto-img" src="data/products/<%=producto.imagenes[0].url%>" alt="Imagen del producto">
                                 <div class="producto-info">
                                     <p class="nombre">
                                         <%=producto.nombre%>
                                     </p>
                                     <p class="precio">
-                                        $<%=producto.precio%>.00
+                                        $<%=producto.precio.toFixed(2)%>
                                     </p>
                                 </div>
                             </a>

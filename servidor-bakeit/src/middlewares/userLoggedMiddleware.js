@@ -1,10 +1,13 @@
-const user = require('../models/User');
+const db = require('../database/models');
 
-function userLoggedMiddleware(req, res, next) {
+async function userLoggedMiddleware(req, res, next) {
     res.locals.isLogged = false;
 
     const id = req.cookies.id;
-    const usuario = user.User.findByPk(id);    
+    
+    const usuario = await db.Usuario.findByPk(id,{
+        include: [{association: 'permiso'},{association: 'imagen'}]
+    });    
     if (usuario) {
         delete usuario.contrasena;
         req.session.usuarioLoggeado = usuario;
