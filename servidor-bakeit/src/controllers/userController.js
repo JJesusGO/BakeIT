@@ -27,9 +27,9 @@ const controller = {
                 where: {
                     correo: req.body.correo
                 },
-                include: ['permiso', 'imagen','carritos'],
+                include: ['permiso', 'imagen', 'carritos'],
             })
-            .then((userLogin) => {            
+            .then((userLogin) => {
                 if (userLogin) {
                     let passCompare = bcrypt.compareSync(req.body.contrasena, userLogin.contrasena);
                     if (passCompare) {
@@ -126,8 +126,8 @@ const controller = {
             })
 
     },
-    //Trabajando en este metodo
     update: function(req, res) {
+        console.log(req.body)
         Usuario.update({
                 nombre: req.body.nombre,
                 apellidos: req.body.apellido,
@@ -135,10 +135,12 @@ const controller = {
                 correo: req.body.correo
                     // imagen: req.file.filename
             }, {
-                where: { id: req.params.id }
+                where: { id: req.params.id },
+                returning: true
             })
-            .then((updatedUser) => {
-                return res.redirect('user/profile', { usuario: updatedUser });
+            .then((updateStatus) => {
+                console.log(updateStatus);
+                return res.redirect('/user/detail/' + req.params.id);
             })
             .catch(error => res.send(error))
 
@@ -153,15 +155,15 @@ const controller = {
         })
         */
         if (req.session.usuarioLoggeado)
-            Usuario.findByPk(req.params.id,{ 
-                include : ["permiso","imagen"]
+            Usuario.findByPk(req.params.id, {
+                include: ["permiso", "imagen"]
             })
             .then(function(usuario) {
                 return res.render('user/profile', { usuario: usuario });
             })
-        else 
+        else
             return res.redirect('/');
-        
+
     },
 
 };
