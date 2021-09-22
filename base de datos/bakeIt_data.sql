@@ -54,14 +54,14 @@ INSERT INTO permisos (nombre, edicion_usuarios) VALUES ('Administrador', 1);
 INSERT INTO permisos (nombre, edicion_usuarios) VALUES ('Cliente', 0);
 
 -- Categorías - DONE
-INSERT INTO categorias (nombre) VALUES ('Natillas y pudines');
-INSERT INTO categorias (nombre) VALUES ('Postres fríos o helados');
-INSERT INTO categorias (nombre) VALUES ('Galletas');
-INSERT INTO categorias (nombre) VALUES ('Pasteles');
-INSERT INTO categorias (nombre) VALUES ('Pays');
-INSERT INTO categorias (nombre) VALUES ('Hojaldres y bollos');
-INSERT INTO categorias (nombre) VALUES ('Individual');
-INSERT INTO categorias (nombre) VALUES ('Grupal');
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Natillas y pudines',1);
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Postres fríos o helados',1);
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Galletas',1);
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Pasteles',1);
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Pays',1);
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Hojaldres y bollos',1);
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Individual',1);
+INSERT INTO categorias (nombre, imagen_id) VALUES ('Grupal',1);
 
 -- Usuarios - DONE
 INSERT INTO usuarios (nombre, apellidos, permiso_id, fecha_nacimiento, correo, contrasena, imagen_id) VALUES ('Marcela', 'Barajas', 1, '2000-03-12', 'marcela@gmail.com', '$2a$10$tauMby3wn0jJDCktJZ1dD.8yD00VPie4hssLIrahX6fbTafNh4iba', 1);
