@@ -17,14 +17,25 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 const validations = [
-    body('nombre').notEmpty().withMessage('Este campo es requerido'),
-    body('apellido').notEmpty().withMessage('Este campo es requerido'),
-    body('fechaNacimiento').notEmpty().withMessage('Este campo es requerido'),
-    body('correo').notEmpty().withMessage('Este campo es requerido').bail().isEmail().withMessage('El formato de correo es invalido'),
-    body('contrasena').notEmpty().withMessage('Este campo es requerido'),
-    body('imagen').custom((value, { req }) => {
+    body('nombre')
+    .notEmpty().withMessage('Este campo es requerido').bail()
+    .isLength({min:2}).withMessage('El campo deberá tener al menos 2 caracteres.'),
+    body('apellido')
+    .notEmpty().withMessage('Este campo es requerido').bail()
+    .isLength({min:2}).withMessage('El campo deberá tener al menos 2 caracteres.'),
+    body('fechaNacimiento')
+    .notEmpty().withMessage('Este campo es requerido'),
+    body('correo')
+    .notEmpty().withMessage('Este campo es requerido').bail()
+    .isEmail().withMessage('El formato de correo es invalido'),
+    body('contrasena')
+    .notEmpty().withMessage('Este campo es requerido').bail()
+    .isLength({min:8}).withMessage('El campo deberá tener al menos 8 caracteres.').bail()
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i").withMessage('La contraseña deberá tener letras mayúsculas, minúsculas, un número y un carácter especial.'),
+    body('imagen')
+    .custom((value, { req }) => {
         let file = req.file;
-        let accepted = ['.jpg', '.png', '.gif', '.JPG', '.PNG', '.GIF'];
+        let accepted = ['.JPG', '.JPEG', '.PNG', '.GIF', '.jpg', '.jpeg', '.png', '.gif'];
         if (!file) {
             throw new Error('Tienes que seleccionar una imagen');
         } else {
@@ -36,7 +47,8 @@ const validations = [
         }
 
     }),
-    body('terminos').notEmpty().withMessage('Para poder registrarte se deben aceptar los términos')
+    body('terminos')
+    .notEmpty().withMessage('Para poder registrarte se deben aceptar los términos')
 ]
 
 const logValidations = [

@@ -13,7 +13,7 @@
                             <div class="texto_left">
                                 <div class="register_input">
                                     <label for="Correo">Correo</label>
-                                    <input type="email" name="correo" id="Email" autocomplete="on" class="form-control  <%= locals.errors && errors.correo ? 'is-invalid' : null %> " value="<%= locals.oldData ? oldData.correo : null %>">
+                                    <input type="text" name="correo" id="Email" autocomplete="on" class="form-control  <%= locals.errors && errors.correo ? 'is-invalid' : null %> " value="<%= locals.oldData ? oldData.correo : null %>">
                                     <% if (locals.errors && errors.correo) { %>
                                         <div class="text-danger">
                                             <%= errors.correo.msg %>

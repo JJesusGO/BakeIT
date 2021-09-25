@@ -102,23 +102,51 @@ const controller = {
         res.render('user/register');
 
     },
+
     create: function(req, res) {
-        db.Imagen.create({
-            url: req.file.filename,
-        }).then((imagen) => {
-            console.log(imagen.id);
-            Usuario.create({
-                permiso_id: 1,
-                nombre: req.body.nombre,
-                apellidos: req.body.apellido,
-                fecha_nacimiento: req.body.fechaNacimiento,
-                correo: req.body.correo,
-                contrasena: bcrypt.hashSync(req.body.contrasena, 10),
-                imagen_id: imagen.id
-            }); //.then((newUser) => {
-            res.redirect("/user/login");
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            return res.render('user/register', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        } 
+        /* 
+        Usuario.findOne({
+            where: {
+                correo: req.body.correo
+            },
+            include: ['permiso', 'imagen', 'carritos'],
         })
-    },
+        .then((userLogin) => {
+            if (userLogin.correo == req.body.correo) {
+                return res.render('user/register', {
+                    errors: {
+                        correo: {
+                            msg: 'Este correo ya se encuentra registrado'
+                        }
+                    },
+                    oldData: req.body
+                });
+             }
+        })
+        */
+        db.Imagen.create({
+                url: req.file.filename,
+            }).then((imagen) => {
+                Usuario.create({
+                    permiso_id: 2,
+                    nombre: req.body.nombre,
+                    apellidos: req.body.apellido,
+                    fecha_nacimiento: req.body.fechaNacimiento,
+                    correo: req.body.correo,
+                    contrasena: bcrypt.hashSync(req.body.contrasena, 10),
+                    imagen_id: imagen.id
+                }); 
+            res.redirect("/user/login");
+            }).catch(error => res.send(error))
+        },
+
     edit: function(req, res) {
         Usuario.findByPk(req.params.id)
             .then((usuario) => {
