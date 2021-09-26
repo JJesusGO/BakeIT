@@ -1,4 +1,8 @@
-module.exports = (sequalize, DataTypes) => {
+const { eliminar } = require("../../herramientas/herramientas");
+const path = require("path");
+
+module.exports = (sequelize, DataTypes) => {
+    
     const alias = 'Producto';
     const cols = {
         id: {
@@ -41,9 +45,49 @@ module.exports = (sequalize, DataTypes) => {
         tableName: 'productos'
     };
 
-    const Producto = sequalize.define(alias, cols, config);
-
+    const Producto = sequelize.define(alias, cols, config);
+    
     Producto.associate = function(models) {
+       
+        Producto.eliminar = async (id)=>{
+
+            const Imagen = models.Imagen;
+            const Producto_Imagen = models.Producto_Imagen;
+            const Producto_Award = models.Producto_Award;
+
+            const [producto,placeholder,producto_imagenes] = await Promise.all([
+                Producto.findByPk(id,{include: ["imagenes"]}),
+                Imagen.findOne({where: {url: process.env.PLACEHOLDER_IMG}}),
+                Producto_Imagen.findAll({where: { producto_id: id}})
+            ]);
+            producto.imagenes.forEach(async (imagen) => {
+                if(imagen.url != process.env.PLACEHOLDER_IMG)
+                    eliminar(path.join(__dirname,"../../../public/data/products/"+imagen.url));
+            });
+            const eliminar_imagenes = producto_imagenes.map(imagen => imagen.imagen_id);
+           
+            await Promise.all([
+                Producto_Imagen.destroy({
+                    where: { producto_id: id }
+                }),
+                Producto_Award.destroy({
+                    where: { producto_id: id }
+                })
+            ]);        
+            await Promise.all([
+                ...eliminar_imagenes.map(imagenid => {
+                    if(imagenid != placeholder.id)                
+                        return Imagen.destroy({
+                            where: { id: imagenid}
+                        });
+                    return null;
+                }),
+                Producto.destroy({
+                    where   : {id},  
+                })
+            ]);
+    
+        }
         Producto.belongsTo(models.Categoria, {
             as: 'categoria',
             foreignKey: 'categoria_id'

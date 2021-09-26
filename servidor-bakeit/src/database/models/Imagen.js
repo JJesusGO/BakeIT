@@ -18,6 +18,41 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Imagen = sequelize.define(alias, cols, config);
+    Imagen.registrar = async (imagenes) => {
+        return new Promise((callback) => {
+
+            let imagenesGuardadas = [];
+
+            const guardarImagen = (imagenGuardada,index)=>{
+                imagenesGuardadas[index] = (imagenGuardada)?imagenGuardada.id:-1;
+                let n = 0;
+                for(let i = 0; i < imagenesGuardadas.length; i++)
+                    if(imagenesGuardadas[i])
+                        n++;                            
+                if(n == imagenes.length)
+                    callback(imagenesGuardadas);            
+            };
+            imagenes.forEach((imagen,index) => {
+                if(imagen==null)
+                    guardarImagen(null,index);
+                else if(imagen == process.env.PLACEHOLDER_IMG)
+                    Imagen.findOne({
+                        where: {    
+                            url: process.env.PLACEHOLDER_IMG
+                        }
+                    }).then((imagen) => {
+                        guardarImagen(imagen,index);
+                    });            
+                else
+                    Imagen.create({
+                        url: imagen           
+                    }).then(imagenGuardada => {
+                        guardarImagen(imagenGuardada,index);
+                    });        
+            });
+    
+        });                    
+    }
 
     // Relaciones
     Imagen.associate = function(models) {

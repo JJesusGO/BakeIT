@@ -8,9 +8,9 @@
                 <section class="producto">
                     <div class="producto-imagenes">
                         <img src="/data/products/<%=producto.imagenes[0].url%>" alt="Imagen del producto" id="producto-imagen1">
-                        <img src="/data/products/<%=producto.imagenes[1].url%>" alt="Imagen del producto" id="producto-imagen2">
-                        <img src="/data/products/<%=producto.imagenes[2].url%>" alt="Imagen del producto" id="producto-imagen3">
-                        <img src="/data/products/<%=producto.imagenes[3].url%>" alt="Imagen del producto" id="producto-imagen4">
+                        <img src="/data/products/<%=(producto.imagenes[1]) ? producto.imagenes[1].url : producto.imagenes[0].url%>" alt="Imagen del producto" id="producto-imagen2">
+                        <img src="/data/products/<%=(producto.imagenes[2]) ? producto.imagenes[2].url : producto.imagenes[0].url%>" alt="Imagen del producto" id="producto-imagen3">
+                        <img src="/data/products/<%=(producto.imagenes[3]) ? producto.imagenes[3].url : producto.imagenes[0].url%>" alt="Imagen del producto" id="producto-imagen4">
                     </div>
                     <div class="producto-detalles">
                         <h1 class="nombre">

@@ -1,16 +1,21 @@
 const db = require('../database/models');
+const path = require('path');
+const {eliminar} = require('../herramientas/herramientas')
 
 const Producto = db.Producto;
 const Categoria = db.Categoria;
+const Imagen = db.Imagen;
+const Producto_Imagen = db.Producto_Imagen;
 
 const controlador = {
 
     getDetail: async (req, res) => {
         const {id} = req.params;
         const producto = await Producto.findByPk(id,{
-            include : ["categoria","awards","imagenes",{model: Producto, as: "recomendados", include: ['imagenes'] }]
+            include : ["categoria","awards","imagenes",{association: "recomendados", include: ['imagenes'] }]
         });        
-        producto.elementos = producto.elementos.split("+");        
+        producto.elementos = producto.elementos.split("+");    
+        console.log(producto);    
         res.render('product/detail', { producto });
     },
     getCart: (req, res) => {
@@ -52,67 +57,95 @@ const controlador = {
         }
         return res.redirect("/");
     },
-    postProduct: (req, res) => {
+    postProduct: async (req, res) => {
         const files = req.files;
-        let elementos = [];
-        let imagenes = [];
+        let elementosArray = [];
+        let imagenesArray = [];
 
         if (req.body.elementos != undefined)
-            elementos = req.body.elementos.split('\r\n');
-        for (let i = 0; i < elementos.length; i++)
-            if ((elementos[i].trim()).length <= 0)
-                elementos.splice(i--, 1);
+            elementosArray = req.body.elementos.split('\r\n');
+        for (let i = 0; i < elementosArray.length; i++)
+            if ((elementosArray[i].trim()).length <= 0)
+                elementosArray.splice(i--, 1);
         if (files != undefined)
-            imagenes = files.map(img => {
-                return "/data/products/" + img.filename;
-            });
+            imagenesArray = files.map(img => {
+                return img.filename;
+            });       
         for (let i = 0; i < 4; i++)
-            if (imagenes[i] == undefined)
-                imagenes[i] = "/media/img/placeholder.png";
+            if (imagenesArray[i] == undefined)
+                imagenesArray[i] = process.env.PLACEHOLDER_IMG; 
+        
+        const elementos = elementosArray.join("+");
+        const imagenes = await Imagen.registrar(imagenesArray);
 
-        const id = uniqid();
         const producto = {
             ...req.body,
             elementos,
-            imagenes,
-            id
-        }
-        agregarProducto(producto);
-        res.redirect("/products/edit");
+        }  
+        delete producto.imagenes;
+
+        Producto.create(producto).then(p =>{            
+            const productoID = p.id;
+            const producto_imagen = imagenes.map(img => {
+                return {
+                    producto_id: productoID, 
+                    imagen_id: img                  
+                }                
+            });
+            Producto_Imagen.bulkCreate(producto_imagen).then(() => {
+                res.redirect("/products/edit");
+            });
+        })
     },
-    putProductID: (req, res) => {
+    putProductID: async (req, res) => {
         const { id } = req.params;
-        const producto = productos.find(producto => producto.id === id);
+        const producto = await Producto.findByPk(id,{include: ["imagenes"]});
 
         const files = req.files;
-        let elementos = [];
-        let imagenes = [];
+        let elementosArray = [];
+        let imagenesArray = [];
 
         if (req.body.elementos != undefined)
-            elementos = req.body.elementos.split('\r\n');
-        for (let i = 0; i < elementos.length; i++)
-            if ((elementos[i].trim()).length <= 0)
-                elementos.splice(i--, 1);
+            elementosArray = req.body.elementos.split('\r\n');
+        for (let i = 0; i < elementosArray.length; i++)
+            if ((elementosArray[i].trim()).length <= 0)
+                elementosArray.splice(i--, 1);
         if (files != undefined)
-            imagenes = files.map(img => {
-                return "/data/products/" + img.filename;
-            });
+            imagenesArray = files.map(img => {
+                return img.filename;
+            });       
         for (let i = 0; i < 4; i++)
-            if (imagenes[i] == undefined)
-                imagenes[i] = producto.imagenes[i];
+            if (imagenesArray[i] == undefined)
+                imagenesArray[i] = (producto.imagenes[i])? producto.imagenes[i].url : process.env.PLACEHOLDER_IMG;             
+
+        const elementos = elementosArray.join("+");
+        const imagenes = await Imagen.registrar(imagenesArray);
 
         const edicionproducto = {
-            ...producto,
             ...req.body,
-            elementos,
-            imagenes,
+            id : producto.id,            
+            elementos        
         }
-        editarProducto(edicionproducto);
-        res.redirect("/products/edit");
+        delete producto.imagenes;
+        
+        Producto.update(edicionproducto,{
+            where: {id: producto.id}
+        }).then(async (p)=>{            
+            await Producto_Imagen.eliminar(producto.id);     
+            const producto_imagen = imagenes.map(img => {
+                return {
+                    producto_id: producto.id, 
+                    imagen_id: img                  
+                }                
+            });
+            Producto_Imagen.bulkCreate(producto_imagen).then(() => {
+                res.redirect("/products/edit");
+            });
+        })                
     },
-    deleteProductID: (req, res) => {
+    deleteProductID: async (req, res) => {
         const { id } = req.params;
-        eliminarProducto(id);
+        await Producto.eliminar(id);
         res.redirect("/products/edit");
     }
 };

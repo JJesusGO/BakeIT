@@ -1,3 +1,4 @@
+const fs = require('fs');
 
 const log = (...args)=>{
     const date = new Date();
@@ -15,7 +16,14 @@ const log = (...args)=>{
 
     const fecha = hora+":"+minutos+":"+segundos+" "+dia+"/"+mes+"/"+date.getFullYear();
     
-    console.log("Servidor BakeIt ("+fecha+") : ",args);
+    console.log("Servidor BakeIt ("+fecha+") : ",...args);
 }
 
-module.exports = {log};
+const eliminar = (path) => {
+    fs.unlink(path,(err)=>{
+        if(err)
+            log("Error al eliminar archivo: "+path,err);        
+    });
+}
+
+module.exports = {log,eliminar};
