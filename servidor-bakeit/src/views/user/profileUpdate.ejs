@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<%- include("../partials/head",{titulo:"Bakeit",css:"profile.css"}); -%>
+
+    <body>
+        <%- include('../partials/header') %>
+            <main>
+                <div class="centrar">
+                    <h2>Mi perfil</h2>
+                </div>
+
+                <form action=<%="/user/update/" +usuario.id+ ""%> method="POST" id="create_customer" accept-charset="UTF-8">
+
+                    <div class="profile-edit">
+                        <label for="nombre">Nombre
+                                <input type="text" name="nombre" id="name" autocomplete="off" 
+                                class="form-control  <%= locals.errors && errors.nombre ? 'is-invalid' : null %> " 
+                                value="<%= usuario.nombre%>">
+                            </label>
+                        <% if (locals.errors && errors.nombre) { %>
+                            <div class="text-danger">
+                                <%= errors.nombre.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="profile-edit">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellido" id="lastName" autocomplete="off" class="form-control  <%= locals.errors && errors.apellido ? 'is-invalid' : null %> " value="<%= usuario.apellidos%>">
+                        <% if (locals.errors && errors.apellido) { %>
+                            <div class="text-danger">
+                                <%= errors.apellido.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <div class="profile-edit">
+                        <label for="Fecha_nacimiento">Fecha de nacimiento</label>
+                        <input type="date" name="fechaNacimiento" id="birthdate" min="" max="2021-06-15" class="form-control  <%= locals.errors && errors.fechaNacimiento ? 'is-invalid' : null %> " value="<%= usuario.fecha_nacimiento%>">
+                        <% if (locals.errors && errors.fechaNacimiento) { %>
+                            <div class="text-danger">
+                                <%= errors.fechaNacimiento.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <div class="profile-edit">
+                        <label for="correo">Correo</label>
+                        <input type="text" name="correo" id="email" autocomplete="off" class="form-control  <%= locals.errors && errors.correo ? 'is-invalid' : null %> " value="<%= usuario.correo%>">
+                        <% if (locals.errors && errors.correo) { %>
+                            <div class="text-danger">
+                                <%= errors.correo.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <button type="submit" class="boton">Guardar cambios</button>
+
+                </form>
+
+
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

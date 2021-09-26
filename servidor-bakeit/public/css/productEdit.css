@@ -1,0 +1,102 @@
+body, html {
+  background-color: #F2F2F2;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.place-items-center {
+  place-items: center;
+}
+
+.seccion-items {
+  background-color: #F2F2F2;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.seccion-items .panel {
+  background-color: #F2F2F2;
+  padding: 0;
+  overflow: none;
+}
+.seccion-items .panel .encabezado {
+  background-color: #F2B950;
+  color: white;
+  padding: 2rem;
+}
+.seccion-items .panel .contenido {
+  background-color: white;
+  min-height: 50vh;
+  padding: 2rem;
+}
+.seccion-control {
+  background-color: #F2F2F2;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+.seccion-control .panel {
+  background-color: #F2F2F2;
+  padding: 0;
+  overflow: none;
+}
+.seccion-control .panel .encabezado {
+  background-color: #F2B950;
+  color: white;
+  padding: 2rem;
+}
+.seccion-control .panel .contenido {
+  background-color: white;
+  min-height: 50vh;
+  padding: 2rem;
+}
+.seccion-control .panel .contenido form {
+  background-color: white;
+}
+
+.item {
+  border-bottom: 1px solid #F2B950;
+  border-top: 1px solid #F2B950;
+}
+.item .precio {
+  background-color: #F2B950;
+  color: white;
+  padding: 0 !important;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-control-file {
+  display: block;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+.galeria .centrado {
+  display: grid;
+  place-items: center;
+  border: 1px solid #F2B950;
+  overflow: hidden;
+}
+.galeria .centrado img {
+  width: 100%;
+  height: auto;
+}
+
+.btn2 {
+  background-color: #3868A6;
+  color: white;
+  padding: 0.5rem 1.5rem;
+}
+.btn2:hover {
+  color: white;
+}

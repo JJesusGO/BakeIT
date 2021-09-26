@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("../partials/head",{titulo:"Carrito de compras",css:"productCart.css"}); -%> 
+<body>
+    <%- include('../partials/header') %>
+    <aside>
+        <div class="barra-superior">
+            <p class="en-linea">Carrito de compras</p>
+            <button type="button" class="boton-cerrar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="barra-separacion"></div>
+        <div class="listado-productos">
+            <article class="producto">
+                <img src="/media/img/noDisponible.png" alt="Logo">
+                <div class="detalles">
+                    <p class="nombre">Postre</p>
+                    <p class="precio">$0.00</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" type="button">-</button>
+                        <input type="text" class="form-control">
+                        <button class="btn btn-outline-secondary" type="button">+</button>
+                    </div>
+                </div>
+                <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
+            </article>
+            <article class="producto">
+                <img src="/media/img/noDisponible.png" alt="Logo">
+                <div class="detalles">
+                    <p class="nombre">Postre</p>
+                    <p class="precio">$0.00</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" type="button">-</button>
+                        <input type="text" class="form-control">
+                        <button class="btn btn-outline-secondary" type="button">+</button>
+                    </div>
+                </div>
+                <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
+            </article>
+        </div>
+        <div class="barra-separacion"></div>
+        <div class="barra-inferior">
+            <div clase="total">
+                <p class="en-linea">Total:</p>
+                <p class="en-linea">$0.00</p>
+            </div>
+            <button type="button" class="boton-principal">Comprar</button>
+        </div>
+    </aside>
+    <%- include('../partials/footer') %>
+</body>
+</html>

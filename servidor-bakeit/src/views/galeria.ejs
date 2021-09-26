@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<%- include("./partials/head",{titulo:"BakeIt",css:"galeria.css"}); -%>
+
+    <body>
+        <%- include('./partials/header') %>
+            <main>
+                <div class="titulo">
+                    <h1>MENÚ</h1>
+                </div>
+                <div class="categorias-drop-down">
+                    <select>
+                        <option value="" selected>Todos</option>
+                        <option value="">Natillas y pudines</option>
+                        <option value="">Postres fríos</option>
+                        <option value="">Galletas</option>
+                        <option value="">Pasteles</option>
+                        <option value="">Pays</option>
+                        <option value="">Hojaldres y bollos</option>
+                        <option value="">Kits</option>
+                    </select>
+                </div>
+                <div class="categorias">
+                    <!-- ¿Qué elemento es el menú de categorías? -->
+                    <% for(let categoria of categorias) { %>
+                        <article class="categoria">
+                            <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
+                            <p class="categoria-nombre">
+                                <%=categoria.nombre%>
+                            </p>
+                        </article>
+                        <% } %>
+                </div>
+                <div class="productos">
+                    <% for(let producto of productos) { %>
+                        <div class="producto">
+                            <a href="/products/detail/<%=producto.id%>">
+                                <img class="producto-img" src="data/products/<%=producto.imagenes[0].url%>" alt="Imagen del producto">
+                                <div class="producto-info">
+                                    <p class="nombre">
+                                        <%=producto.nombre%>
+                                    </p>
+                                    <p class="precio">
+                                        $<%=producto.precio.toFixed(2)%>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <% } %>
+                </div>
+            </main>
+            <%- include('./partials/footer') %>
+    </body>
+
+</html>
