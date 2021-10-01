@@ -14,6 +14,13 @@ const controlador = {
             db.Categoria.findAll({})
         ]);        
         res.render('galeria', { productos, categorias});
+    },
+
+    getHistory: (req, res) => {
+        res.render('history');
+    },
+    getKnowUs: (req, res) => {
+        res.render('knowUs');
     }
 };
 

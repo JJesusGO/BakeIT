@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  body, html {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+  }
+
+  .title{
+    text-align: center;
+    font-family: 'Clicker Script', cursive;
+    font-size: 50px;
+    margin: 15px;
+    color: #F2B950;
+}
+
+  .nombres{
+    font-family: 'Clicker Script', cursive;
+    font-size: 30px;
+    }
+  
+    .text{
+    line-height: 1.4;
+    }
+ 
+  .seccion-joyas {
+    background-color: #162D59;
+    padding: 4rem 0.25rem;
+  }
+  .seccion-joyas .panel .outline {
+    background-color: #F2F2F2;
+    border: solid 2px #3868A6;
+    padding: 2rem;
+  }
+  .seccion-joyas .panel .outline .joya {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 75vh;
+    min-height: 75vh;
+    margin-top: 3rem;
+  }
+  .seccion-joyas .panel .outline .joya .joya-imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .seccion-joyas .panel .outline .joya .joya-texto {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .place-items-center {
+    place-items: center;
+  }
+  
+  .reset {
+    left: 0;
+    top: 0;
+  }
+  
+  .btn-outline-blanco {
+    border-radius: 0.25rem;
+    border: solid 2px white;
+  }
+  .btn-outline-blanco:hover {
+    background-color: white;
+  }
+  .btn-outline-3 {
+    border-radius: 0.25rem;
+    border: solid 2px #F2B950;
+    color: #F2B950;
+  }
+  .btn-outline-3:hover {
+    background-color: #F2B950;
+    color: white !important;
+  }
+  
+  .mt-6, .my-6 {
+    margin-top: 5rem;
+  }
+  
+  .bkg1 {
+    background-color: #162D59;
+  }
+  .bkg2 {
+    background-color: #3868A6;
+  }
+  .bkg3 {
+    background-color: #F2B950;
+  }
+  .bkg4 {
+    background-color: #BF3E21;
+  }
+  .bkg5 {
+    background-color: #F2F2F2;
+  }
+  .bkgblanco {
+    background-color: white;
+  }
+  
+  .txt3 {
+    color: #F2B950;
+  }
+  .txt5 {
+    color: #F2F2F2;
+  }
+  .txtblanco {
+    color: white;
+  }
