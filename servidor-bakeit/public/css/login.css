@@ -176,6 +176,10 @@ span.pass_underline {
     text-align: left;
 }
 
+.validation_error {
+    color: #7b0000;
+}
+
 @media (min-width: 530px) {
     .nav-elemento {
         display: inline-block;
