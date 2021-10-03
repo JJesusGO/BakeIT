@@ -7,13 +7,15 @@ const controlador = {
     },
     getGaleria: async (req, res) => {
 
-        const [productos,categorias] = await  Promise.all([
+        const [productos, categorias] = await Promise.all([
             db.Producto.findAll({
-                include: ["imagenes","awards"]
+                include: ["imagenes", "awards"]
             }),
-            db.Categoria.findAll({})
-        ]);        
-        res.render('galeria', { productos, categorias});
+            db.Categoria.findAll({
+                include: ["imagen"]
+            })
+        ]);
+        res.render('galeria', { productos, categorias });
     }
 };
 
