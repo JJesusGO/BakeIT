@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true
         },
+        tipo: {
+            type: DataTypes.ENUM("postre", "kit"),
+            allowNull: false
+        },
         nombre: {
             type: DataTypes.STRING(255),
             allowNull: false
