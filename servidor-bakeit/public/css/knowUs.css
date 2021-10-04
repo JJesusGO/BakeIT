@@ -40,8 +40,8 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    height: 75vh;
-    min-height: 75vh;
+    height: 40vh;
+    min-height: 40vh;
     margin-top: 3rem;
   }
   .seccion-joyas .panel .outline .joya .joya-imagen {
@@ -86,6 +86,10 @@
     color: white !important;
   }
   
+  .margint-3{
+    margin-top: 3rem;
+  }
+
   .mt-6, .my-6 {
     margin-top: 5rem;
   }
@@ -118,3 +122,46 @@
   .txtblanco {
     color: white;
   }
+
+  /* Una imagen */
+  @media (max-width: 752px) { 
+    .seccion-joyas .panel .outline .joya .joya-imagen  {
+        width: 80%;
+        left: 60px;
+    }
+    
+    .seccion-joyas .panel .outline .joya {
+        margin-top: 2rem;
+        height: 60vh;
+    }
+
+    .text{
+        margin-bottom: 3rem;
+    }
+}
+  /* Dos imagenes */
+@media (min-width: 752px) and (max-width: 976px) {
+    .seccion-joyas .panel .outline .joya {
+        margin-top: 2rem;
+        height: 50vh;
+    }
+
+    .text{
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-height: 510px) {
+    .seccion-joyas .panel .outline .joya {
+        height: 90vh;
+        min-height: 80vh;
+    }
+    .seccion-joyas .panel .outline .joya .joya-imagen{
+        width: 250px;
+    }
+
+    .text, .nombres{
+        display: none;
+    }
+}
