@@ -20,6 +20,7 @@ CREATE TABLE awards(
 );
 CREATE TABLE categorias(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    tipo ENUM("postre","kit") NOT NULL,
     nombre VARCHAR(255) NOT NULL,
     imagen_id INT UNSIGNED NOT NULL,
     PRIMARY KEY(id),

@@ -48,20 +48,28 @@ INSERT INTO imagenes (url) VALUES ('img-navidad-1.png');
 INSERT INTO imagenes (url) VALUES ('img-navidad-2.png');
 INSERT INTO imagenes (url) VALUES ('img-navidad-3.png');
 INSERT INTO imagenes (url) VALUES ('img-navidad-4.png');
+INSERT INTO imagenes (url) VALUES ('img-all.jpg');
+INSERT INTO imagenes (url) VALUES ('img-custards&puddings.png');
+INSERT INTO imagenes (url) VALUES ('img-coldDesserts.png');
+INSERT INTO imagenes (url) VALUES ('img-cookies.png');
+INSERT INTO imagenes (url) VALUES ('img-cakes.png');
+INSERT INTO imagenes (url) VALUES ('img-pays.png');
+INSERT INTO imagenes (url) VALUES ('img-pastries.png');
+INSERT INTO imagenes (url) VALUES ('img-kits.png');
 
 -- Permisos - DONE
 INSERT INTO permisos (nombre, edicion_usuarios) VALUES ('Administrador', 1);
 INSERT INTO permisos (nombre, edicion_usuarios) VALUES ('Cliente', 0);
 
 -- Categorías - DONE
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Natillas y pudines',1);
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Postres fríos o helados',1);
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Galletas',1);
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Pasteles',1);
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Pays',1);
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Hojaldres y bollos',1);
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Individual',1);
-INSERT INTO categorias (nombre, imagen_id) VALUES ('Grupal',1);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Natillas y pudines','postre',105);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Postres fríos o helados','postre',106);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Galletas','postre',107);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Pasteles','postre',108);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Pays','postre',109);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Hojaldres y bollos','postre',112);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Pareja','kit',111);
+INSERT INTO categorias (nombre, tipo, imagen_id) VALUES ('Grupal','kit',111);
 
 -- Usuarios - DONE
 INSERT INTO usuarios (nombre, apellidos, permiso_id, fecha_nacimiento, correo, contrasena, imagen_id) VALUES ('Marcela', 'Barajas', 1, '2000-03-12', 'marcela@gmail.com', '$2a$10$tauMby3wn0jJDCktJZ1dD.8yD00VPie4hssLIrahX6fbTafNh4iba', 1);

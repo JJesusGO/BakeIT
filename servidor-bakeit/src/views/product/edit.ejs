@@ -26,13 +26,13 @@
                                                     <img src="/data/products/<%=productos[i].imagenes[0].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>   
                                                 <div class="centrado">
-                                                    <img src="/data/products/<%=productos[i].imagenes[1].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                    <img src="/data/products/<%= (productos[i].imagenes[1]) ? productos[i].imagenes[1].url : productos[i].imagenes[0].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>
                                                 <div class="centrado">
-                                                    <img src="/data/products/<%=productos[i].imagenes[2].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                    <img src="/data/products/<%=(productos[i].imagenes[2]) ? productos[i].imagenes[2].url : productos[i].imagenes[0].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>                                             
                                                 <div class="centrado">
-                                                    <img src="/data/products/<%=productos[i].imagenes[3].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
+                                                    <img src="/data/products/<%=(productos[i].imagenes[3]) ? productos[i].imagenes[3].url : productos[i].imagenes[0].url%>" alt="<%=productos[i].nombre%>" class="img-fluid">
                                                 </div>                                                                                                                                                
                                             </div>
                                         </div>
@@ -87,10 +87,10 @@
                                 </div>   
                                 <div class="form-group my-3">
                                     <label for="categoria" class="form-label">Categoría:</label>
-						            <select name="categoria" id="categoria" class="form-control" required>
+						            <select name="categoria_id" id="categoria" class="form-control" required>
                                         <option value="" class="text-muted">Selecciona una opción</option>
                                             <% for(let categoria of categorias) {%>
-                                                <%- (productos[edicion].categoria.nombre == categoria.nombre)?'<option value="'+categoria.nombre+'" selected>'+categoria.nombre+'</option>':'<option value="'+categoria.nombre+'">'+categoria.nombre+'</option>' %>                                        
+                                                <%- (productos[edicion].categoria.id == categoria.id)?'<option value="'+categoria.id+'" selected>'+categoria.nombre+'</option>':'<option value="'+categoria.id+'">'+categoria.nombre+'</option>' %>                                        
                                             <% } %>
 						            </select>
                                 </div>                      
@@ -135,16 +135,16 @@
                                     <label for="tipo" class="form-label">Tipo:</label>
 						            <select name="tipo" id="tipo" class="form-control" required>
                                         <option value="" class="text-muted">Selecciona una opción</option>
-                                        <option value="producto">Producto</option>
+                                        <option value="postre">Postre</option>
                                         <option value="kit">Kit</option>                                        
 						            </select>
                                 </div>   
                                 <div class="form-group my-3">
                                     <label for="categoria" class="form-label">Categoría:</label>
-						            <select name="categoria" id="categoria" class="form-control" required>
+						            <select name="categoria_id" id="categoria" class="form-control" required>
                                         <option value="" class="text-muted">Selecciona una opción</option>
                                         <% for(let categoria of categorias) { %> 
-                                            <option value="<%= categoria.nombre %>"><%= categoria.nombre %></option>                                        
+                                            <option value="<%= categoria.id %>"><%= categoria.nombre %></option>                                        
                                         <% } %>
 						            </select>
                                 </div>                                                                                             

@@ -22,20 +22,35 @@
                 </div>
                 <div class="categorias">
                     <!-- ¿Qué elemento es el menú de categorías? -->
+                    <article class="categoria">
+                        <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
+                        <p class="categoria-nombre">Todos
+                        </p>
+                    </article>
                     <% for(let categoria of categorias) { %>
-                        <article class="categoria">
-                            <img class="categoria-img" src="/media/img/noDisponible.png" alt="Icono de la categoría">
-                            <p class="categoria-nombre">
-                                <%=categoria.nombre%>
-                            </p>
-                        </article>
-                        <% } %>
+                        <% if(categoria.id !=7 && categoria.id !=8) { %>
+                            <article class="categoria">
+                                <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
+                                    alt="Icono de la categoría">
+                                <p class="categoria-nombre">
+                                    <%=categoria.nombre%>
+                                </p>
+                            </article>
+                            <% } %>
+                                <% } %>
+                                    <article class="categoria">
+                                        <img class="categoria-img" src="/data/products/img-kits.png"
+                                            alt="Icono de la categoría">
+                                        <p class="categoria-nombre">Kits
+                                        </p>
+                                    </article>
                 </div>
                 <div class="productos">
                     <% for(let producto of productos) { %>
                         <div class="producto">
                             <a href="/products/detail/<%=producto.id%>">
-                                <img class="producto-img" src="data/products/<%=producto.imagenes[0].url%>" alt="Imagen del producto">
+                                <img class="producto-img" src="data/products/<%=producto.imagenes[0].url%>"
+                                    alt="Imagen del producto">
                                 <div class="producto-info">
                                     <p class="nombre">
                                         <%=producto.nombre%>

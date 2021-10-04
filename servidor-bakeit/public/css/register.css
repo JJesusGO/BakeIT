@@ -168,6 +168,10 @@ span.pass_underline {
     text-align: left;
 }
 
+.validation_error {
+    color: #7b0000;
+}
+
 @media (max-device-width: 530px) {
     .caja_de_registro {
         width: 70vw;
