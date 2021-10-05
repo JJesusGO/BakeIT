@@ -97,6 +97,11 @@ const controller = {
         res.render('user/resetPassword');
     },
 
+    updatePassword: (req, res) => {
+        res.render('user/login');
+    },
+
+
     //CRUD
     add: function(req, res) {
         res.render('user/register');
