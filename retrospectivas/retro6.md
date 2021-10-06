@@ -4,6 +4,7 @@
 
 - Finalizar las páginas pendientes que se han pospuesto a lo largo de los sprints.
 - Realizar pruebas de todas las páginas para detectar posibles errores de funcionamiento.
+- Verificar configuraciones de github de acuerdo a lo especificado en la rubrica de clase.
 
 <h4>Hacer más</h4>
 
@@ -17,7 +18,7 @@
 
 <h4>Hacer menos</h4>
 
-- No aplica
+- Postergar actualizaciones del tablero de Trello.
 
 <h4>Dejar de hacer</h4>
 
