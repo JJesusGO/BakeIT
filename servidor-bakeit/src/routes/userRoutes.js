@@ -64,6 +64,8 @@ router.get('/logout', userController.logout);
 //.get(userController.getRegister)
 // .post(upload.single("imagen"), validations, userController.register)
 router.get('/resetPassword', userController.resetPassword)
+router.post('/resetPassword', userController.updatePassword)
+
 
 //CRUD
 router.get('/register', userController.add);

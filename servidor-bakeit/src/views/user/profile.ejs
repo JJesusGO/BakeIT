@@ -8,11 +8,12 @@
                 <div class="centrar">
                     <h2>Mi perfil</h2>
                 </div>
-
-                <div class="profile">
-                    <div class="profile-image-container">
+                
+                <div class="contenedor-info">
+                    <div>
                         <img class="profile-image" src="/media/avatars/<%= usuario.imagen.url %>">
                     </div>
+
                     <div class="profile-info">
                         <p>
                             Nombre:
@@ -21,12 +22,13 @@
                                     <%= usuario.correo %> <br> Fecha de Nacimiento:
                                         <%= usuario.fecha_nacimiento %> <br>
                         </p>
+
                     </div>
-                </div>
-                <div>
+            </div>
+
+                <div class="centrar">
                     <a class="boton" href="/user/update/<%= usuario.id %>">Editar Perfil</a>
                 </div>
-
 
             </main>
             <%- include('../partials/footer') %>

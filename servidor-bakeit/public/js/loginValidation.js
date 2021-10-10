@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    let formulario = document.getElementById("create_customer");
+    let formulario = document.getElementById("login");
 
     let campoCorreo = document.querySelector("#Email");
     let campoContrasena = document.querySelector("#CreatePassword");
