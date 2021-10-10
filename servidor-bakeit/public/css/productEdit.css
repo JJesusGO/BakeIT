@@ -9,7 +9,17 @@ body, html {
 .place-items-center {
   place-items: center;
 }
-
+.seccion-herramientas {
+  position: sticky;
+  top: 15vh;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
 .seccion-items {
   background-color: #F2F2F2;
   height: auto;
@@ -33,26 +43,30 @@ body, html {
 }
 .seccion-control {
   background-color: #F2F2F2;
+  min-width: 50vw;
+}
+.panel-control {
+  background-color: #F2F2F2;
   height: auto;
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
-.seccion-control .panel {
+.panel-control .panel {
   background-color: #F2F2F2;
   padding: 0;
   overflow: none;
 }
-.seccion-control .panel .encabezado {
+.panel-control .panel .encabezado {
   background-color: #F2B950;
   color: white;
   padding: 2rem;
 }
-.seccion-control .panel .contenido {
+.panel-control .panel .contenido {
   background-color: white;
   min-height: 50vh;
   padding: 2rem;
 }
-.seccion-control .panel .contenido form {
+.panel-control .panel .contenido form {
   background-color: white;
 }
 

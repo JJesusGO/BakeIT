@@ -4,9 +4,17 @@
 <%- include("../partials/head",{titulo:"Bienvenidxs a BakeIt",css:"productEdit.css"}); -%> 
 <body>
     <%- include("../partials/header"); -%> 
-    <main>
-        <div class="row w-100 p-3">
-            <section id="productos" class="seccion-items col-md-6">
+    <main id="edit" data-edit="<%= (locals.edicion >= 0) || (locals.oldData!=undefined) || (locals.errors!=null) %>">
+        <div class="container">
+            <section class="seccion-herramientas">
+                <% if(edicion >= 0) { %>
+                    <button class="btn btn-primary w-md-25 w-sm-50" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Editar (+)</button>                
+                    <a class="btn btn-danger w-md-25 w-sm-50" href="/products"> Cancelar (x) </a>                
+                <% } else {  %> 
+                    <button class="btn btn-primary w-md-25 w-sm-50" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Agregar (+)</button>                
+                <% } %> 
+            </section>
+            <section id="productos" class="seccion-items">
                 <div class="container-md panel shadow">
                     <div class="container-fluid encabezado">
                         <h4>Productos</h4>
@@ -62,128 +70,279 @@
                     </div>                
                 </div>
             </section>
-            <section id="control" class="seccion-control col-md-6">
-                <div class="container-md panel shadow">
-                    <div class="container-fluid encabezado">
-                        <h4><%= (edicion >= 0 && edicion<productos.length)?"Editar":"Agregar"%></h4>
-                    </div>                
-                    <div class="container-fluid contenido">
-                        <% if(edicion >= 0 && edicion<productos.length){ %>
-                            <form action=<%="/products/"+productos[edicion].id+"?_method=DELETE"%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
-                                <button class="btn btn-danger w-md-25 w-sm-50" >  Eliminar (X) </button>
-                            </form>      
-                            <form action=<%="/products/"+productos[edicion].id+"?_method=PUT"%> method="POST" enctype="multipart/form-data">
-                                <div class="form-group my-3">
-                                    <label for="nombre" class="my-1">Nombre del producto</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa" value=<%= productos[edicion].nombre %>  required>
-                                </div>        
-                                <div class="form-group my-3">
-                                    <label for="tipo" class="form-label">Tipo:</label>
-						            <select name="tipo" id="tipo" class="form-control" required>
-                                        <option value="" class="text-muted">Selecciona una opción</option>
-                                        <%- (productos[edicion].tipo=="postre")?'<option value="postre" selected>Postre</option>':'<option value="postre">Postre</option>'%>
-                                        <%- (productos[edicion].tipo=="kit")?'<option value="kit" selected>Kit</option>':'<option value="kit">Kit</option>'%>
-						            </select>
-                                </div>   
-                                <div class="form-group my-3">
-                                    <label for="categoria" class="form-label">Categoría:</label>
-						            <select name="categoria_id" id="categoria" class="form-control" required>
-                                        <option value="" class="text-muted">Selecciona una opción</option>
-                                            <% for(let categoria of categorias) {%>
-                                                <%- (productos[edicion].categoria.id == categoria.id)?'<option value="'+categoria.id+'" selected>'+categoria.nombre+'</option>':'<option value="'+categoria.id+'">'+categoria.nombre+'</option>' %>                                        
-                                            <% } %>
-						            </select>
-                                </div>                      
-                                <div class="form-group my-3">
-                                    <label for="descripcion" class="my-1">Descripción</label>
-                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required><%= productos[edicion].descripcion %></textarea>
-                                </div>   
-                                <div class="form-group my-3">
-                                    <label for="elementos" class="my-1">Elementos</label>
-                                    <textarea class="form-control" id="elementos" name="elementos" rows="3"  required><% for(let j=0;j<productos[edicion].elementos.length;j++){ %><%= productos[edicion].elementos[j]+"\r\n" %><% } %></textarea>
-                                </div>                              
-                                <div class="form-group my-3">
-                                    <label for="precio" class="my-1">Precio</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">$</div>
-                                        </div>
-                                        <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" value=<%= ""+productos[edicion].precio %> pattern="^\d*(\.\d{0,2})?$"  required>
-                                    </div>                                
-                                </div>
-                                <div class="form-group my-3">
-                                    <label for="porciones" class="my-1">Porciones</label>
-                                    <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"  value="<%= productos[edicion].porciones %>" required>
-                                </div>
-                                <div class="form-group my-3">
-                                    <label for="imagen1" class="form-label mb-2">Imagenes</label>
-                                    <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                    <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                    <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                    <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                </div>
-                                <button type="submit" class="btn btn2 my-3">Editar</button>
-                                <a class="btn btn2 my-3" href="/products"> Cancelar </a>  
-                            </form>
-                        <% } else { %>
-                            <form action="/products" method="POST" enctype="multipart/form-data">
-                                <div class="form-group my-3">
-                                    <label for="nombre" class="my-1">Nombre del producto</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa"  required>
-                                </div>
-                                <div class="form-group my-3">
-                                    <label for="tipo" class="form-label">Tipo:</label>
-						            <select name="tipo" id="tipo" class="form-control" required>
-                                        <option value="" class="text-muted">Selecciona una opción</option>
-                                        <option value="postre">Postre</option>
-                                        <option value="kit">Kit</option>                                        
-						            </select>
-                                </div>   
-                                <div class="form-group my-3">
-                                    <label for="categoria" class="form-label">Categoría:</label>
-						            <select name="categoria_id" id="categoria" class="form-control" required>
-                                        <option value="" class="text-muted">Selecciona una opción</option>
-                                        <% for(let categoria of categorias) { %> 
-                                            <option value="<%= categoria.id %>"><%= categoria.nombre %></option>                                        
+            <section class="offcanvas offcanvas-end seccion-control" tabindex="-1" id="offcanvasRight">
+                <div class="offcanvas-body">
+                    <div id="control" class="panel-control">
+                        <div class="container-fluid">
+                            <div class="container-fluid encabezado">
+                                <h4><%= (edicion >= 0 && edicion<productos.length)?"Editar":"Agregar"%></h4>
+                            </div>                
+                            <div class="container-fluid contenido">
+                            <% if(edicion >= 0 && edicion<productos.length){ %>
+                                <form action=<%="/products/"+productos[edicion].id+"?_method=DELETE"%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
+                                    <button class="btn btn-danger w-md-25 w-sm-50" >  Eliminar (X) </button>
+                                </form>  
+                                <form action=<%="/products/"+productos[edicion].id+"?_method=PUT"%> method="POST" enctype="multipart/form-data">
+                                <% if( locals.oldData ) { %>                                                                                    
+                                    <div class="form-group my-3">
+                                        <label for="nombre" class="my-1">Nombre del producto</label>
+                                        <input type="text" 
+                                                class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %> " id="nombre" name="nombre" placeholder="Aa"
+                                                value="<%= locals.oldData ? oldData.nombre : null %>">
+                                        <% if (locals.errors && errors.nombre) { %>
+                                            <div class="text-danger">
+                                                <%= errors.nombre.msg %>
+                                            </div>
                                         <% } %>
-						            </select>
-                                </div>                                                                                             
-                                <div class="form-group my-3">
-                                    <label for="descripcion" class="my-1">Descripción</label>
-                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required></textarea>
-                                </div>    
-                                <div class="form-group my-3">
-                                    <label for="elementos" class="my-1">Elementos</label>
-                                    <textarea class="form-control" id="elementos" name="elementos" rows="3"  required></textarea>
-                                </div>                                
-                                <div class="form-group my-3">
-                                    <label for="precio" class="my-1">Precio</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">$</div>
-                                        </div>
-                                        <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$" required>
+                                        <div class="validate_nombre validation_error"></div>
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="tipo" class="form-label">Tipo:</label>
+                                        <select name="tipo" id="tipo" class="form-control <%= locals.errors && errors.tipo ? 'is-invalid' : null %> ">
+                                            <option value="" class="text-muted">Selecciona una opción</option>
+                                            <option value="postre" <%= (locals.oldData && oldData.tipo == "postre")? "selected" : null %>>Postre</option>
+                                            <option value="kit" <%= (locals.oldData && oldData.tipo == "kit")? "selected" : null %>>Kit</option>                                        
+                                        </select>
+                                        <% if (locals.errors && errors.tipo) { %>
+                                            <div class="text-danger">
+                                                <%= errors.tipo.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_tipo validation_error"></div>
+                                    </div>   
+                                    <div class="form-group my-3">
+                                        <label for="categoria" class="form-label">Categoría:</label>
+                                        <select name="categoria_id" id="categoria" class="form-control <%= locals.errors && errors.categoria_id ? 'is-invalid' : null %>">
+                                            <option value="" class="text-muted">Selecciona una opción</option>
+                                            <% for(let categoria of categorias) { %> 
+                                                <option value="<%= categoria.id %>" <%= (locals.oldData && oldData.categoria_id == categoria.id)? "selected" : null %>><%= categoria.nombre %></option>                                        
+                                            <% } %>
+                                        </select>
+                                        <% if (locals.errors && errors.categoria_id) { %>
+                                            <div class="text-danger">
+                                                <%= errors.categoria_id.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_categoria validation_error"></div>
+                                    </div>                                                                                             
+                                    <div class="form-group my-3">
+                                        <label for="descripcion" class="my-1">Descripción</label>
+                                        <textarea class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>" id="descripcion" name="descripcion" rows="3"><%= (locals.oldData && oldData.descripcion)? oldData.descripcion : null %></textarea>
+                                        <% if (locals.errors && errors.descripcion) { %>
+                                            <div class="text-danger">
+                                                <%= errors.descripcion.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_descripcion validation_error"></div>
+                                    </div>    
+                                    <div class="form-group my-3">
+                                        <label for="elementos" class="my-1">Elementos</label>
+                                        <textarea class="form-control <%= locals.errors && errors.elementos ? 'is-invalid' : null %>" id="elementos" name="elementos" rows="3"><%= (locals.oldData && oldData.elementos)? oldData.elementos : null %></textarea>
+                                        <% if (locals.errors && errors.elementos) { %>
+                                            <div class="text-danger">
+                                                <%= errors.elementos.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_elementos validation_error"></div>
                                     </div>                                
-                                </div>
-                                <div class="form-group my-3">
-                                    <label for="porciones" class="my-1">Porciones</label>
-                                    <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"  required>
-                                </div>
-                                <div class="form-group my-3">
-                                    <label for="imagen1" class="form-label mb-2">Imagenes</label>
-                                    <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                    <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                    <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                    <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                </div>
-                                <button type="submit" class="btn btn2 my-3">Agregar</button>                                                      
+                                    <div class="form-group my-3">
+                                        <label for="precio" class="my-1">Precio</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">$</div>
+                                            </div>
+                                            <input type="text" class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>" id="precio" name="precio" placeholder="0.00"
+                                                    value="<%= locals.oldData ? oldData.precio : null %>">
+                                        </div>     
+                                        <% if (locals.errors && errors.precio) { %>
+                                            <div class="text-danger">
+                                                <%= errors.precio.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_precio validation_error"></div>                           
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="porciones" class="my-1">Porciones</label>
+                                        <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"
+                                                value="<%= locals.oldData ? oldData.porciones : null %>">
+                                        <% if (locals.errors && errors.porciones) { %>
+                                            <div class="text-danger">
+                                                <%= errors.porciones.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_porciones validation_error"></div>   
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="imagen1" class="form-label mb-2">Imagenes</label>
+                                        <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    </div>
+                                    <button type="submit" class="btn btn2 my-3">Editar</button>
+                                    <a class="btn btn2 my-3" href="/products"> Cancelar </a>                                          
+                                <% } else { %>                                        
+                                    <div class="form-group my-3">
+                                        <label for="nombre" class="my-1">Nombre del producto</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa" value=<%= productos[edicion].nombre %>>
+                                    </div>        
+                                    <div class="form-group my-3">
+                                        <label for="tipo" class="form-label">Tipo:</label>
+                                        <select name="tipo" id="tipo" class="form-control">
+                                            <option value="" class="text-muted">Selecciona una opción</option>
+                                            <%- (productos[edicion].tipo=="postre")?'<option value="postre" selected>Postre</option>':'<option value="postre">Postre</option>'%>
+                                            <%- (productos[edicion].tipo=="kit")?'<option value="kit" selected>Kit</option>':'<option value="kit">Kit</option>'%>
+                                        </select>
+                                    </div>   
+                                    <div class="form-group my-3">
+                                        <label for="categoria" class="form-label">Categoría:</label>
+                                        <select name="categoria_id" id="categoria" class="form-control">
+                                            <option value="" class="text-muted">Selecciona una opción</option>
+                                                <% for(let categoria of categorias) {%>
+                                                    <%- (productos[edicion].categoria.id == categoria.id)?'<option value="'+categoria.id+'" selected>'+categoria.nombre+'</option>':'<option value="'+categoria.id+'">'+categoria.nombre+'</option>' %>                                        
+                                                <% } %>
+                                        </select>
+                                    </div>                      
+                                    <div class="form-group my-3">
+                                        <label for="descripcion" class="my-1">Descripción</label>
+                                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required><%= productos[edicion].descripcion %></textarea>
+                                    </div>   
+                                    <div class="form-group my-3">
+                                        <label for="elementos" class="my-1">Elementos</label>
+                                        <textarea class="form-control" id="elementos" name="elementos" rows="3"  required><% for(let j=0;j<productos[edicion].elementos.length;j++){ %><%= productos[edicion].elementos[j]+"\r\n" %><% } %></textarea>
+                                    </div>                              
+                                    <div class="form-group my-3">
+                                        <label for="precio" class="my-1">Precio</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">$</div>
+                                            </div>
+                                            <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" value=<%= ""+productos[edicion].precio %>>
+                                        </div>                                
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="porciones" class="my-1">Porciones</label>
+                                        <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"  value="<%= productos[edicion].porciones %>">
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="imagen1" class="form-label mb-2">Imagenes</label>
+                                        <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    </div>
+                                    <button type="submit" class="btn btn2 my-3">Editar</button>
+                                    <a class="btn btn2 my-3" href="/products"> Cancelar </a>                                          
+                                <% } %>
                                 </form>
-                        <% } %>
-                    </div>                
+                            <% } else { %>
+                                <form action="/products" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group my-3">
+                                        <label for="nombre" class="my-1">Nombre del producto</label>
+                                        <input type="text" 
+                                                class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %> " id="nombre" name="nombre" placeholder="Aa"
+                                                value="<%= locals.oldData ? oldData.nombre : null %>">
+                                        <% if (locals.errors && errors.nombre) { %>
+                                            <div class="text-danger">
+                                                <%= errors.nombre.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_nombre validation_error"></div>
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="tipo" class="form-label">Tipo:</label>
+                                        <select name="tipo" id="tipo" class="form-control <%= locals.errors && errors.tipo ? 'is-invalid' : null %> ">
+                                            <option value="" class="text-muted">Selecciona una opción</option>
+                                            <option value="postre" <%= (locals.oldData && oldData.tipo == "postre")? "selected" : null %>>Postre</option>
+                                            <option value="kit" <%= (locals.oldData && oldData.tipo == "kit")? "selected" : null %>>Kit</option>                                        
+                                        </select>
+                                        <% if (locals.errors && errors.tipo) { %>
+                                            <div class="text-danger">
+                                                <%= errors.tipo.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_tipo validation_error"></div>
+                                    </div>   
+                                    <div class="form-group my-3">
+                                        <label for="categoria" class="form-label">Categoría:</label>
+                                        <select name="categoria_id" id="categoria" class="form-control <%= locals.errors && errors.categoria_id ? 'is-invalid' : null %>">
+                                            <option value="" class="text-muted">Selecciona una opción</option>
+                                            <% for(let categoria of categorias) { %> 
+                                                <option value="<%= categoria.id %>" <%= (locals.oldData && oldData.categoria_id == categoria.id)? "selected" : null %>><%= categoria.nombre %></option>                                        
+                                            <% } %>
+                                        </select>
+                                        <% if (locals.errors && errors.categoria_id) { %>
+                                            <div class="text-danger">
+                                                <%= errors.categoria_id.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_categoria validation_error"></div>
+                                    </div>                                                                                             
+                                    <div class="form-group my-3">
+                                        <label for="descripcion" class="my-1">Descripción</label>
+                                        <textarea class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>" id="descripcion" name="descripcion" rows="3"><%= (locals.oldData && oldData.descripcion)? oldData.descripcion : null %></textarea>
+                                        <% if (locals.errors && errors.descripcion) { %>
+                                            <div class="text-danger">
+                                                <%= errors.descripcion.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_descripcion validation_error"></div>
+                                    </div>    
+                                    <div class="form-group my-3">
+                                        <label for="elementos" class="my-1">Elementos</label>
+                                        <textarea class="form-control <%= locals.errors && errors.elementos ? 'is-invalid' : null %>" id="elementos" name="elementos" rows="3"><%= (locals.oldData && oldData.elementos)? oldData.elementos : null %></textarea>
+                                        <% if (locals.errors && errors.elementos) { %>
+                                            <div class="text-danger">
+                                                <%= errors.elementos.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_elementos validation_error"></div>
+                                    </div>                                
+                                    <div class="form-group my-3">
+                                        <label for="precio" class="my-1">Precio</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">$</div>
+                                            </div>
+                                            <input type="text" class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>" id="precio" name="precio" placeholder="0.00"
+                                                    value="<%= locals.oldData ? oldData.precio : null %>">
+                                        </div>     
+                                        <% if (locals.errors && errors.precio) { %>
+                                            <div class="text-danger">
+                                                <%= errors.precio.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_precio validation_error"></div>                           
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="porciones" class="my-1">Porciones</label>
+                                        <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"
+                                                value="<%= locals.oldData ? oldData.porciones : null %>">
+                                        <% if (locals.errors && errors.porciones) { %>
+                                            <div class="text-danger">
+                                                <%= errors.porciones.msg %>
+                                            </div>
+                                        <% } %>
+                                        <div class="validate_porciones validation_error"></div>   
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label for="imagen1" class="form-label mb-2">Imagenes</label>
+                                        <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen2" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen3" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <input type="file" class="form-control-file" id="imagen4" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                    </div>
+                                    <button type="submit" class="btn btn2 my-3">Agregar</button>                                                      
+                                </form>
+                            <% } %>
+                            </div>                
+                        </div>
+                    </div>
                 </div>
-            </section>            
+            </section>                        
         </div>        
     </main>
+    <script src="/js/editProduct.js"></script>
     <%- include("../partials/footer"); -%> 
 </body>
 </html>
