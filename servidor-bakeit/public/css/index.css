@@ -20,6 +20,12 @@ body, html {
 }
 .seccion-portada .portada-item {
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seccion-portada .portada-item img{
+  height: 100%;
 }
 .seccion-joyas {
   background-color: #F2F2F2;
@@ -97,7 +103,7 @@ body, html {
 }
 
 .carousel-item .contenido {
-  bottom: 20vh;
+  bottom: 5vh;
 }
 
 .place-items-center {
@@ -157,4 +163,12 @@ body, html {
 }
 .txtblanco {
   color: white;
+}
+
+
+@media screen and (min-width: 768px) {
+  .seccion-portada .portada-item img{
+    width: 100%;
+    height: auto;
+  }
 }

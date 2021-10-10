@@ -114,3 +114,7 @@ body, html {
 .btn2:hover {
   color: white;
 }
+
+.validation_error {
+  color: #7b0000;
+}

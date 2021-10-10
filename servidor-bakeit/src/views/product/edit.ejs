@@ -82,7 +82,7 @@
                                 <form action=<%="/products/"+productos[edicion].id+"?_method=DELETE"%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
                                     <button class="btn btn-danger w-md-25 w-sm-50" >  Eliminar (X) </button>
                                 </form>  
-                                <form action=<%="/products/"+productos[edicion].id+"?_method=PUT"%> method="POST" enctype="multipart/form-data">
+                                <form id="productos_form" action=<%="/products/"+productos[edicion].id+"?_method=PUT"%> method="POST" enctype="multipart/form-data">
                                 <% if( locals.oldData ) { %>                                                                                    
                                     <div class="form-group my-3">
                                         <label for="nombre" class="my-1">Nombre del producto</label>
@@ -112,7 +112,7 @@
                                     </div>   
                                     <div class="form-group my-3">
                                         <label for="categoria" class="form-label">Categoría:</label>
-                                        <select name="categoria_id" id="categoria" class="form-control <%= locals.errors && errors.categoria_id ? 'is-invalid' : null %>">
+                                        <select name="categoria_id" id="categoria_id" class="form-control <%= locals.errors && errors.categoria_id ? 'is-invalid' : null %>">
                                             <option value="" class="text-muted">Selecciona una opción</option>
                                             <% for(let categoria of categorias) { %> 
                                                 <option value="<%= categoria.id %>" <%= (locals.oldData && oldData.categoria_id == categoria.id)? "selected" : null %>><%= categoria.nombre %></option>                                        
@@ -185,6 +185,7 @@
                                     <div class="form-group my-3">
                                         <label for="nombre" class="my-1">Nombre del producto</label>
                                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Aa" value=<%= productos[edicion].nombre %>>
+                                        <div class="validate_nombre validation_error"></div>
                                     </div>        
                                     <div class="form-group my-3">
                                         <label for="tipo" class="form-label">Tipo:</label>
@@ -193,23 +194,27 @@
                                             <%- (productos[edicion].tipo=="postre")?'<option value="postre" selected>Postre</option>':'<option value="postre">Postre</option>'%>
                                             <%- (productos[edicion].tipo=="kit")?'<option value="kit" selected>Kit</option>':'<option value="kit">Kit</option>'%>
                                         </select>
+                                        <div class="validate_tipo validation_error"></div>
                                     </div>   
                                     <div class="form-group my-3">
                                         <label for="categoria" class="form-label">Categoría:</label>
-                                        <select name="categoria_id" id="categoria" class="form-control">
+                                        <select name="categoria_id" id="categoria_id" class="form-control">
                                             <option value="" class="text-muted">Selecciona una opción</option>
                                                 <% for(let categoria of categorias) {%>
                                                     <%- (productos[edicion].categoria.id == categoria.id)?'<option value="'+categoria.id+'" selected>'+categoria.nombre+'</option>':'<option value="'+categoria.id+'">'+categoria.nombre+'</option>' %>                                        
                                                 <% } %>
                                         </select>
+                                        <div class="validate_categoria validation_error"></div>
                                     </div>                      
                                     <div class="form-group my-3">
                                         <label for="descripcion" class="my-1">Descripción</label>
                                         <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required><%= productos[edicion].descripcion %></textarea>
+                                        <div class="validate_descripcion validation_error"></div>
                                     </div>   
                                     <div class="form-group my-3">
                                         <label for="elementos" class="my-1">Elementos</label>
                                         <textarea class="form-control" id="elementos" name="elementos" rows="3"  required><% for(let j=0;j<productos[edicion].elementos.length;j++){ %><%= productos[edicion].elementos[j]+"\r\n" %><% } %></textarea>
+                                        <div class="validate_elementos validation_error"></div>
                                     </div>                              
                                     <div class="form-group my-3">
                                         <label for="precio" class="my-1">Precio</label>
@@ -218,12 +223,14 @@
                                                 <div class="input-group-text">$</div>
                                             </div>
                                             <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" value=<%= ""+productos[edicion].precio %>>
+                                            <div class="validate_precio validation_error"></div>
                                         </div>                                
                                     </div>
                                     <div class="form-group my-3">
                                         <label for="porciones" class="my-1">Porciones</label>
                                         <input type="text" class="form-control" id="porciones" name="porciones" placeholder="0 rebanadas"  value="<%= productos[edicion].porciones %>">
-                                    </div>
+                                        <div class="validate_porciones validation_error"></div>
+                                    </div>                                    
                                     <div class="form-group my-3">
                                         <label for="imagen1" class="form-label mb-2">Imagenes</label>
                                         <input type="file" class="form-control-file" id="imagen1" name="image" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
@@ -236,7 +243,7 @@
                                 <% } %>
                                 </form>
                             <% } else { %>
-                                <form action="/products" method="POST" enctype="multipart/form-data">
+                                <form id="productos_form" action="/products" method="POST" enctype="multipart/form-data">
                                     <div class="form-group my-3">
                                         <label for="nombre" class="my-1">Nombre del producto</label>
                                         <input type="text" 
@@ -265,7 +272,7 @@
                                     </div>   
                                     <div class="form-group my-3">
                                         <label for="categoria" class="form-label">Categoría:</label>
-                                        <select name="categoria_id" id="categoria" class="form-control <%= locals.errors && errors.categoria_id ? 'is-invalid' : null %>">
+                                        <select name="categoria_id" id="categoria_id" class="form-control <%= locals.errors && errors.categoria_id ? 'is-invalid' : null %>">
                                             <option value="" class="text-muted">Selecciona una opción</option>
                                             <% for(let categoria of categorias) { %> 
                                                 <option value="<%= categoria.id %>" <%= (locals.oldData && oldData.categoria_id == categoria.id)? "selected" : null %>><%= categoria.nombre %></option>                                        
@@ -343,6 +350,7 @@
         </div>        
     </main>
     <script src="/js/editProduct.js"></script>
+    <script src="/js/productValidation.js"></script>
     <%- include("../partials/footer"); -%> 
 </body>
 </html>
