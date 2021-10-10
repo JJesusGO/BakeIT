@@ -9,12 +9,12 @@ const controlador = {
 
         const [productos, categorias] = await Promise.all([
             db.Producto.findAll({
-                include: ["imagenes", "awards"]
+                include: ["imagenes", "awards","categoria"]
             }),
             db.Categoria.findAll({
                 include: ["imagen"]
             })
-        ]);
+        ]);        
         res.render('galeria', { productos, categorias });
     }
 };

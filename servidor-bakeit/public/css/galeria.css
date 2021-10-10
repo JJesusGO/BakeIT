@@ -57,16 +57,50 @@ h1 {
 }
 
 .categorias {
-    display: none;
+    display: grid;
+    grid-template-columns: auto;
+}
+.categorias-postres, .categorias-kits{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;    
+    margin: auto 2rem;
+    padding: 1rem 1rem;
+    border-bottom: solid 1px var(--amarillo);
+}
+.categoria-boton{
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+.categorias-postres .contenido, .categorias-kits .contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+}
+.categorias-postres .encabezado, .categorias-kits .encabezado{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+    color: var(--amarillo);
 }
 
-.categorias-drop-down {
-    margin: 0 auto;
-    width: 90%;
+.categoria {
+    text-align: center;
+    padding: 0px 4px;
+    max-width: 60px;
 }
-
-.categorias-drop-down select {
-    width: 100%;
+.categoria-img {
+    width: 70%;
+    padding: 0px 0px 10px 0px;
+}
+.categoria-nombre {
+    color: var(--blanco);
+    font-size: 8px;
+    padding-top: 3px;
 }
 
 .productos {
@@ -118,17 +152,15 @@ p {
 }
 
 @media (min-width: 361px) {
-    .categorias-drop-down {
-        margin: 0 auto;
-        width: 85%;
-    }
 
+    .categorias {
+        grid-template-columns: auto;
+    }
     .productos {
         width: 90%;
         justify-content: space-between;
         
     }
-
     .producto {
         margin: 10px 10px;
         width: 43%;
@@ -148,18 +180,11 @@ p {
 }
 
 @media (min-width: 530px) {
-    .categorias-drop-down {
-        display: none;
-    }
+
 
     .categorias {
-        display: flex;
-        width: 85%;
-        margin: 0 auto;
-        justify-content: center;
-        padding: 10px 0px;
+        grid-template-columns: auto;
     }
-
     .categoria {
         text-align: center;
         padding: 0px 4px;
@@ -190,9 +215,8 @@ p {
 
 @media (min-width: 750px) {
     .categorias {
-        padding: 15px 0px;
+        grid-template-columns: auto;
     }
-
     .categoria {
         padding: 0px 8px;
         max-width: 70px;
@@ -213,5 +237,11 @@ p {
     
     .precio {
         font-size: 16px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .categorias {
+        grid-template-columns: auto auto;
     }
 }

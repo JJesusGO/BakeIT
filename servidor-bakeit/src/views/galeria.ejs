@@ -8,46 +8,59 @@
                 <div class="titulo">
                     <h1>MENÚ</h1>
                 </div>
-                <div class="categorias-drop-down">
-                    <select>
-                        <option value="" selected>Todos</option>
-                        <option value="">Natillas y pudines</option>
-                        <option value="">Postres fríos</option>
-                        <option value="">Galletas</option>
-                        <option value="">Pasteles</option>
-                        <option value="">Pays</option>
-                        <option value="">Hojaldres y bollos</option>
-                        <option value="">Kits</option>
-                    </select>
+                <div class="categorias container">
+                    <div class="categorias-postres">
+                        <div class="encabezado">
+                            <h2>POSTRES</h2>
+                        </div>
+                        <div class="contenido">
+                            <button class="categoria-boton" id="postrestodos">
+                                <article class="categoria">
+                                    <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
+                                    <p class="categoria-nombre">Todos</p>
+                                </article>
+                            </button>
+                            <% for(let categoria of categorias) { %>
+                                <% if(categoria.tipo == "postre") { %>
+                                    <button class="categoria-boton" id="postres<%= categoria.id %>">
+                                        <article class="categoria">
+                                            <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
+                                                alt="Icono de la categoría">
+                                            <p class="categoria-nombre"><%=categoria.nombre%></p>
+                                        </article>
+                                    </button>        
+                                <% } %>                        
+                            <% } %>                                    
+                        </div>                       
+                    </div> 
+                    <div class="categorias-kits">
+                        <div class="encabezado">
+                            <h2>KITS</h2>
+                        </div>
+                        <div class="contenido">
+                            <button class="categoria-boton" id="kitstodos">
+                                <article class="categoria">
+                                    <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
+                                    <p class="categoria-nombre">Todos</p>
+                                </article>
+                            </button>
+                            <% for(let categoria of categorias) { %>
+                                <% if(categoria.tipo == "kit") { %>
+                                    <button class="categoria-boton" id="kits<%= categoria.id %>">
+                                        <article class="categoria">
+                                            <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
+                                                alt="Icono de la categoría">
+                                            <p class="categoria-nombre"><%=categoria.nombre%></p>
+                                        </article>
+                                    </button>                           
+                                <% } %>     
+                            <% } %>                                    
+                        </div>                        
+                    </div>                    
                 </div>
-                <div class="categorias">
-                    <!-- ¿Qué elemento es el menú de categorías? -->
-                    <article class="categoria">
-                        <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
-                        <p class="categoria-nombre">Todos
-                        </p>
-                    </article>
-                    <% for(let categoria of categorias) { %>
-                        <% if(categoria.id !=7 && categoria.id !=8) { %>
-                            <article class="categoria">
-                                <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
-                                    alt="Icono de la categoría">
-                                <p class="categoria-nombre">
-                                    <%=categoria.nombre%>
-                                </p>
-                            </article>
-                            <% } %>
-                                <% } %>
-                                    <article class="categoria">
-                                        <img class="categoria-img" src="/data/products/img-kits.png"
-                                            alt="Icono de la categoría">
-                                        <p class="categoria-nombre">Kits
-                                        </p>
-                                    </article>
-                </div>
-                <div class="productos">
+                <div class="productos container">
                     <% for(let producto of productos) { %>
-                        <div class="producto">
+                        <div class="producto" data-categoria="<%= producto.categoria.id %>">
                             <a href="/products/detail/<%=producto.id%>">
                                 <img class="producto-img" src="data/products/<%=producto.imagenes[0].url%>"
                                     alt="Imagen del producto">
