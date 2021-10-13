@@ -14,7 +14,7 @@
                             <h2>POSTRES</h2>
                         </div>
                         <div class="contenido">
-                            <button class="categoria-boton" id="postrestodos">
+                            <button class="categoria-boton categoria-postre" data-categoria="todos">
                                 <article class="categoria">
                                     <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
                                     <p class="categoria-nombre">Todos</p>
@@ -22,7 +22,7 @@
                             </button>
                             <% for(let categoria of categorias) { %>
                                 <% if(categoria.tipo == "postre") { %>
-                                    <button class="categoria-boton" id="postres<%= categoria.id %>">
+                                    <button class="categoria-boton categoria-postre" data-categoria="<%= categoria.id %>">
                                         <article class="categoria">
                                             <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
                                                 alt="Icono de la categoría">
@@ -38,7 +38,7 @@
                             <h2>KITS</h2>
                         </div>
                         <div class="contenido">
-                            <button class="categoria-boton" id="kitstodos">
+                            <button class="categoria-boton categoria-kit" data-categoria="todos">
                                 <article class="categoria">
                                     <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
                                     <p class="categoria-nombre">Todos</p>
@@ -46,7 +46,7 @@
                             </button>
                             <% for(let categoria of categorias) { %>
                                 <% if(categoria.tipo == "kit") { %>
-                                    <button class="categoria-boton" id="kits<%= categoria.id %>">
+                                    <button class="categoria-boton categoria-kit" data-categoria="<%= categoria.id %>">
                                         <article class="categoria">
                                             <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
                                                 alt="Icono de la categoría">
@@ -78,6 +78,7 @@
                 </div>
             </main>
             <%- include('./partials/footer') %>
+            <script src="/js/galeria.js"></script>
     </body>
 
 </html>

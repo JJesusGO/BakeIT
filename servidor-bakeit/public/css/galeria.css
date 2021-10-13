@@ -51,6 +51,7 @@ h1 {
     -webkit-background-clip: text;
 }
 
+
 .titulo {
     text-align: center;
     padding-top: 50px;
@@ -73,6 +74,13 @@ h1 {
     background-color: transparent;
     outline: none;
     border: none;
+    opacity: 0.5;
+}
+.activo{
+    opacity: 1 !important;
+}
+.oculto{
+    display: none !important;
 }
 .categorias-postres .contenido, .categorias-kits .contenido{
     display: flex;
@@ -109,6 +117,7 @@ h1 {
     margin: 0 auto;
     padding: 15px 0px;
     width: 90%;
+    min-height: 50vh;
 }
 
 .producto {
