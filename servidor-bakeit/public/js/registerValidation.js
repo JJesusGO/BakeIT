@@ -1,8 +1,8 @@
 window.addEventListener("load", function () {
-    let formulario = document.getElementById("create_customer");
+    let formulario = document.getElementById("register");
 
-    let campoNombre = document.querySelector("#nombre");
-    let campoApellido = document.querySelector("#tipo");
+    let campoNombre = document.querySelector("#name");
+    let campoApellido = document.querySelector("#lastName");
     let campoFechaNacimiento = document.querySelector("#birthdate");
     let campoCorreo = document.querySelector("#email");
     let campoContrasena = document.querySelector("#password");
