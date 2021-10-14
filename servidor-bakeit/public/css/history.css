@@ -9,6 +9,11 @@ body, html {
   border: none;
 }
 
+.text-history {
+  text-align: center!important;
+  padding-right: 50px;
+}
+
 .seccion-portada {
   background-color: #F2F2F2;
   height: 88vh;
@@ -75,10 +80,7 @@ body, html {
 }
 .seccion-galeria {
   height: 100vh;
-  background-image: url("/media/img/banners/Banner4.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:cover;
+  background-color: #BF3E21;
   padding: 4rem 0.25rem;
 }
 .seccion-galeria .panel {

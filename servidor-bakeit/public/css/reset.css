@@ -125,7 +125,6 @@ span.pass_underline {
     background-color: var(--amarillo);
     color: var(--negro);
     border-color: var(--amarillo);
-    border-style: none;
 }
 
 .caja_de_registro {
