@@ -75,7 +75,10 @@ body, html {
 }
 .seccion-galeria {
   height: 100vh;
-  background-color: #BF3E21;
+  background-image: url("/media/img/banners/Banner4.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
   padding: 4rem 0.25rem;
 }
 .seccion-galeria .panel {
