@@ -20,6 +20,9 @@ const products = require('./routes/productRoutes');
 const user = require('./routes/userRoutes');
 const { cookie } = require('express-validator');
 
+//Routes - APIs
+const apiUsersRoute = require('./routes/api/userRoutes');
+
 
 //CONFIGURACIÓN
 app.set("PUERTO", 3000);
@@ -45,6 +48,8 @@ app.use('/', main);
 app.use('/products', products);
 app.use('/user', user);
 
+//Rutas - APIs
+app.use('/api/users', apiUsersRoute);
 
 const puerto = app.get('PUERTO') || 3000;
 app.listen(puerto, () => log('Servidor inicializado en localhost:' + puerto));

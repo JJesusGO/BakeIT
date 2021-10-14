@@ -140,22 +140,22 @@ INSERT INTO awards (nombre, descripcion) VALUES ('Maravilla Culinaria', 'Postre 
 INSERT INTO awards (nombre, descripcion) VALUES ('Complemento Ideal', 'Kit con mención honorífica por ser el más adquirido.');
 
 -- Ofertas - DONE
-INSERT INTO ofertas (producto_id, descuento) VALUES (1, 15);
-INSERT INTO ofertas (producto_id, descuento) VALUES (4, 10);
+INSERT INTO ofertas (producto_id, descuento) VALUES (1, 20);
+INSERT INTO ofertas (producto_id, descuento) VALUES (3, 20);
 
 
 -- TABLAS SIN INFORMACION
 -- Carrito - Pendiente
-INSERT INTO carrito (usuario_id, status) VALUES (usuario_id, status);
+-- INSERT INTO carrito (usuario_id, status) VALUES (usuario_id, status);
 
 -- Carrito_Producto
 -- Pendiente: TODO
-INSERT INTO carrito_producto (carrito_id, producto_id, cantidad) VALUES (carrito_id, producto_id, cantidad);
+-- INSERT INTO carrito_producto (carrito_id, producto_id, cantidad) VALUES (carrito_id, producto_id, cantidad);
 
 -- Recomendaciones
-INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (producto_id, recomendado_id);
+-- INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (producto_id, recomendado_id);
 
 -- Productos_Award
 -- Pendiente: TODO
-INSERT INTO productos_awards (producto_id, award_id, rating) VALUES (producto_id, award_id, rating);
+-- INSERT INTO productos_awards (producto_id, award_id, rating) VALUES (producto_id, award_id, rating);
 
