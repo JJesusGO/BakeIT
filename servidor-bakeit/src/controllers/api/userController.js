@@ -21,9 +21,14 @@ const userController = {
     },
     userDetail: (req, res) => {
         let userId = req.params.id;
-        db.Usuario.findByPk(userId, { attributes: ['id', 'nombre', 'apellidos', 'fecha_nacimiento', 'correo', 'imagen_id'] })
+        db.Usuario.findByPk(userId, { attributes: ['id', 'nombre', 'apellidos', 'fecha_nacimiento', 'correo'], include: ['imagen'] })
             .then(user => {
-                res.json(user);
+                let userData = user.dataValues;
+                let imageURL = userData.imagen.dataValues.url;
+
+                userData.imagen = "http://localhost:3000/media/avatars/" + imageURL;
+
+                res.json(userData);
             })
     }
 }
