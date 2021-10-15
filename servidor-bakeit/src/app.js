@@ -22,6 +22,7 @@ const { cookie } = require('express-validator');
 
 //Routes - APIs
 const apiUsersRoute = require('./routes/api/userRoutes');
+const apiProductsRoute = require('./routes/api/productRoutes');
 
 
 //CONFIGURACIÓN
@@ -50,6 +51,7 @@ app.use('/user', user);
 
 //Rutas - APIs
 app.use('/api/users', apiUsersRoute);
+app.use('/api/products', apiProductsRoute);
 
 const puerto = app.get('PUERTO') || 3000;
 app.listen(puerto, () => log('Servidor inicializado en localhost:' + puerto));
