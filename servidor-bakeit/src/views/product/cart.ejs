@@ -3,49 +3,65 @@
 <%- include("../partials/head",{titulo:"Carrito de compras",css:"productCart.css"}); -%> 
 <body>
     <%- include('../partials/header') %>
-    <aside>
-        <div class="barra-superior">
-            <p class="en-linea">Carrito de compras</p>
-            <button type="button" class="boton-cerrar"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="barra-separacion"></div>
-        <div class="listado-productos">
-            <article class="producto">
-                <img src="/media/img/noDisponible.png" alt="Logo">
-                <div class="detalles">
-                    <p class="nombre">Postre</p>
-                    <p class="precio">$0.00</p>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary" type="button">-</button>
-                        <input type="text" class="form-control">
-                        <button class="btn btn-outline-secondary" type="button">+</button>
-                    </div>
+    <div class="container-fluid seccion-carrito">
+        <div class="panel shadow">
+            <div class="container-fluid encabezado">
+                <h4>Carrito de compras</h4>
+            </div>         
+            <div class="constainer.fluid contenido">
+                <div class="barra-superior">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <details class="my-2">
+                            <summary>Selecciona tu carrito</summary> 
+                            <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sequi, in explicabo sed fuga repellat hic aliquid repellendus labore aliquam sapiente ducimus architecto officia accusamus beatae assumenda, illo vel blanditiis?</p>
+                        </details>
+                    </div>                    
+                    <div class="barra-separacion"></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="en-linea">Carrito[ID] : [STATUS]</p>
+                        <button type="button mt-5" class="boton-cerrar"><i class="fas fa-times"></i></button>
+                    </div>                    
                 </div>
-                <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
-            </article>
-            <article class="producto">
-                <img src="/media/img/noDisponible.png" alt="Logo">
-                <div class="detalles">
-                    <p class="nombre">Postre</p>
-                    <p class="precio">$0.00</p>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary" type="button">-</button>
-                        <input type="text" class="form-control">
-                        <button class="btn btn-outline-secondary" type="button">+</button>
-                    </div>
+                <div class="barra-separacion"></div>
+                <div class="listado-productos">
+                    <article class="producto">
+                        <img src="/media/img/noDisponible.png" alt="Logo">
+                        <div class="detalles">
+                            <p class="nombre">Postre</p>
+                            <p class="precio">$0.00</p>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-secondary" type="button">-</button>
+                                <input type="text" class="form-control">
+                                <button class="btn btn-outline-secondary" type="button">+</button>
+                            </div>
+                        </div>
+                        <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
+                    </article>
+                    <article class="producto">
+                        <img src="/media/img/noDisponible.png" alt="Logo">
+                        <div class="detalles">
+                            <p class="nombre">Postre</p>
+                            <p class="precio">$0.00</p>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-secondary" type="button">-</button>
+                                <input type="text" class="form-control">
+                                <button class="btn btn-outline-secondary" type="button">+</button>
+                            </div>
+                        </div>
+                        <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
+                    </article>
                 </div>
-                <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
-            </article>
-        </div>
-        <div class="barra-separacion"></div>
-        <div class="barra-inferior">
-            <div clase="total">
-                <p class="en-linea">Total:</p>
-                <p class="en-linea">$0.00</p>
-            </div>
-            <button type="button" class="boton-principal">Comprar</button>
-        </div>
-    </aside>
+                <div class="barra-separacion"></div>
+                <div class="barra-inferior">
+                    <div clase="total">
+                        <p class="en-linea">Total:</p>
+                        <p class="en-linea">$0.00</p>
+                    </div>
+                    <button type="button" class="boton-principal">Comprar</button>
+                </div>
+            </div>        
+        </div>        
+    </div>
     <%- include('../partials/footer') %>
 </body>
 </html>
