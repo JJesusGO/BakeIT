@@ -143,6 +143,51 @@ INSERT INTO awards (nombre, descripcion) VALUES ('Complemento Ideal', 'Kit con m
 INSERT INTO ofertas (producto_id, descuento) VALUES (1, 20);
 INSERT INTO ofertas (producto_id, descuento) VALUES (3, 20);
 
+-- Recomendaciones - DONE
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (1, 8);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (1, 9);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (1, 10);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (1, 11);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (2, 8);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (2, 9);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (2, 10);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (2, 11);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (3, 8);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (3, 9);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (3, 10);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (3, 11);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (4, 8);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (4, 9);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (4, 10);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (4, 11);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (5, 8);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (5, 9);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (5, 10);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (5, 11);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (6, 8);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (6, 9);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (6, 10);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (6, 11);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (7, 8);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (7, 9);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (7, 10);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (7, 11);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (8, 1);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (8, 2);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (8, 3);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (8, 4);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (9, 1);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (9, 2);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (9, 3);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (9, 4);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (10, 1);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (10, 2);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (10, 3);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (10, 4);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (11, 1);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (11, 2);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (11, 3);
+INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (11, 4);
 
 -- TABLAS SIN INFORMACION
 -- Carrito - Pendiente
@@ -151,9 +196,6 @@ INSERT INTO ofertas (producto_id, descuento) VALUES (3, 20);
 -- Carrito_Producto
 -- Pendiente: TODO
 -- INSERT INTO carrito_producto (carrito_id, producto_id, cantidad) VALUES (carrito_id, producto_id, cantidad);
-
--- Recomendaciones
--- INSERT INTO recomendaciones (producto_id, recomendado_id) VALUES (producto_id, recomendado_id);
 
 -- Productos_Award
 -- Pendiente: TODO
