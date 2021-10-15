@@ -17,7 +17,7 @@ const userController = {
                     users: data
                 }
                 res.json(response);
-            })
+            }).catch(error => res.send(error))
     },
     userDetail: (req, res) => {
         let userId = req.params.id;
@@ -29,7 +29,7 @@ const userController = {
                 userData.imagen = "http://localhost:3000/media/avatars/" + imageURL;
 
                 res.json(userData);
-            })
+            }).catch(error => res.send(error))
     }
 }
 
