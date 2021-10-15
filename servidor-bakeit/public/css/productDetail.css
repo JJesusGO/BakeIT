@@ -102,6 +102,7 @@ img {
 .ocasion-especial {
     background-color: var(--azul-oscuro);
     margin: 20px 0px;
+    padding: 2rem 0;
     color: var(--blanco); 
 }
 
