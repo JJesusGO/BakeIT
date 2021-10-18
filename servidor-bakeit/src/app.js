@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const app = express();
 const path = require('path');
 const { log } = require('./herramientas/herramientas');
+const { cookie } = require('express-validator');
 
 const public = path.join(__dirname, '../public');
 const views = path.join(__dirname, './views');
@@ -18,7 +19,7 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const main = require('./routes/mainRoutes');
 const products = require('./routes/productRoutes');
 const user = require('./routes/userRoutes');
-const { cookie } = require('express-validator');
+const cart = require('./routes/cartRoutes');
 
 //Routes - APIs
 const apiUsersRoute = require('./routes/api/userRoutes');
@@ -48,6 +49,7 @@ app.use(morgan('dev'));
 app.use('/', main);
 app.use('/products', products);
 app.use('/user', user);
+app.use('/cart', cart);
 
 //Rutas - APIs
 app.use('/api/users', apiUsersRoute);

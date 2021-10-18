@@ -40,7 +40,11 @@
                                 </p>
                             </div>
                         </div>
-                        <button type="button" class="boton-principal">Añadir</button>
+                        <form action="/cart/pedido" method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">                            
+                            <input type="hidden" name="producto_id" value="<%=producto.id%>">
+                            <button type="submit" class="boton-principal"> Añadir </button>
+                        </form>  
+                        
                     </div>
                 </section>
                 <% if(producto.recomendados.length> 0) { %>

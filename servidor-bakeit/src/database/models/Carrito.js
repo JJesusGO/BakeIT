@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         // El status es un INT. Si va a ser una referencia a un ID, nos falta crear la tabla status.
         status: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.STRING(64),
             allowNull: false
         }
     };
@@ -28,15 +28,28 @@ module.exports = (sequelize, DataTypes) => {
     Carrito.associate = function (models) {
         Carrito.belongsTo(models.Usuario, {
             as: 'usuario',
-            foreignKey: 'usuario_id'
+            foreignKey: 'usuario_id',
+            timestamps: false
         })
-        Carrito.belongsToMany(models.Producto, {
+        /*Carrito.belongsToMany(models.Producto, {
             as: 'productos',
             through: 'carrito_producto',
             foreignKey: 'carrito_id',
             otherKey: 'producto_id',
             timestamps: false
+        })*/
+        Carrito.hasMany(models.Carrito_Producto, {
+            as: 'pedidos',            
+            foreignKey: 'carrito_id',
+            timestamps: false
         })
+        Carrito.eliminar = async (id)=>{
+            return new Promise(async (callback)=>{
+                await models.Carrito_Producto.destroy({where : {carrito_id : id}});
+                await Carrito.destroy({where : {id}});
+                callback(true);
+            });            
+        }
     }
 
     return Carrito

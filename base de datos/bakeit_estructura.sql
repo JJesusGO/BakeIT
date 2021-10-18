@@ -54,7 +54,7 @@ CREATE TABLE productos(
 CREATE TABLE carrito(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     usuario_id INT UNSIGNED NOT NULL,
-    status INT UNSIGNED NOT NULL,
+    status VARCHAR(64) NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );

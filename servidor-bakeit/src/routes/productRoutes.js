@@ -5,7 +5,6 @@ const { uploadProduct } = require('../herramientas/storage');
 
 const { modProductValidation } = require('../herramientas/validations');
 
-router.get('/cart', productController.getCart);
 router.route('/')
       .get(productController.getProducts)
       .post(uploadProduct.array('image'), modProductValidation, productController.postProduct);

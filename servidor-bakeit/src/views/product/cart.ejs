@@ -6,58 +6,87 @@
     <div class="container-fluid seccion-carrito">
         <div class="panel shadow">
             <div class="container-fluid encabezado">
-                <h4>Carrito de compras</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4>Carrito de compras</h4>
+                    <form action=<%="/cart"%> method="POST" class="d-flex align-items-center justify-content-end p-0">
+                        <button class="btn btn-agregar w-md-25 w-sm-50" type="submit"> Agregar </button>                
+                    </form>
+                </div>                
             </div>         
             <div class="constainer.fluid contenido">
                 <div class="barra-superior">
-                    <div class="d-flex justify-content-end align-items-center">
-                        <details class="my-2">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <details class="mt-0 mb-2">
                             <summary>Selecciona tu carrito</summary> 
-                            <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sequi, in explicabo sed fuga repellat hic aliquid repellendus labore aliquam sapiente ducimus architecto officia accusamus beatae assumenda, illo vel blanditiis?</p>
+                            <div class="container-fluid d-flex justify-content-center align-items-center flex-column mt-3">
+                                <% for(let cart of carts) { %>
+                                    <a class="btn cart-button mt-1" data-cart="<%= cart.id %>" href=<%= "/cart/"+cart.id %>>
+                                        <article class="container-fluid">                                            
+                                            <div class="d-flex flex-column justify-content-center align-items-center">                                                                                                                                            
+                                                <p class="m-0">Carrito  : #<%= cart.id %></p>                                                
+                                                <p class="m-0"><%= cart.status.toUpperCase() %></p>                                                
+                                            </div>                                            
+                                        </article>
+                                    </a>
+                                <% } %>                                
+                            </div>
                         </details>
                     </div>                    
-                    <div class="barra-separacion"></div>
                     <div class="d-flex justify-content-between align-items-center">
-                        <p class="en-linea">Carrito[ID] : [STATUS]</p>
-                        <button type="button mt-5" class="boton-cerrar"><i class="fas fa-times"></i></button>
+                        <p class="en-linea">Carrito#<%= cart.id %> : <%= cart.status.tipo %></p>
                     </div>                    
                 </div>
                 <div class="barra-separacion"></div>
                 <div class="listado-productos">
-                    <article class="producto">
-                        <img src="/media/img/noDisponible.png" alt="Logo">
-                        <div class="detalles">
-                            <p class="nombre">Postre</p>
-                            <p class="precio">$0.00</p>
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
+                    <% if(cart) { %> 
+                        <% for(const pedido of cart.pedidos) { %>
+                            <article class="pedido" data-pedido="<%= pedido.id %> ">
+                                <img src=<%= "/data/products/" + pedido.producto.imagenes[0].url %> alt="Logo">
+                                <div class="detalles">
+                                    <p class="nombre"><%= pedido.producto.nombre %></p>
+                                    <p class="precio mt-2 mb-0">Precio unitario : $ <%= pedido.producto.precio.toFixed(2) %></p>
+                                    <p class="precio mt-0 mb-3">Precio total : $ <%= (pedido.producto.precio * pedido.cantidad).toFixed(2) %></p>
+                                    <% if(cart.status.activo) { %> 
+                                        <form action=<%="/cart/pedido/"+pedido.id+"?_method=PUT"%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
+                                            <input type="text" class="form-control" name="cantidad" value="<%= pedido.cantidad %>">
+                                            <button class="btn boton-editar" >  Editar </button>
+                                        </form>
+                                    <% } else { %>
+                                        <input type="text" class="form-control" name="cantidad" value="<%= pedido.cantidad %>" disabled>
+                                    <% } %>
+                                </div>
+                                <% if(cart.status.activo) { %> 
+                                    <form action=<%="/cart/pedido/"+pedido.id+"?_method=DELETE"%> method="POST" class="p-3">
+                                        <button type="submit" class="boton-eliminar-pedido"><i class="far fa-trash-alt"></i></button>
+                                    </form>
+                                <% } %> 
+                            </article>     
+                        <% } %>  
+                        <% if(cart.pedidos.length <= 0) { %>
+                            <div class="container-fluid">
+                                <h2 class="text-center my-5">No hay productos en el carrito</h2>
                             </div>
-                        </div>
-                        <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
-                    </article>
-                    <article class="producto">
-                        <img src="/media/img/noDisponible.png" alt="Logo">
-                        <div class="detalles">
-                            <p class="nombre">Postre</p>
-                            <p class="precio">$0.00</p>
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
-                        <button type="button" class="boton-eliminar"><i class="far fa-trash-alt"></i></button>
-                    </article>
+                        <% } %>  
+                    <% } %>              
                 </div>
                 <div class="barra-separacion"></div>
                 <div class="barra-inferior">
-                    <div clase="total">
-                        <p class="en-linea">Total:</p>
-                        <p class="en-linea">$0.00</p>
+                    <div class="total">                        
+                        <p class="en-linea">Total : $ <%= cart.total.toFixed(2) %></p>
                     </div>
-                    <button type="button" class="boton-principal">Comprar</button>
+                    <% if(cart.status.tipo == "PENDIENTE") { %> 
+                        <% if(cart.status.activo) { %>
+                            <form action=<%="/cart/comprar/"+cart.id%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
+                                <button class="btn boton-principal" <%= (cart.pedidos.length <= 0)?"disabled":""%>>  Comprar </button>
+                        <% } else { %>
+                            <form action=<%="/cart/activar/"+cart.id%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
+                                <button class="btn boton-principal" >  Activar </button>
+                        <% } %>                                 
+                            </form>
+                    <% } %>    
+                    <form action=<%="/cart/"+cart.id+"?_method=DELETE"%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
+                        <button class="btn boton-eliminar" >  Borrar </button>
+                    </form>
                 </div>
             </div>        
         </div>        

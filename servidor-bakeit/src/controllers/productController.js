@@ -18,11 +18,6 @@ const controlador = {
         producto.elementos = producto.elementos.split("+");    
         res.render('product/detail', { producto });
     },
-    getCart: (req, res) => {
-        if (!req.session.usuarioLoggeado)
-            return res.redirect("/");
-        return res.render('product/cart');        
-    },
     getProducts: async (req, res) => {               
         if (!req.session.usuarioLoggeado)
             return res.redirect("/");
