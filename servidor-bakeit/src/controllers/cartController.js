@@ -133,7 +133,7 @@ const controlador = {
     deletePedidoID: async (req, res) => {
         if (!req.session.usuarioLoggeado)
             return res.redirect("/");
-        await Carrito_Producto.delete({where: {id:req.params.id}});
+        await Carrito_Producto.destroy({where: {id:req.params.id}});
         return res.redirect("/cart");
     }
   
