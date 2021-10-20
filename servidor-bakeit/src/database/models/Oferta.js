@@ -24,11 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     const Oferta = sequelize.define(alias, cols, config);
 
     // Relaciones
-    // Una oferte pertenece a un producto. Oferta.belongsTo Producto.
     Oferta.associate = function (models) {
-        Oferta.belongsTo(models.Producto,{
+        Oferta.belongsTo(models.Producto, {
             as: "producto",
-            foreignKey : 'producto_id'
+            foreignKey: 'producto_id'
         })
     }
 

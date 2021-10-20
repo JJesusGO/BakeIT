@@ -1,4 +1,5 @@
 :root {
+    --azul-muy-oscuro: #0c1830;
     --azul-oscuro: #162D59;
     --azul-claro: #3868A6;
     --amarillo: #F2B950;
@@ -20,7 +21,7 @@ html {
 }
 
 body {
-    background-color: var(--azul-oscuro);
+    background-color: var(--azul-muy-oscuro);
     margin: 0px;
     padding: 0px;
     border: none;
@@ -59,22 +60,41 @@ body {
 
 main {
     min-height: 80vh;
+    max-width: 90vw;
 }
 
 main .centrar {
-    height: 90%;
+    min-height: 80vh;
+    min-width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
 h1 {
+    background-clip: content-box;
+    background-image: linear-gradient(
+        to right,
+        #462523 0,
+        #cb9b51 22%,
+        #f6e27a 35%,
+        #f6f2c0 50%,
+        #f6e27a 55%,
+        #cb9b51 78%,
+        #462523 100%
+    );
+    color: transparent;
+    display: inline;
+    font-family: 'Times New Roman', serif;
+    font-size: 30px;
+    font-weight: bolder;
+    letter-spacing: 5px;
     text-align: center;
-    font-family: 'Clicker Script', cursive;
-    font-size: 50px;
-    margin: 15px;
-    color: #F2B950;
+    max-width: 260px;
+    margin: 0px;
+    padding-top: 30px;
+    -webkit-background-clip: text;
 }
 
 input {
@@ -176,10 +196,10 @@ span.pass_underline {
 }
 
 .validation_error {
-    color: #7b0000;
+    color: #BF3E21;
 }
 
-@media (min-width: 530px) {
+@media (min-width: 520px) {
     .nav-elemento {
         display: inline-block;
     }
@@ -188,5 +208,19 @@ span.pass_underline {
     }
     .menu {
         width: 10vw;
+    }
+    h1 {
+        font-size: 40px;
+        max-width: 60vw;
+        text-align: center;
+    }
+}
+
+@media (min-width: 750px) {
+    h1 {
+        font-size: 50px;
+        max-width: 40vw;
+        padding-right: 50px;
+        text-align: left;
     }
 }

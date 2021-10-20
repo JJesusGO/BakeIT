@@ -21,6 +21,9 @@
                             <%=producto.nombre%>
                         </h1>
                         <p class="precio">$<%=producto.precio%>.00</p>
+                        <p class="decuento">$<%=producto.precio - (producto.precio * (producto.ofertas.descuento/100))%>
+                                .00
+                        </p>
                         <p class="descripcion">
                             <%=producto.descripcion%>
                         </p>
@@ -40,11 +43,12 @@
                                 </p>
                             </div>
                         </div>
-                        <form action="/cart/pedido" method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">                            
+                        <form action="/cart/pedido" method="POST"
+                            class="container-fluid d-flex align-items-center justify-content-end p-0">
                             <input type="hidden" name="producto_id" value="<%=producto.id%>">
                             <button type="submit" class="boton-principal"> Añadir </button>
-                        </form>  
-                        
+                        </form>
+
                     </div>
                 </section>
                 <% if(producto.recomendados.length> 0) { %>
@@ -62,7 +66,7 @@
                                     </p>
                                     <p class="precio">$<%= recomendado.precio.toFixed(2) %>
                                     </p>
-                                    <button type="button" class="boton">Añadir</button>
+                                    <button type="button" class="boton">Ver</button>
                                 </article>
                                 <%}%>
                         </div>
