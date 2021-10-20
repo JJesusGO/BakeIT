@@ -44,8 +44,15 @@
                                 <img src=<%= "/data/products/" + pedido.producto.imagenes[0].url %> alt="Logo">
                                 <div class="detalles">
                                     <p class="nombre"><%= pedido.producto.nombre %></p>
-                                    <p class="precio mt-2 mb-0">Precio unitario : $ <%= pedido.producto.precio.toFixed(2) %></p>
-                                    <p class="precio mt-0 mb-3">Precio total : $ <%= (pedido.producto.precio * pedido.cantidad).toFixed(2) %></p>
+                                    <p class="precio mt-2 mb-0">Precio unitario : $ <%= 
+                                                    (pedido.producto.ofertas)?
+                                                    (pedido.producto.precio*(1-pedido.producto.ofertas.descuento/100)).toFixed(2):
+                                                    pedido.producto.precio.toFixed(2) 
+                                    %></p>
+                                    <p class="precio mt-0 mb-3">Precio total : $ <%= 
+                                                    (pedido.producto.ofertas)?
+                                                    (pedido.producto.precio*(1-pedido.producto.ofertas.descuento/100)*pedido.cantidad).toFixed(2):
+                                                    (pedido.producto.precio*pedido.cantidad).toFixed(2)  %></p>
                                     <% if(cart.status.activo) { %> 
                                         <form action=<%="/cart/pedido/"+pedido.id+"?_method=PUT"%> method="POST" class="container-fluid d-flex align-items-center justify-content-end p-0">
                                             <input type="text" class="form-control" name="cantidad" value="<%= pedido.cantidad %>">
