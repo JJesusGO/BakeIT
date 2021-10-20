@@ -27,7 +27,7 @@ const apiProductsRoute = require('./routes/api/productRoutes');
 
 
 //CONFIGURACIÓN
-app.set("PUERTO", 3000);
+app.set("PUERTO", 3001);
 app.set("view engine", "ejs");
 app.set("views", views);
 
@@ -55,5 +55,5 @@ app.use('/cart', cart);
 app.use('/api/users', apiUsersRoute);
 app.use('/api/products', apiProductsRoute);
 
-const puerto = app.get('PUERTO') || 3000;
+const puerto = app.get('PUERTO') || 3001;
 app.listen(puerto, () => log('Servidor inicializado en localhost:' + puerto));

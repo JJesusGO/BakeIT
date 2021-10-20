@@ -1,0 +1,30 @@
+:root {
+    --azul-muy-oscuro: #0c1830;
+    --azul-oscuro: #162D59;
+    --azul-claro: #3868A6;
+    --amarillo: #F2B950;
+    --rojo: #BF3E21;
+    --blanco: #F2F2F2;
+    --negro: #000000;
+}
+
+
+
+.navbar-logo{
+    width: auto;
+    height: clamp(1rem,20vw,8rem);
+}
+
+.txt-azul-oscuro{
+    color: var(--azul-oscuro);
+}
+.txt-rojo{
+    color: var(--rojo);
+}
+
+.bkg-azul-claro{
+    background-color: var(--azul-claro);
+}
+.bkg-amarillo{
+    background-color: var(--amarillo);
+}

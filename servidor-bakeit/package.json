@@ -1,14 +1,19 @@
 {
     "name": "servidor-bakeit",
-    "version": "0.0.6",
+    "version": "0.0.8",
     "description": "Plataforma web enfocada en la venta de repostería DIY y kits de accesorios para complementar eventos especiales.",
     "main": "src/app.js",
     "scripts": {
         "start": "node .",
-        "dev": "nodemon ."
+        "dev": "nodemon .",
+        "dashboard" : "npm start --workspaces=dashboard-bakeit",
+        "build" : "npm run build --workspaces=dashboard-bakeit"
     },
     "author": "",
     "license": "ISC",
+	"workspaces" : [
+        "dashboard-bakeit"
+	],
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "cookie-parser": "^1.4.5",
