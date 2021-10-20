@@ -15,7 +15,7 @@ module.exports = (sequalize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         },
-        raiting: {
+        rating: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         }
@@ -26,6 +26,17 @@ module.exports = (sequalize, DataTypes) => {
     };
 
     const Producto_Award = sequalize.define(alias, cols, config);
+    // Relaciones
+    Producto_Award.associate = function (models) {
+        Producto_Award.belongsTo(models.Producto, {
+            as: 'producto',
+            foreignKey: 'producto_id'
+        });     
+        Producto_Award.belongsTo(models.Award, {
+            as: 'award',
+            foreignKey: 'award_id'
+        });     
+    }
 
     return Producto_Award;
 };

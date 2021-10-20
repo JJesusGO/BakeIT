@@ -54,6 +54,8 @@ body, html {
   height: 110%;
 }
 .seccion-joyas .panel .outline .joya .joya-texto {
+  background-color: #F2B950;
+  padding: 0.25rem 1rem;
   position: absolute;
   top: 10%;
   width: 100%;
