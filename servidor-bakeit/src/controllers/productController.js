@@ -24,14 +24,16 @@ const controlador = {
 
         const [productosPeticion, categorias] = await Promise.all([
             Producto.findAll({
-                include: ["categoria", "awards", "imagenes"]
+                include: ["categoria", "awards", "imagenes", "ofertas"]
             }),
             Categoria.findAll()
         ]);
+
         const productos = productosPeticion.map(producto => {
             producto.elementos = producto.elementos.split("+");
             return producto;
         });
+
         return res.render('product/edit', { productos, categorias, edicion: -1 });
 
     },

@@ -73,6 +73,26 @@ img {
     font-style: italic;
 }
 
+.precio-descontado {
+    margin-top: 0px;
+    font-style: italic;
+    text-decoration: line-through;
+    display: inline;
+}
+
+.descuento-leyenda {
+    display: inline;
+    font-weight: bold;
+}
+
+.descuento {
+    margin-top: 0px;
+    font-style: none;
+    font-weight: bolder;
+    color: #BF3E21;
+    padding: 5px 0px;
+}
+
 .nombre {
     margin-bottom: 2px;
     font-weight: bold;
