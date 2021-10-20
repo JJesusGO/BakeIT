@@ -16,23 +16,27 @@
                         <div class="contenido">
                             <button class="categoria-boton categoria-postre" data-categoria="todos">
                                 <article class="categoria">
-                                    <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
+                                    <img class="categoria-img" src="/data/products/img-all.png"
+                                        alt="Icono de la categoría">
                                     <p class="categoria-nombre">Todos</p>
                                 </article>
                             </button>
                             <% for(let categoria of categorias) { %>
-                                <% if(categoria.tipo == "postre") { %>
-                                    <button class="categoria-boton categoria-postre" data-categoria="<%= categoria.id %>">
+                                <% if(categoria.tipo=="postre" ) { %>
+                                    <button class="categoria-boton categoria-postre"
+                                        data-categoria="<%= categoria.id %>">
                                         <article class="categoria">
                                             <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
                                                 alt="Icono de la categoría">
-                                            <p class="categoria-nombre"><%=categoria.nombre%></p>
+                                            <p class="categoria-nombre">
+                                                <%=categoria.nombre%>
+                                            </p>
                                         </article>
-                                    </button>        
-                                <% } %>                        
-                            <% } %>                                    
-                        </div>                       
-                    </div> 
+                                    </button>
+                                    <% } %>
+                                        <% } %>
+                        </div>
+                    </div>
                     <div class="categorias-kits">
                         <div class="encabezado">
                             <h2>KITS</h2>
@@ -40,45 +44,49 @@
                         <div class="contenido">
                             <button class="categoria-boton categoria-kit" data-categoria="todos">
                                 <article class="categoria">
-                                    <img class="categoria-img" src="/data/products/img-all.png" alt="Icono de la categoría">
+                                    <img class="categoria-img" src="/data/products/img-all.png"
+                                        alt="Icono de la categoría">
                                     <p class="categoria-nombre">Todos</p>
                                 </article>
                             </button>
                             <% for(let categoria of categorias) { %>
-                                <% if(categoria.tipo == "kit") { %>
+                                <% if(categoria.tipo=="kit" ) { %>
                                     <button class="categoria-boton categoria-kit" data-categoria="<%= categoria.id %>">
                                         <article class="categoria">
                                             <img class="categoria-img" src="data/products/<%=categoria.imagen.url%>"
                                                 alt="Icono de la categoría">
-                                            <p class="categoria-nombre"><%=categoria.nombre%></p>
+                                            <p class="categoria-nombre">
+                                                <%=categoria.nombre%>
+                                            </p>
                                         </article>
-                                    </button>                           
-                                <% } %>     
-                            <% } %>                                    
-                        </div>                        
-                    </div>                    
+                                    </button>
+                                    <% } %>
+                                        <% } %>
+                        </div>
+                    </div>
                 </div>
                 <div class="productos container">
-                    <% for(let producto of productos) { %>
-                        <div class="producto" data-categoria="<%= producto.categoria.id %>">
-                            <a href="/products/detail/<%=producto.id%>">
-                                <img class="producto-img" src="data/products/<%=producto.imagenes[0].url%>"
-                                    alt="Imagen del producto">
-                                <div class="producto-info">
-                                    <p class="nombre">
-                                        <%=producto.nombre%>
-                                    </p>
-                                    <p class="precio">
-                                        $<%=producto.precio.toFixed(2)%>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <% } %>
+                    <% console.log(productos) %>
+                        <% for(let producto of productos) { %>
+                            <div class="producto" data-categoria="<%= producto.categoria.id %>">
+                                <a href="/products/detail/<%=producto.id%>">
+                                    <img class="producto-img" src="data/products/<%=producto.imagenes[0].url%>"
+                                        alt="Imagen del producto">
+                                    <div class="producto-info">
+                                        <p class="nombre">
+                                            <%=producto.nombre%>
+                                        </p>
+                                        <p class="precio">
+                                            $<%=producto.precio%>.00
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <% } %>
                 </div>
             </main>
             <%- include('./partials/footer') %>
-            <script src="/js/galeria.js"></script>
+                <script src="/js/galeria.js"></script>
     </body>
 
 </html>
