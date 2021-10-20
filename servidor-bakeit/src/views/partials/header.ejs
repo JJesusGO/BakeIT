@@ -10,16 +10,16 @@
             <div id="menu" class="collapse navbar-collapse justify-content-center align-items-center">
                 <ul class="navbar-nav nav-opciones">
                     <li class="nav-item active">
-                        <a class="nav-link text-white" href="/history">Nuestra historia</a>
+                        <a class="nav-link text-white" href="/history">Historia</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link text-white" href="/galeria">Galería</a>
+                        <a class="nav-link text-white" href="/knowUs">¡Conócenos!</a>
                     </li>
                     <li class="nav-item d-none d-lg-block">
                         <a class="nav-link text-white" href="/"><img class="logo" src="/media/img/logo.svg"></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link text-white" href="/knowUs">Conócenos más</a>
+                        <a class="nav-link text-white" href="/galeria">Galería</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link text-white" href="#">Opcion</a>
@@ -30,20 +30,21 @@
         <div class="nav-menu">
             <% if (locals.isLogged){%>
                 <a href="/user/detail/<%= locals.usuarioLoggeado.id %>">
-                    <img class="profile-image" src="/media/avatars/<%= locals.usuarioLoggeado.imagen.url %>" style="border-radius: 100%;">
+                    <img class="profile-image" src="/media/avatars/<%= locals.usuarioLoggeado.imagen.url %>"
+                        style="border-radius: 100%;">
                 </a>
                 <p class="user-nav mx-2">Hola
                     <%= locals.usuarioLoggeado.nombre %>
                 </p>
 
-                <a class="blanco mx-2" href="/cart"><i class="fas fa-shopping-cart blanco"></i></a>                
+                <a class="blanco mx-2" href="/cart"><i class="fas fa-shopping-cart blanco"></i></a>
                 <a class="blanco mx-2" href="/user/logout"><i class="far fa-user blanco"></i></a>
                 <% if(locals.usuarioLoggeado.permiso) if(locals.usuarioLoggeado.permiso.edicion_usuarios) { %>
                     <a class="blanco mx-2" href="/products"><i class="far fa-edit blanco"></i></a>
-                <% } %>
-            <% } else { %>
-                    <a class="blanco mx-2" href="/user/login"><i class="far fa-user blanco"></i></a>
-            <%}%>
+                    <% } %>
+                        <% } else { %>
+                            <a class="blanco mx-2" href="/user/login"><i class="far fa-user blanco"></i></a>
+                            <%}%>
         </div>
     </nav>
 </header>

@@ -54,7 +54,7 @@ body, html {
   height: 110%;
 }
 .seccion-joyas .panel .outline .joya .joya-texto {
-  background-color: #F2B950;
+  background-color: #162D59;
   padding: 0.25rem 1rem;
   position: absolute;
   top: 10%;
@@ -63,6 +63,11 @@ body, html {
   text-align: center;
   z-index: 1;
 }
+
+.joya-texto {
+  color: #F2F2F2
+}
+
 .seccion-presentacion {
   background-color: #F2F2F2;
   padding: 4rem 0.25rem;
@@ -177,5 +182,9 @@ body, html {
   .seccion-portada .portada-item img{
     height: 140% !important;
     width: auto !important;
+  }
+
+  .padding {
+    padding-right: 50px;
   }
 }

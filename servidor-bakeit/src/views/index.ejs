@@ -9,16 +9,19 @@
                     <div class="container-fluid portada">
                         <div id="portada-galeria" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
-                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="0"
+                                    aria-label="Slide 1" class="active" aria-current="true"></button>
+                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner h-100">
                                 <div class="carousel-item  h-100 active">
                                     <div class="portada-item bkg3">
                                         <img src="/media/img/banners/Banner1.png" alt="" class="h-100 mt-3">
                                     </div>
-                                    <div class="carousel-caption contenido">                                
+                                    <div class="carousel-caption contenido">
                                     </div>
                                 </div>
                                 <div class="carousel-item h-100">
@@ -36,11 +39,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#portada-galeria" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#portada-galeria"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#portada-galeria" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#portada-galeria"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -52,24 +57,35 @@
                         <div class="container-sm outline">
                             <div class="d-flex align-content-center justify-content-center flex-column">
                                 <h2 class="text-center">LAS JOYAS DE LA CORONA</h2>
-                                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p class="text-center">¡Visita los productos que han destacado por su singularidad y las
+                                    nuevas adiciones a nuestro menú!</p>
                                 <div class="row mt-5">
-                                    <% for(const award of awards){ %> 
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="container-fluid joya">
-                                            <div class="container-fluid h-75 p-0">
-                                                <div class="w-100 h-100 position-relative">
-                                                    <h3 class="joya-texto"><%= award.ratings[0].producto.nombre %> </h3>
-                                                    <img class="joya-imagen" src="/data/products/<%=award.ratings[0].producto.imagenes[0].url%>" src="/data/products/<%=award.ratings[0].producto.nombre%>">
+                                    <% for(const award of awards){ %>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <div class="container-fluid joya">
+                                                <div class="container-fluid h-75 p-0">
+                                                    <div class="w-100 h-100 position-relative">
+                                                        <h3 class="joya-texto">
+                                                            <%= award.ratings[0].producto.nombre %>
+                                                        </h3>
+                                                        <img class="joya-imagen"
+                                                            src="/data/products/<%=award.ratings[0].producto.imagenes[0].url%>"
+                                                            src="/data/products/<%=award.ratings[0].producto.nombre%>">
+                                                    </div>
                                                 </div>
+                                                <h5 class="text-decoration-underline mt-6">
+                                                    <%= award.nombre %>
+                                                </h5>
+                                                <h5 class="text-center">
+                                                    <%= award.descripcion %>
+                                                </h5>
+                                                <a class="btn btn-lg bkg1 mt-5 px-5 py-2"
+                                                    href="/products/detail/<%=award.ratings[0].producto.id %>">
+                                                    <p class="text-center txtblanco m-0 p-0">Ver</p>
+                                                </a>
                                             </div>
-                                            <h5 class="text-decoration-underline mt-6"><%= award.nombre %></h5>
-                                            <a class="btn btn-lg bkg1 mt-5 px-5 py-2" href="/products/detail/<%=award.ratings[0].producto.id %>">
-                                                <p class="text-center txtblanco m-0 p-0">Ver</p>
-                                            </a>
                                         </div>
-                                    </div>
-                                    <% } %> 
+                                        <% } %>
                                 </div>
                             </div>
                         </div>
@@ -80,37 +96,42 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="panel-row">
-                                    <img class="presentacion-imagen" src="/media/img/placeholder.png">
+                                    <img class="presentacion-imagen" src="/media/img/BakeIT-2.png">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <div class="panel-row">
-                                    <h2 class="text-center mb-3">¿Quiénes somos? ¿Qué es BakeIt?</h2>
-                                    <p class="text-center my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed eleifend mi. Duis et molestie eros. Pellentesque tellus mauris, tempus rhoncus cursus ac, ullamcorper eu arcu. </p>
+                                <div class="panel-row padding">
+                                    <h2 class="text-center mb-3">¿En qué consiste Bake It?</h2>
+                                    <p class="text-center my-3">Bake It se enfoca a la venta de reposteria DIY y kits de
+                                        accesorios para complementar cualquier clase de evento.</p>
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <a href="/history" class="btn btn-outline-3 text-center mt-3 mx-3 p-2 px-4"><p class="m-0">Nuestra historia</p></a>
-                                        <a href="/knowUs" class="btn btn-outline-3 text-center mt-3 mx-3 p-2 px-4"><p class="m-0">Conocernos más</p></a>
+                                        <a href="/history" class="btn btn-outline-3 text-center mt-3 mx-3 p-2 px-4">
+                                            <p class="m-0">Nuestra Historia</p>
+                                        </a>
+                                        <a href="/knowUs" class="btn btn-outline-3 text-center mt-3 mx-3 p-2 px-4">
+                                            <p class="m-0">¡Conoce al equipo!</p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section class="seccion-galeria">                    
+                <section class="seccion-galeria">
                     <div class="panel">
                         <div class="titulo">
-                            <h5>Conoce nuestra línea de productos y selecciona lo que se adapte mejor para tu evento.
+                            <h5>Conoce nuestra línea de productos y selecciona lo que se adapte mejor a tu ocasión.
                             </h5>
                         </div>
                         <div class="contenido">
                             <a class="btn btn-lg bkg1 mt-5 px-5 py-2" href="/galeria">
-                                <h4 class="text-center txtblanco m-0 p-0">Galeria</h4>
+                                <h4 class="text-center txtblanco m-0 p-0">Galería</h4>
                             </a>
                         </div>
                     </div>
                 </section>
             </main>
-        <%- include("./partials/footer"); -%>
+            <%- include("./partials/footer"); -%>
     </body>
 
 </html>

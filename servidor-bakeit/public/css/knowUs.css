@@ -1,3 +1,13 @@
+:root {
+  --azul-muy-oscuro: #0c1830;
+  --azul-oscuro: #162D59;
+  --azul-claro: #3868A6;
+  --amarillo: #F2B950;
+  --rojo: #BF3E21;
+  --blanco: #F2F2F2;
+  --negro: #000000;
+}
+
 * {
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
@@ -9,154 +19,79 @@
     border: none;
   }
 
-  .title{
-    text-align: center;
-    font-size: 50px;
-    margin: 15px;
-    color: #F2B950;
-}
+  main {
+    min-height: 80vh;
+    background-color: var(--blanco);
+  }
 
-  .nombres{
-    font-size: 30px;
-    }
-  
-    .text{
-    line-height: 1.4;
-    }
- 
-  .seccion-joyas {
-    background-color: #162D59;
-    padding: 4rem 0.25rem;
+  h1 {
+    color: #162D59;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 40px 0px 20px 0px;
+    width: 85%;
+    text-align: center;
+    margin: 0 auto;
   }
-  .seccion-joyas .panel .outline {
-    background-color: #F2F2F2;
-    border: solid 2px #3868A6;
-    padding: 2rem;
-  }
-  .seccion-joyas .panel .outline .joya {
+
+  .integrantes {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    height: 40vh;
-    min-height: 50vh;
-    margin-top: 3rem;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
   }
-  .seccion-joyas .panel .outline .joya .joya-imagen {
-    width: 100%;
+
+  .image {
+    width: 70%;
     border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
-  }
-  .seccion-joyas .panel .outline .joya .joya-texto {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    z-index: 1;
-  }
-  
-  .place-items-center {
-    place-items: center;
-  }
-  
-  .reset {
-    left: 0;
-    top: 0;
-  }
-  
-  .btn-outline-blanco {
-    border-radius: 0.25rem;
-    border: solid 2px white;
-  }
-  .btn-outline-blanco:hover {
-    background-color: white;
-  }
-  .btn-outline-3 {
-    border-radius: 0.25rem;
-    border: solid 2px #F2B950;
-    color: #F2B950;
-  }
-  .btn-outline-3:hover {
-    background-color: #F2B950;
-    color: white !important;
-  }
-  
-  .margint-3{
-    margin-top: 3rem;
+    padding: 20px 0px;
   }
 
-  .mt-6, .my-6 {
-    margin-top: 5rem;
-  }
-  
-  .bkg1 {
-    background-color: #162D59;
-  }
-  .bkg2 {
-    background-color: #3868A6;
-  }
-  .bkg3 {
-    background-color: #F2B950;
-  }
-  .bkg4 {
-    background-color: #BF3E21;
-  }
-  .bkg5 {
-    background-color: #F2F2F2;
-  }
-  .bkgblanco {
-    background-color: white;
-  }
-  
-  .txt3 {
-    color: #F2B950;
-  }
-  .txt5 {
-    color: #F2F2F2;
-  }
-  .txtblanco {
-    color: white;
+  .name {
+    font-weight: bold;
+    border: var(--azul-claro);
+    border-width: medium;
+    border-style: solid dotted;
+    color: var(--azul-claro);
+    font-size: 18px;
   }
 
-  /* Una imagen */
-  @media (max-width: 752px) { 
-    .seccion-joyas .panel .outline .joya .joya-imagen  {
-        width: 80%;
-        left: 60px;
-    }
-    
-    .seccion-joyas .panel .outline .joya {
-        margin-top: 2rem;
-        height: 60vh;
-    }
+  .definition {
+    font-size: 15px;
+  }
 
-    .text{
-        margin-bottom: 3rem;
-    }
-}
-  /* Dos imagenes */
-@media (min-width: 752px) and (max-width: 976px) {
-    .seccion-joyas .panel .outline .joya {
-        margin-top: 2rem;
-        height: 50vh;
-    }
+  .person {
+    padding-bottom: 25px;
+  }
 
-    .text{
-        margin-top: 4rem;
-        margin-bottom: 3rem;
-    }
+@media (min-width: 361px) {
+  .image {
+    width: 50%;
+  }
 }
 
-@media (max-height: 510px) {
-    .seccion-joyas .panel .outline .joya {
-        height: 90vh;
-        min-height: 80vh;
-    }
-    .seccion-joyas .panel .outline .joya .joya-imagen{
-        width: 250px;
-    }
+@media (min-width: 750px) {
+  h1 {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
 
-    .text, .nombres{
-        display: none;
-    }
+  .integrantes {
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+  }
+
+  .person {
+    padding: 0px 20px;
+    max-width: 30%;
+  }
+
+  .name {
+    font-size: 22px;
+  }
 }

@@ -67,7 +67,7 @@ main .centrar {
 
 h2 {
     text-align: left;
-    font-family: 'Clicker Script', cursive;
+    /* font-family: 'Clicker Script', cursive; */
     font-size: 35px;
     margin: 15px;
     color: var(--azul-oscuro);

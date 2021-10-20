@@ -138,6 +138,7 @@ INSERT INTO productos_imagenes (producto_id, imagen_id) VALUES (11, 47);
 -- Awards - DONE
 INSERT INTO awards (nombre, descripcion) VALUES ('Maravilla Culinaria', 'Postre con mención honorífica por ser el más adquirido.');
 INSERT INTO awards (nombre, descripcion) VALUES ('Complemento Ideal', 'Kit con mención honorífica por ser el más adquirido.');
+INSERT INTO awards (nombre, descripcion) VALUES ('Primera Plana', 'Postre más reciente en agregarse al menú.');
 
 -- Ofertas - DONE
 INSERT INTO ofertas (producto_id, descuento) VALUES (1, 20);
