@@ -36,7 +36,7 @@ const productController = {
         let productId = req.params.id;
         db.Producto.findByPk(productId, {
             attributes: ['id', 'nombre', 'tipo', 'descripcion', 'categoria_id', 'precio', 'elementos', 'porciones'],
-            include: ['categoria', 'awards','imagenes', 'recomendados', 'recomendado', 'carritos']
+            include: ['categoria', 'awards','imagenes', 'recomendados', 'recomendado', 'carritos', 'ofertas']
         }).then(productResponse => {
             let product = productResponse.dataValues;
 
