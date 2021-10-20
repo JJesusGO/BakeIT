@@ -1,4 +1,5 @@
 :root {
+    --azul-muy-oscuro: #0c1830;
     --azul-oscuro: #162D59;
     --azul-claro: #3868A6;
     --amarillo: #F2B950;
@@ -20,7 +21,7 @@ html {
 }
 
 body {
-    background-color: #0b1826;
+    background-color: var(--azul-muy-oscuro);
     border: none;
     color: var(--negro);
     margin: 0px;

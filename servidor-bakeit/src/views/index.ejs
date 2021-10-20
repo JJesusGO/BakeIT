@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include("./partials/head",{titulo:"Bienvenidxs a BakeIt",css:"index.css"}); -%> 
-<body>
-    <%- include("./partials/header"); -%> 
-    <main>
-        <section class="seccion-portada">
-            <div class="container-fluid portada">
-                <div id="portada-galeria" class="carousel slide h-100" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
-                        <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner h-100">
-                        <div class="carousel-item  h-100 active">
-                            <div class="portada-item bkg3">
-                                <img src="/media/img/banners/Banner1.png" alt="" class="h-100 mt-3">
+<%- include("./partials/head",{titulo:"Bienvenidxs a BakeIt",css:"index.css"}); -%>
+
+    <body>
+        <%- include("./partials/header"); -%>
+            <main>
+                <section class="seccion-portada">
+                    <div class="container-fluid portada">
+                        <div id="portada-galeria" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="0"
+                                    aria-label="Slide 1" class="active" aria-current="true"></button>
+                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
                             </div>
-                            <div class="carousel-caption contenido">                                
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item  h-100 active">
+                                    <div class="portada-item bkg3">
+                                        <img src="/media/img/banners/Banner1.png" alt="" class="h-100 mt-3">
+                                    </div>
+                                    <div class="carousel-caption contenido">
+                                    </div>
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <div class="portada-item bkg3">
+                                        <img src="/media/img/banners/Banner2.png" alt="" class="h-100 mt-3">
+                                    </div>
+                                    <div class="carousel-caption contenido">
+                                    </div>
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <div class="portada-item bkg3">
+                                        <img src="/media/img/banners/Banner3.png" alt="" class="h-100 mt-3">
+                                    </div>
+                                    <div class="carousel-caption contenido">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-item h-100">
-                            <div class="portada-item bkg3">
-                                <img src="/media/img/banners/Banner2.png" alt="" class="h-100 mt-3">
-                            </div>
-                            <div class="carousel-caption contenido">
-                            </div>
-                        </div>
-                        <div class="carousel-item h-100">
-                            <div class="portada-item bkg3">
-                                <img src="/media/img/banners/Banner3.png" alt="" class="h-100 mt-3">
-                            </div>
-                            <div class="carousel-caption contenido">
-                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#portada-galeria"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#portada-galeria"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#portada-galeria" data-bs-slide="prev">
@@ -71,43 +87,37 @@
                             <% } %> 
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="seccion-presentacion">
-            <div class="container-fluid panel">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="panel-row">
-                            <img class="presentacion-imagen" src="/media/img/placeholder.png">
+                </section>
+                <section class="seccion-galeria">
+                    <div class="panel">
+                        <div class="titulo">
+                            <h5>Conoce nuestra línea de productos y selecciona lo que se adapte mejor para tu evento.
+                            </h5>
+                        </div>
+                        <div class="contenido">
+                            <a class="btn btn-lg bkg1 mt-5 px-5 py-2" href="/galeria">
+                                <h4 class="text-center txtblanco m-0 p-0">Galeria</h4>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="panel-row">
-                            <h2 class="text-center mb-3">¿Quiénes somos? ¿Qué es BakeIt?</h2>
-                            <p class="text-center my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed eleifend mi. Duis et molestie eros. Pellentesque tellus mauris, tempus rhoncus cursus ac, ullamcorper eu arcu. </p>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a href="/history" class="btn btn-outline-3 text-center mt-3 mx-3 p-2 px-4"><p class="m-0">Nuestra historia</p></a>
-                                <a href="/knowUs" class="btn btn-outline-3 text-center mt-3 mx-3 p-2 px-4"><p class="m-0">Conocernos más</p></a>
-                            </div>
+                    </div>
+                    </div>
+                </section>
+                <section class="seccion-galeria">
+                    <div class="panel">
+                        <div class="titulo">
+                            <h5>Conoce nuestra línea de productos y selecciona lo que se adapte mejor para tu evento.
+                            </h5>
+                        </div>
+                        <div class="contenido">
+                            <a class="btn btn-lg bkg1 mt-5 px-5 py-2" href="/galeria">
+                                <h4 class="text-center txtblanco m-0 p-0">Galeria</h4>
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="seccion-galeria">
-            <div class="panel">
-                <div class="titulo">
-                    <h5>Conoce nuestra línea de productos y selecciona lo que se adapte mejor para tu evento.</h5>
-                </div>
-                <div class="contenido">
-                    <a class="btn btn-lg bkg1 mt-5 px-5 py-2" href="/galeria">
-                        <h4 class="text-center txtblanco m-0 p-0">Galeria</h4>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-    <%- include("./partials/indexfooter"); -%> 
-</body>
+                </section>
+            </main>
+            <%- include("./partials/footer"); -%>
+    </body>
+
 </html>
