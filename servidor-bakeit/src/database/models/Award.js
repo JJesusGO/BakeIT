@@ -30,8 +30,14 @@ module.exports = (sequalize, DataTypes) => {
             foreignKey: 'award_id',
             otherKey: "producto_id",
             timestamps: false
-        })
+        });
+        Award.hasMany(models.Producto_Award, {
+            as: "ratings",            
+            foreignKey: 'award_id',            
+            timestamps: false
+        });
     }
+    
 
     return Award;
 };
