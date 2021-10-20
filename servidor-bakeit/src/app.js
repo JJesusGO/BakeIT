@@ -4,11 +4,11 @@ const session = require('express-session');
 const cookies = require('cookie-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 const path = require('path');
 const { log } = require('./herramientas/herramientas');
-const { cookie } = require('express-validator');
 
 const public = path.join(__dirname, '../public');
 const views = path.join(__dirname, './views');
@@ -22,8 +22,9 @@ const user = require('./routes/userRoutes');
 const cart = require('./routes/cartRoutes');
 
 //Routes - APIs
-const apiUsersRoute = require('./routes/api/userRoutes');
-const apiProductsRoute = require('./routes/api/productRoutes');
+const apiMain = require('./routes/api/mainRoutes');
+const apiUsers = require('./routes/api/userRoutes');
+const apiProducts = require('./routes/api/productRoutes');
 
 
 //CONFIGURACIÓN
@@ -33,6 +34,7 @@ app.set("views", views);
 
 //MIDDLEWARE
 app.use(express.static(public));
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -52,8 +54,9 @@ app.use('/user', user);
 app.use('/cart', cart);
 
 //Rutas - APIs
-app.use('/api/users', apiUsersRoute);
-app.use('/api/products', apiProductsRoute);
+app.use('/api', apiMain);
+app.use('/api/users', apiUsers);
+app.use('/api/products', apiProducts);
 
 const puerto = app.get('PUERTO') || 3001;
 app.listen(puerto, () => log('Servidor inicializado en localhost:' + puerto));

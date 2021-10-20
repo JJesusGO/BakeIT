@@ -6,17 +6,18 @@
     "scripts": {
         "start": "node .",
         "dev": "nodemon .",
-        "dashboard" : "npm start --workspaces=dashboard-bakeit",
-        "build" : "npm run build --workspaces=dashboard-bakeit"
+        "dashboard": "npm start -w=dashboard-bakeit",
+        "build": "npm run build -w=dashboard-bakeit"
     },
     "author": "",
     "license": "ISC",
-	"workspaces" : [
+    "workspaces": [
         "dashboard-bakeit"
-	],
+    ],
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
         "dotenv": "^10.0.0",
         "ejs": "^3.1.6",
         "express": "^4.17.1",

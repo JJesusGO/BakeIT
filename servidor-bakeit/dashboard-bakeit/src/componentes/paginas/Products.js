@@ -4,16 +4,8 @@ import Generales from '../paneles/Generales'
 import useGenerales from '../../hooks/useGenerales';
 
 export default function Home() {
-
     const [state, setState] = useState({
-        generales : [
-            {
-                titulo: "Usuarios",
-                key: "usuarios",
-                label: "-",
-                icono: "fas fa-users"
-
-            }, 
+        generales : [ 
             {
                 titulo: "Productos",
                 key: "productos",
@@ -58,7 +50,7 @@ export default function Home() {
         <BaseApp encabezado="Home">            
             <div className="d-flex justify-content-center align-items-center">                
                 <div className="container-fluid p-5 mt-1">
-                    <Generales generales = {state.generales} cargando={cargando}/>
+                    <Generales generales = {state.generales} cargando = {cargando}/>
                 </div>
             </div>
         </BaseApp>

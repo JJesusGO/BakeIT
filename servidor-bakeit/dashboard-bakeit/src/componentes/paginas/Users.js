@@ -4,7 +4,6 @@ import Generales from '../paneles/Generales'
 import useGenerales from '../../hooks/useGenerales';
 
 export default function Home() {
-
     const [state, setState] = useState({
         generales : [
             {
@@ -13,36 +12,6 @@ export default function Home() {
                 label: "-",
                 icono: "fas fa-users"
 
-            }, 
-            {
-                titulo: "Productos",
-                key: "productos",
-                label: "-",
-                icono: "fas fa-ice-cream"                
-            }, 
-            {
-                titulo: "Categorias",
-                key: "categorias",
-                label: "-",
-                icono: "far fa-copy"
-            }, 
-            {
-                titulo: "Recomendaciones",
-                key: "recomendaciones",
-                label: "-",
-                icono: "far fa-comment-alt"
-            }, 
-            {
-                titulo: "Awards",
-                key: "awards",
-                label: "-",
-                icono: "fas fa-award"
-            }, 
-            {
-                titulo: "Ofertas",
-                key: "ofertas",
-                label: "-",
-                icono: "fas fa-percentage"
             }
         ]
     });

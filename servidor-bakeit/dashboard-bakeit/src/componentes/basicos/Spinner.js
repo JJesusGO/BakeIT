@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Spinner.css"
 
-export default function Spinner({altura = "15vh"}) {
+export default function Spinner({color=""}) {
     return (
-        <div className="lds-heart mt-0" style={{height:altura}}><div></div></div>        
+        <div className={"mt-0 lds-heart"+color}><div></div></div>        
     )
 }
