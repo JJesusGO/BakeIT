@@ -6,13 +6,13 @@ const Carrito_Producto = db.Carrito_Producto;
 const getCarts = async (usuarioId)=>{
     let carts = await Carrito.findAll({
         where : { usuario_id: usuarioId },
-        include : ['usuario',{association : 'pedidos', include : [{association : "producto", include : ["imagenes"]}] }]
+        include : ['usuario',{association : 'pedidos', include : [{association : "producto", include : ["imagenes","ofertas"]}] }]
     });
     if(carts.length <= 0){
         await Carrito.create({ usuario_id  : usuarioId, status : "pendiente activo"})
         carts = await Carrito.findAll({
             where : { usuario_id: usuarioId },
-            include : ['usuario',{association : 'pedidos', include : [{association : "producto", include : ["imagenes"]}] }]
+            include : ['usuario',{association : 'pedidos', include : [{association : "producto", include : ["imagenes","ofertas"]}] }]
         });
     }
     return Promise.resolve(carts);
@@ -38,7 +38,10 @@ const getCartActivo = async (usuarioId)=>{
 const resolveCart = (cart)=>{
     let total = 0;    
     cart.pedidos.forEach(pedido => {
-        total += pedido.cantidad * pedido.producto.precio;
+        if(pedido.producto.ofertas)
+            total += pedido.cantidad*pedido.producto.precio*(1 -pedido.producto.ofertas.descuento/100);
+        else
+            total += pedido.cantidad * pedido.producto.precio;
     });
     return {  
                 id: cart.id,

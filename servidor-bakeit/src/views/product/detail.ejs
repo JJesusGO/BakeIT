@@ -20,37 +20,42 @@
                         <h1 class="nombre">
                             <%=producto.nombre%>
                         </h1>
-                        <p class="precio">$<%=producto.precio%>.00</p>
-                        <% if(producto.ofertas!=null) {%>
-                            <p class="descuento">$<%=producto.precio - (producto.precio *
-                                    (producto.ofertas.descuento/100))%>
-                                    .00
-                            </p>
-                            <% } %>
-                                <p class="descripcion">
-                                    <%=producto.descripcion%>
+                        <% if(producto.ofertas==null) {%>
+                            <p class="precio">$<%=producto.precio%>.00</p>
+                            <% } else { %>
+                                <p class="precio-descontado">$<%=producto.precio%>.00
                                 </p>
-                                <div class="contenido-caja">
-                                    <div class="contenido">
-                                        <p>La caja incluye:</p>
-                                        <ul>
-                                            <% for(let elemento of producto.elementos) { %>
-                                                <li>
-                                                    <%=elemento%>
-                                                </li>
-                                                <% } %>
-                                        </ul>
+                                <p class="descuento-leyenda">
+                                    <%=producto.ofertas.descuento%>% OFF
+                                </p>
+                                <p class="descuento">$<%=producto.precio - (producto.precio *
+                                        (producto.ofertas.descuento/100))%>.00
+                                </p>
+                                <% } %>
+                                    <p class="descripcion">
+                                        <%=producto.descripcion%>
+                                    </p>
+                                    <div class="contenido-caja">
+                                        <div class="contenido">
+                                            <p>La caja incluye:</p>
+                                            <ul>
+                                                <% for(let elemento of producto.elementos) { %>
+                                                    <li>
+                                                        <%=elemento%>
+                                                    </li>
+                                                    <% } %>
+                                            </ul>
+                                        </div>
+                                        <div class="porciones">
+                                            <p>Porciones: <%=producto.porciones%>
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="porciones">
-                                        <p>Porciones: <%=producto.porciones%>
-                                        </p>
-                                    </div>
-                                </div>
-                                <form action="/cart/pedido" method="POST"
-                                    class="container-fluid d-flex align-items-center justify-content-end p-0">
-                                    <input type="hidden" name="producto_id" value="<%=producto.id%>">
-                                    <button type="submit" class="boton-principal"> Añadir </button>
-                                </form>
+                                    <form action="/cart/pedido" method="POST"
+                                        class="container-fluid d-flex align-items-center justify-content-end p-0">
+                                        <input type="hidden" name="producto_id" value="<%=producto.id%>">
+                                        <button type="submit" class="boton-principal"> Añadir </button>
+                                    </form>
 
                     </div>
                 </section>
