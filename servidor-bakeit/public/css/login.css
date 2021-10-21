@@ -86,7 +86,8 @@ h1 {
     );
     color: transparent;
     display: inline;
-    font-family: 'Times New Roman', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Montserrat", sans-serif;
     font-size: 30px;
     font-weight: bolder;
     letter-spacing: 5px;
@@ -199,6 +200,10 @@ span.pass_underline {
     color: #BF3E21;
 }
 
+.imagen {
+    display: none;
+}
+
 @media (min-width: 520px) {
     .nav-elemento {
         display: inline-block;
@@ -222,5 +227,11 @@ span.pass_underline {
         max-width: 40vw;
         padding-right: 50px;
         text-align: left;
+    }
+
+    .imagen {
+        display: block;
+        min-width: 35%;
+        width: 40%;
     }
 }

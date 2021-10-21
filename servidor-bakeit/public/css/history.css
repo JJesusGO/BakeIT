@@ -9,171 +9,61 @@ body, html {
   border: none;
 }
 
-.text-history {
-  text-align: center!important;
-  padding-right: 50px;
+main {
+  min-height: 80vh;
 }
 
-.seccion-portada {
-  background-color: #F2F2F2;
-  height: 88vh;
-}
-.seccion-portada .portada {
-  position: relative;
-  height: 100%;
-  padding: 0px !important;
-}
-.seccion-portada .portada-item {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.seccion-portada .portada-item img{
-  height: 100%;
-}
-.seccion-joyas {
-  background-color: #F2F2F2;
-  padding: 4rem 0.25rem;
-}
-.seccion-joyas .panel .outline {
-  border: solid 2px #3868A6;
-  padding: 2rem;
-}
-.seccion-joyas .panel .outline .joya {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  height: 75vh;
-  min-height: 75vh;
-  margin-top: 3rem;
-}
-.seccion-joyas .panel .outline .joya .joya-imagen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110%;
-}
-.seccion-joyas .panel .outline .joya .joya-texto {
-  position: absolute;
-  top: 10%;
-  width: 100%;
-  height: auto;
+h1 {
+  color: #162D59;
+  font-size: 40px;
+  font-weight: bold;
   text-align: center;
-  z-index: 1;
+  padding: 60px 0px 0px 0px;
+  width: 85%;
+  text-align: center;
+  margin: 0 auto;
 }
-.seccion-presentacion {
-  background-color: #F2F2F2;
-  padding: 4rem 0.25rem;
-}
-.seccion-presentacion .panel .panel-row {
-  min-height: 75vh;
-  height: auto;
-  display: grid;
-  place-items: center;
-}
-.seccion-presentacion .panel .panel-row .presentacion-imagen {
-  width: 65%;
-  height: auto;
-}
-.seccion-galeria {
-  height: 100vh;
-  background-color: #BF3E21;
-  padding: 4rem 0.25rem;
-}
-.seccion-galeria .panel {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.seccion-galeria .panel .titulo {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  width: 40%;
-  left: 30%;
-  top: 16vh;
-  color: white;
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
   text-align: center;
 }
-.seccion-galeria .panel .contenido {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  width: 100%;
-  left: 0px;
-  bottom: 6vh;
+
+.image {
+  width: 70%;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 0px;
 }
 
-.carousel-item .contenido {
-  bottom: 5vh;
+.description {
+  font-size: 15px;
 }
 
-.place-items-center {
-  place-items: center;
-}
+@media (min-width: 750px) {
+  h1 {
+    padding-top: 70px;
+    padding-bottom: 30px;
+  }
 
-.reset {
-  left: 0;
-  top: 0;
-}
+  .content {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 
-.btn-outline-blanco {
-  border-radius: 0.25rem;
-  border: solid 2px white;
-}
-.btn-outline-blanco:hover {
-  background-color: white;
-}
-.btn-outline-3 {
-  border-radius: 0.25rem;
-  border: solid 2px #F2B950;
-  color: #F2B950;
-}
-.btn-outline-3:hover {
-  background-color: #F2B950;
-  color: white !important;
-}
+  .image {
+    max-width: 50%;
+    width: auto;
+    height: auto;
+  }
 
-.mt-6, .my-6 {
-  margin-top: 5rem;
-}
-
-.bkg1 {
-  background-color: #162D59;
-}
-.bkg2 {
-  background-color: #3868A6;
-}
-.bkg3 {
-  background-color: #F2B950;
-}
-.bkg4 {
-  background-color: #BF3E21;
-}
-.bkg5 {
-  background-color: #F2F2F2;
-}
-.bkgblanco {
-  background-color: white;
-}
-
-.txt3 {
-  color: #F2B950;
-}
-.txt5 {
-  color: #F2F2F2;
-}
-.txtblanco {
-  color: white;
-}
-
-
-@media screen and (min-width: 768px) {
-  .seccion-portada .portada-item img{
-    width: 100%;
+  .description {
+    max-width: 50%;
+    width: auto;
     height: auto;
   }
 }
