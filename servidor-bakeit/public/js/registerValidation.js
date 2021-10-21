@@ -110,7 +110,7 @@ window.addEventListener("load", function () {
 
     function ValidarContrasena(returnNeeded) {
         let errorContrasena = document.querySelector(".validate_password");
-        let verifyPassword = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        let verifyPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
         if (campoContrasena.value == "") {
             errorContrasena.innerHTML = "El campo contraseña no puede estar vacío.";
         } else if (!verifyPassword.test(campoContrasena.value)) {
