@@ -54,6 +54,8 @@ module.exports = (sequelize, DataTypes) => {
             const Imagen = models.Imagen;
             const Producto_Imagen = models.Producto_Imagen;
             const Producto_Award = models.Producto_Award;
+            const Carrito_Producto = models.Carrito_Producto;
+
 
             const [producto, placeholder, producto_imagenes] = await Promise.all([
                 Producto.findByPk(id, { include: ["imagenes"] }),
@@ -71,6 +73,9 @@ module.exports = (sequelize, DataTypes) => {
                     where: { producto_id: id }
                 }),
                 Producto_Award.destroy({
+                    where: { producto_id: id }
+                }),
+                Carrito_Producto.destroy({
                     where: { producto_id: id }
                 })
             ]);
