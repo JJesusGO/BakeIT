@@ -84,7 +84,6 @@ const controlador = {
         const carts = await getCarts(req.session.usuarioLoggeado.id);
         const activo = carts.find(cart => cart.id==id);     
         const cart = resolveCart(activo);     
-        console.log(cart.status);
         return res.render('product/cart',{carts,cart});        
     },
     postActivarID: async (req, res) => {

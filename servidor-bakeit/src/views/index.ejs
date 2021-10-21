@@ -60,15 +60,6 @@
                                 <p class="text-center">¡Visita los productos que han destacado por su singularidad y las
                                     nuevas adiciones a nuestro menú!</p>
                                 <div class="row mt-5">
-<<<<<<< HEAD
-                                    <% for(const award of awards){ %> 
-                                    <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up">
-                                        <div class="container-fluid joya">
-                                            <div class="container-fluid h-75 p-0">
-                                                <div class="w-100 h-100 position-relative">
-                                                    <h3 class="joya-texto"><%= award.ratings[0].producto.nombre %> </h3>
-                                                    <img class="joya-imagen" src="/data/products/<%=award.ratings[0].producto.imagenes[0].url%>" src="/data/products/<%=award.ratings[0].producto.nombre%>">
-=======
                                     <% for(const award of awards){ %>
                                         <div class="col-lg-4 col-md-6 col-sm-12">
                                             <div class="container-fluid joya">
@@ -81,7 +72,6 @@
                                                             src="/data/products/<%=award.ratings[0].producto.imagenes[0].url%>"
                                                             src="/data/products/<%=award.ratings[0].producto.nombre%>">
                                                     </div>
->>>>>>> 87db532b10790f5b563b017f5e28e6d55feb7d3f
                                                 </div>
                                                 <h5 class="text-decoration-underline mt-6">
                                                     <%= award.nombre %>

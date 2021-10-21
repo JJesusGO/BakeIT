@@ -62,9 +62,6 @@ export default function Home() {
         })
     });
 
-    console.log(cargandoLatestProducto && cargandoProductos);
-
-
     return (
         <BaseApp encabezado="Productos">            
             <div className="d-flex justify-content-center align-items-center">                

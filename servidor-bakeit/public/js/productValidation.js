@@ -82,7 +82,6 @@ window.addEventListener("load", function () {
 
     function ValidarCategoria(returnNeeded) {
         const errorCategoria = document.querySelector(".validate_categoria");
-        console.log(campoCategoria.value);
         if (campoCategoria.value == "") {
             errorCategoria.innerHTML = "Seleccione una categoria valida";
         } else {
