@@ -1,7 +1,7 @@
 <%// productos, edicion%>
 <!DOCTYPE html>
 <html lang="es">
-<%- include("../partials/head",{titulo:"Bienvenidxs a BakeIt",css:"productEdit.css"}); -%> 
+<%- include("../partials/head",{titulo:"Productos",css:"productEdit.css"}); -%> 
 <body>
     <%- include("../partials/header"); -%> 
     <main id="edit" data-edit="<%= (locals.edicion >= 0) || (locals.oldData!=undefined) || (locals.errors!=null) %>">
