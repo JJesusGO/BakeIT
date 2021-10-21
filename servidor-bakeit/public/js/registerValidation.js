@@ -110,7 +110,7 @@ window.addEventListener("load", function () {
 
     function ValidarContrasena(returnNeeded) {
         let errorContrasena = document.querySelector(".validate_password");
-        let verifyPassword = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        let verifyPassword = /^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)(?!([^(0-9a-zA-Z)]|[\(\)])+$)([^(0-9a-zA-Z)]|[\(\)]|[a-z]|[A-Z]|[0-9]){8,}$/;
         if (campoContrasena.value == "") {
             errorContrasena.innerHTML = "El campo contraseña no puede estar vacío.";
         } else if (!verifyPassword.test(campoContrasena.value)) {
@@ -125,7 +125,9 @@ window.addEventListener("load", function () {
 
     function ValidarAvatar(returnNeeded) {
         let errorAvatar = document.querySelector(".validate_avatar");
-        if (campoAvatar.value != "") {
+        if (campoAvatar.value == "") {
+            errorAvatar.innerHTML = "Se debe subir una imagen como Avatar.";
+        } else if(campoAvatar.value != "") {
             let allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
             let fileExtension = campoAvatar.value.split(".").pop();
             if (!allowedExtensions.includes(fileExtension)) {
