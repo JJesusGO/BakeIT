@@ -1,17 +1,7 @@
-import { useEffect, useState } from 'react'
+import usePeticion from './usePeticion';
 
-const useGenerales = (callback) => {    
-    const [cargando, setCargando] = useState(true)
-    useEffect(() => {      
-        fetch('/api/generales')
-        .then(res => res.json())
-        .then(data => {                        
-            callback(data);
-            setCargando(false);
-        });        
-    },[]);
-
-    return cargando;
+const useGenerales = (callback) => {        
+    return usePeticion('generales',callback);
 }
 
 export default useGenerales
