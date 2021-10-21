@@ -7,7 +7,7 @@
             <main>
                 <section class="seccion-portada">
                     <div class="container-fluid portada">
-                        <div id="portada-galeria" class="carousel slide h-100" data-bs-ride="carousel">
+                        <div data-aos="zoom-in"id="portada-galeria" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#portada-galeria" data-bs-slide-to="0"
                                     aria-label="Slide 1" class="active" aria-current="true"></button>
@@ -56,8 +56,8 @@
                     <div class="container-fluid panel">
                         <div class="container-sm outline">
                             <div class="d-flex align-content-center justify-content-center flex-column">
-                                <h2 class="text-center">LAS JOYAS DE LA CORONA</h2>
-                                <p class="text-center">¡Visita los productos que han destacado por su singularidad y las
+                                <h2 data-aos="fade-down" class="text-center">LAS JOYAS DE LA CORONA</h2>
+                                <p data-aos="fade-down" class="text-center">¡Visita los productos que han destacado por su singularidad y las
                                     nuevas adiciones a nuestro menú!</p>
                                 <div class="row mt-5">
                                     <% for(const award of awards){ %>
@@ -76,7 +76,7 @@
                                                 <h5 class="text-decoration-underline mt-6">
                                                     <%= award.nombre %>
                                                 </h5>
-                                                <h5 class="text-center">
+                                                <h5 data-aos="fade-down" class="text-center">
                                                     <%= award.descripcion %>
                                                 </h5>
                                                 <a class="btn btn-lg bkg1 mt-5 px-5 py-2"
@@ -96,7 +96,9 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="panel-row">
-                                    <img class="presentacion-imagen" src="/media/img/BakeIT-2.png">
+                                    <img data-aos="flip-left"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="2000" class="presentacion-imagen" src="/media/img/BakeIT-2.png">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -120,7 +122,7 @@
                 <section class="seccion-galeria">
                     <div class="panel">
                         <div class="titulo">
-                            <h5>Conoce nuestra línea de productos y selecciona lo que se adapte mejor a tu ocasión.
+                            <h5 data-aos="fade-down">Conoce nuestra línea de productos y selecciona lo que se adapte mejor a tu ocasión.
                             </h5>
                         </div>
                         <div class="contenido">

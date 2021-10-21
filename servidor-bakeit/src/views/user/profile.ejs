@@ -6,16 +6,16 @@
         <%- include('../partials/header') %>
             <main>
                 <div class="centrar">
-                    <h2>Mi perfil</h2>
+                    <h2 data-aos="fade-left">Mi perfil</h2>
                 </div>
                 
                 <div class="contenedor-info">
                     <div>
-                        <img class="profile-image" src="/media/avatars/<%= usuario.imagen.url %>">
+                        <img data-aos="fade-left" class="profile-image" src="/media/avatars/<%= usuario.imagen.url %>">
                     </div>
 
                     <div class="profile-info">
-                        <p>
+                        <p data-aos="fade-left">
                             Nombre:
                             <%= usuario.nombre %> <br> Apellido:
                                 <%= usuario.apellidos %> <br> Correo:
@@ -27,7 +27,7 @@
             </div>
 
                 <div class="centrar">
-                    <a class="boton" href="/user/update/<%= usuario.id %>">Editar Perfil</a>
+                    <a data-aos="fade-left" class="boton" href="/user/update/<%= usuario.id %>">Editar Perfil</a>
                 </div>
 
             </main>
