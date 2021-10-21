@@ -5,11 +5,11 @@
     <body>
         <%- include('../partials/header') %>
             <main>
-                <div class="centrar">
+                <div class="centrar mt-5 mb-3">
                     <h2 data-aos="fade-left">Mi perfil</h2>
                 </div>
                 
-                <div class="contenedor-info">
+                <div class="contenedor-info my-3">
                     <div>
                         <img data-aos="fade-left" class="profile-image" src="/media/avatars/<%= usuario.imagen.url %>">
                     </div>
@@ -24,9 +24,9 @@
                         </p>
 
                     </div>
-            </div>
+                </div>
 
-                <div class="centrar">
+                <div class="centrar mt-5 mb-3">
                     <a data-aos="fade-left" class="boton" href="/user/update/<%= usuario.id %>">Editar Perfil</a>
                 </div>
 

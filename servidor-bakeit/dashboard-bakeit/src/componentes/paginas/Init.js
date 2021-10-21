@@ -9,7 +9,7 @@ export default function Init() {
         setTimeout(() => {
             history.push('/home')
         }, 1500);
-    },[]);
+    },[history]);
     return (
         <div className="container-fluid vw-100 vh-100 bkg-amarillo p-5">
             <div className="d-flex justify-content-center align-items-center flex-column mt-5">

@@ -1,5 +1,8 @@
 <head>
     <meta charset="UTF-8">
+    <title>
+        <%= (titulo!=undefined)?titulo:"BakeIt - Bienvenidxs"%>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="BakeIt, postres, kits, cocinar">
     <meta name="description"
@@ -21,8 +24,5 @@
     <link rel="stylesheet" href="/css/partials.css">
     <% if(css!=undefined){%>
         <link rel="stylesheet" href=<%="/css/" +css%>>
-        <%}%>
-            <title>
-                <%= (titulo!=undefined)?titulo:"BakeIt - Bienvenidxs"%>
-            </title>
+    <%}%>
 </head>

@@ -5,11 +5,11 @@
     <body>
         <%- include('../partials/header') %>
             <main>
-                <div class="centrar">
+                <div class="centrar mt-5 mb-3">
                     <h2>Mi perfil</h2>
                 </div>
-                <div data-aos="fade-left" class="contenedor-info">
-                <form action=<%="/user/update/" +usuario.id+ ""%> method="POST" id="create_customer" accept-charset="UTF-8">
+                <div data-aos="fade-left" class="contenedor-info my-3">
+                <form class="my-3" action=<%="/user/update/" +usuario.id+ ""%> method="POST" id="create_customer" accept-charset="UTF-8">
 
                     <div class="profile-edit">
                         <label for="nombre">Nombre

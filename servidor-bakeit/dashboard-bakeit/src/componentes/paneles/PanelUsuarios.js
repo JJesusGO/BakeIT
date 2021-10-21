@@ -12,7 +12,7 @@ function Usuario({id,nombre,correo}){
 }
 function UsuarioDetail({id,nombre,apellidos,fecha_nacimiento,imagen,correo}){
     const titulo = (<div className="d-flex justify-content-start align-items-center flex-column">
-        <img src={imagen}/>
+        <img src={imagen} alt={"avatar_"+nombre}/>
     </div>)
     const label = ( <div className="d-flex justify-content-center align-items-start flex-column">
                         <p className="label-usuario mt-1 mb-3 text-center">{`(${id}) - ${nombre} ${apellidos}`}</p>

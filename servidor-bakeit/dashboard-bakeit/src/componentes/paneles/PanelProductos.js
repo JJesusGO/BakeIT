@@ -32,7 +32,7 @@ function Producto({id,nombre,descripcion,img}){
     const titulo = <h4 className="titulo-producto">{`(${id}) - ${nombre}`}</h4>
     const label = (
                     <div className="d-flex justify-content-center align-items-center flex-column">
-                        <img className="my-3" src={img}/>
+                        <img className="my-3" src={img} alt={nombre}/>
                         <p className="descripcion-producto mt-3">{descripcion}</p>
                     </div>                        
                 );
@@ -41,7 +41,7 @@ function Producto({id,nombre,descripcion,img}){
 }
 function ProductoDetail({id,nombre,descripcion,precio,url,tipo,porciones}){
     const titulo = (<div className="d-flex justify-content-start align-items-center flex-column">
-        <img src={url.Img1}/>
+        <img src={url.Img1} alt={nombre}/>
     </div>)
     const label = ( <div className="d-flex justify-content-center align-items-start flex-column">
                         <h4 className="titulo-producto mt-3">{`(${id}) - ${nombre}`}</h4>

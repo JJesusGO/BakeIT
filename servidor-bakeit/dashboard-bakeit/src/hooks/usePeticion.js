@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const usePeticion = (endpoint = "",callback) => {    
+const usePeticion = (endpoint = "",callback=()=>{}) => {    
     const [cargando, setCargando] = useState(true)
     useEffect(() => {      
         fetch(`/api/${endpoint}`)
@@ -8,8 +8,9 @@ const usePeticion = (endpoint = "",callback) => {
         .then(data => {                        
             callback(data);
             setCargando(false);
-        });        
-    },[]);
+        }); 
+    // eslint-disable-next-line       
+    },[endpoint]);
     return cargando;
 }
 
