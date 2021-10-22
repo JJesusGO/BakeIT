@@ -43,7 +43,7 @@ const productController = {
 
     productsDetail: (req, res) => {
         let productId = req.params.id;
-        if(productId == "latest"){
+        if(productId == "latest"){            
             db.Producto.findAll({
                 attributes: ['id'],
             }).then(products => {
@@ -55,7 +55,8 @@ const productController = {
                         max = product.id;
                         index = i;
                     }                     
-                }                
+                }            
+
                 if(index==-1)
                     return res.json({});
                 productId = products[index].dataValues.id;
@@ -63,21 +64,21 @@ const productController = {
                     attributes: ['id', 'nombre', 'tipo', 'descripcion', 'categoria_id', 'precio', 'elementos', 'porciones'],
                     include: ['categoria','imagenes']
                 }).then(productResponse => {
-                    let product = productResponse.dataValues;
-    
+                    let product = productResponse.dataValues;                    
                     product.url = {
                         Img1: "http://localhost:3001/data/products/" + product.imagenes[0].url,
-                        Img2: "http://localhost:3001/data/products/" + product.imagenes[1].url,
-                        Img3: "http://localhost:3001/data/products/" + product.imagenes[2].url,
-                        Img4: "http://localhost:3001/data/products/" + product.imagenes[3].url,
+                        Img2: "http://localhost:3001/data/products/" + (product.imagenes[1].url || product.imagenes[0].url),
+                        Img3: "http://localhost:3001/data/products/" + (product.imagenes[2].url || product.imagenes[0].url),
+                        Img4: "http://localhost:3001/data/products/" + (product.imagenes[3].url || product.imagenes[0].url),
                     }
+
                     res.json(product);
     
                 }).catch(error => res.send(error));
 
             });
         }
-        else
+        else{
             db.Producto.findByPk(productId, {
                 attributes: ['id', 'nombre', 'tipo', 'descripcion', 'categoria_id', 'precio', 'elementos', 'porciones'],
                 include: ['categoria','imagenes']
@@ -86,13 +87,14 @@ const productController = {
 
                 product.url = {
                     Img1: "http://localhost:3001/data/products/" + product.imagenes[0].url,
-                    Img2: "http://localhost:3001/data/products/" + product.imagenes[1].url,
-                    Img3: "http://localhost:3001/data/products/" + product.imagenes[2].url,
-                    Img4: "http://localhost:3001/data/products/" + product.imagenes[3].url,
+                    Img2: "http://localhost:3001/data/products/" + (product.imagenes[1].url || product.imagenes[0].url),
+                    Img3: "http://localhost:3001/data/products/" + (product.imagenes[2].url || product.imagenes[0].url),
+                    Img4: "http://localhost:3001/data/products/" + (product.imagenes[3].url || product.imagenes[0].url),
                 }
                 res.json(product);
 
             }).catch(error => res.send(error));
+        }
     },
 
     productsCategory: (req, res) => {

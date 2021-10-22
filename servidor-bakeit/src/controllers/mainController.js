@@ -34,7 +34,10 @@ const controlador = {
                 return b.rating - a.rating;
             });
         });
-
+        //console.log(premios[2].ratings[0].producto.imagenes[0].url);
+        //console.log(premios[2].ratings[0].producto.imagenes[1].url);
+        //console.log(premios[2].ratings[0].producto.imagenes[2].url);
+        //console.log(premios[2].ratings[0].producto.imagenes[3].url);
         res.render('index',{awards:premios});
     },
     getGaleria: async (req, res) => {

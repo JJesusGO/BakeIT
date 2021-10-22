@@ -109,8 +109,7 @@ const controller = {
                     oldData: req.body
                 });
              }
-        }).then(() => {
-            console.log(errors)
+        }).then(() => {            
             if (errors == 0){
                 db.Imagen.create({
                     url: req.file.filename,
@@ -137,8 +136,7 @@ const controller = {
             })
 
     },
-    update: function(req, res) {
-        console.log(req.body)
+    update: function(req, res) {        
         Usuario.update({
                 nombre: req.body.nombre,
                 apellidos: req.body.apellido,
@@ -149,8 +147,7 @@ const controller = {
                 where: { id: req.params.id },
                 returning: true
             })
-            .then((updateStatus) => {
-                console.log(updateStatus);
+            .then((updateStatus) => {                
                 return res.redirect('/user/detail/' + req.params.id);
             })
             .catch(error => res.send(error))

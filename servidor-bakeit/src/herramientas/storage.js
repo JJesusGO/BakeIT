@@ -1,5 +1,6 @@
 const multer = require('multer');
 const path = require('path')
+const uniqid = require('uniqid');
 
 const storageAvatar = multer.diskStorage({
     destination: function(req, file, cb) {

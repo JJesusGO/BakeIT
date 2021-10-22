@@ -69,7 +69,7 @@
                                                             <%= award.ratings[0].producto.nombre %>
                                                         </h3>
                                                         <img class="joya-imagen"
-                                                            src="/data/products/<%=award.ratings[0].producto.imagenes[0].url%>"
+                                                            src="/data/products/<%=(award.ratings[0].producto.imagenes[0])?award.ratings[0].producto.imagenes[0].url:""%>"
                                                             src="/data/products/<%=award.ratings[0].producto.nombre%>">
                                                     </div>
                                                 </div>

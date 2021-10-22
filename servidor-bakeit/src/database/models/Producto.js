@@ -55,6 +55,8 @@ module.exports = (sequelize, DataTypes) => {
             const Producto_Imagen = models.Producto_Imagen;
             const Producto_Award = models.Producto_Award;
             const Carrito_Producto = models.Carrito_Producto;
+            const Recomendacion = models.Recomendacion;
+            const Oferta = models.Oferta;
 
 
             const [producto, placeholder, producto_imagenes] = await Promise.all([
@@ -76,6 +78,15 @@ module.exports = (sequelize, DataTypes) => {
                     where: { producto_id: id }
                 }),
                 Carrito_Producto.destroy({
+                    where: { producto_id: id }
+                }),
+                Recomendacion.destroy({
+                    where: { producto_id: id }
+                }),
+                Recomendacion.destroy({
+                    where: { recomendado_id: id }
+                }),
+                Oferta.destroy({
                     where: { producto_id: id }
                 })
             ]);
