@@ -10,12 +10,12 @@ export default function NavBar() {
     return (
         <ul className="navbar-nav sidebar sidebar-dark bkg-amarillo">
 
-            <a className="sidebar-brand d-flex flex-column align-items-center justify-content-center mb-5 mt-5" href="/">   
+            <NavLink className="sidebar-brand d-flex flex-column align-items-center justify-content-center mb-5 mt-5" to="/">   
                 <div className="mx-3 mt-3">
                     <img className="navbar-logo" src={logo} alt="logo-proyecto"/>
                 </div>
                 <p className="mt-0 mb-4">Dashboard</p>
-            </a>
+            </NavLink>
 
             <hr className="sidebar-divider mt-4" />
 
